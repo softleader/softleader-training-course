@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="reveal.js-3.3.0/css/reveal.css">
+        <!-- <link rel="stylesheet" href="reveal.js-3.3.0/css/theme/white.css"> -->
+        <link rel="stylesheet" href="reveal.js-3.3.0/css/theme/beige.css" id="theme">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js-3.3.0/lib/css/zenburn.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## What is React and why React ?
+                        </script>
+                    </section>
+                    <section>
+                        <h2>What is React ?</h2>
+                        <p align="left">
+                            React is a JavaScript library for creating user interfaces by Facebook and Instagram. Many people choose to think of React as the V in MVC.
+                        </p>
+                        <p align="left">
+                            We built React to solve one problem: building large applications with data that changes over time.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Why React ?</h2>
+                        <span align="left">
+                            <p >
+                                Composable Components: Component 可以 reuse，並且互相組合。
+                            </p>
+                            <p class="fragment fade-up">
+                                Virtual DOM: 所有對 DOM 的操作都在記憶體中完成，只在最後 render 時才對實際頁面操作，只更動需要改變的部份，可以最小幅度更新頁面。
+                            </p>
+                            <p class="fragment fade-up">
+                                Support ES6: React 支援 ECMAScript 6 以及 7 的部分相關語法(需透過 <a href="http://babeljs.io/docs/usage/cli/">babel</a> 轉碼)。
+                            </p>
+                            <p class="fragment fade-up">
+                                Flux 架構: 使用 Flux 的單向資料流架構，而非傳統 MVC 的雙向資料流，達到關注點分離，邏輯不再散落各處。
+                            </p>
+                        </span>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Hello World without JSX</h2>
+                        <pre>
+                            <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;title&gt;Hello React!&lt;/title&gt;
+    &lt;script src="build/react.js"&gt;&lt;/script&gt;
+    &lt;script src="build/react-dom.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="example"&gt;&lt;/div&gt;
+    &lt;script type="text/javascript"&gt;
+      ReactDOM.render(
+          React.createElement(Hello, {name: "World"}),
+          document.getElementById('container')
+      );
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>Hello World with JSX</h2>
+                        <pre>
+                            <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;title&gt;Hello React!&lt;/title&gt;
+    &lt;script src="build/react.js"&gt;&lt;/script&gt;
+    &lt;script src="build/react-dom.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="example"&gt;&lt;/div&gt;
+    &lt;script type="text/babel"&gt;
+      ReactDOM.render(
+        &lt;h1&gt;Hello, world!&lt;/h1&gt;,
+        document.getElementById('example')
+      );
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## MVC vs Flux
+                            ![alt text](.\images\mvc-php.png "MVC")
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## MVC vs Flux
+                            ![alt text](.\images\flux-simple-f8-diagram-explained-1300w.png "Flux")
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Flux</h2>
+                        <p class="fragment fade-up">
+                            單向資料流
+                        </p>
+                        <p class="fragment fade-up">
+                            發佈者與訂閱者模式
+                        </p>
+                        <p class="fragment fade-up">
+                            關注點分離
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How to begin
+                            [softleader-framework-docs-React](https://github.com/softleader/softleader-framework-docs/wiki/React)
+                        </script>
+                    </section>
+                </section>
+            </div>
+        </div>
+        <script src="reveal.js-3.3.0/lib/js/head.min.js"></script>
+        <script src="reveal.js-3.3.0/js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                dependencies: [
+                    // Interpret Markdown in <section> elements
+                    { src: 'reveal.js-3.3.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js-3.3.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+                    // Syntax highlight for <code> elements
+                    { src: 'reveal.js-3.3.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
