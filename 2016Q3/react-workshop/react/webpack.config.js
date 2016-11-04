@@ -4,7 +4,7 @@ var webpack = require("webpack");
 module.exports = function() {
     return {
         entry: {
-            app: ['babel-polyfill', path.resolve(__dirname, 'js/app.js')]
+            app: ['babel-polyfill', path.resolve(__dirname, 'js/app.jsx')]
             // vendors: ['jquery', 'bootstrap-loader']
         },
         output: {
@@ -13,7 +13,7 @@ module.exports = function() {
         },
         module: {
             loaders: [{
-                test: /\.(jsx|js)$/,
+                test: /\.jsx$/,
                 exclude: path.resolve(__dirname, 'node_modules'),
                 loaders: ['babel']
             // }, {   
