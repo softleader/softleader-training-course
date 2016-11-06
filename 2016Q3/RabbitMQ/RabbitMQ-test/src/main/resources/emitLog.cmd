@@ -1,0 +1,1 @@
+java -cp ./*; publish_subscribe/EmitLog

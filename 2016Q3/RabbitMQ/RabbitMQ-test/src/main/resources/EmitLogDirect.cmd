@@ -1,0 +1,1 @@
+java -cp ./*; routing/EmitLogDirect
