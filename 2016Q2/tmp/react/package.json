@@ -1,0 +1,37 @@
+{
+  "name": "react",
+  "version": "0.0.1",
+  "private": true,
+  "author": "SoftLeader",
+  "dependencies": {
+    "es6bindall": "0.0.7",
+    "events": "^1.1.0",
+    "flux": "^2.1.1",
+    "jquery": "^3.1.1",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "fs-extra": "^0.30.0",
+    "ncp": "^2.0.0",
+    "uglify-loader": "^1.3.0",
+    "webpack": "^1.13.2",
+    "webpack-body-parser": "^1.11.110",
+    "webpack-dev-server": "^1.15.1",
+    "webpack-encoding-plugin": "^0.2.0"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "watch": "node ./scripts/watch.js",
+    "start": "node ./scripts/start.js"
+  },
+  "engines": {
+    "node": "6.2.0"
+  }
+}

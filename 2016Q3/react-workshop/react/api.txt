@@ -1,0 +1,29 @@
+// mail
+$.ajax({
+  url: "http://localhost:3001/react/workshop/mail",
+  dataType: 'json',
+  contentType: 'application/json; charset=UTF-8',
+  type: 'POST',
+  data: JSON.stringify({sendMail: true}),
+  success: function(data, textStatus, jqXHR) {
+    console.debug(data.message);
+  }.bind(this),
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.error(errorThrown);
+  }
+});
+
+// sms
+$.ajax({
+  url: "http://localhost:3001/react/workshop/sms",
+  dataType: 'json',
+  contentType: 'application/json; charset=UTF-8',
+  type: 'POST',
+  data: JSON.stringify({sendMail: true}),
+  success: function(data, textStatus, jqXHR) {
+    console.debug(data.message);
+  }.bind(this),
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.error(errorThrown);
+  }
+});
