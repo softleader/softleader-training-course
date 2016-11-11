@@ -11,7 +11,7 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 
 public class Recv {
-	private final static String QUEUE_NAME = "hello";
+	private final static String QUEUE_NAME = "helloWorld";
 
 	public static void main(String[] args) throws Exception {
 		ConnectionFactory factory = new ConnectionFactory();
