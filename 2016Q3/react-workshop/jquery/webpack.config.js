@@ -31,11 +31,11 @@ module.exports = function() {
             // }]
         },
         plugins: [
-            new webpack.ProvidePlugin({
-                jQuery: 'jquery',
-                $: 'jquery',
-                jquery: 'jquery'
-            })
+            // new webpack.ProvidePlugin({
+            //     jQuery: 'jquery',
+            //     $: 'jquery',
+            //     jquery: 'jquery'
+            // })
             // new webpack.optimize.CommonsChunkPlugin('vendors', path.resolve(__dirname, 'js/vendor.js'))
         ],
         node: {

@@ -4,8 +4,32 @@
   <head>
     <meta charset="UTF-8">
     <title>React Workshop</title>
-    <script type="text/javascript" src="js/bundle.js"></script>
     <script src="http://localhost:3000/webpack-dev-server.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/form2js/src/form2js.js"></script>
+    
+    <script type="text/javascript">
+      $(function() {
+        $("#submitBtn").click(function() {
+          $.ajax({
+            url: "http://localhost:3000/react/workshop",
+            dataType: 'json',
+            contentType: 'application/json; charset=UTF-8',
+            type: 'POST',
+            data: JSON.stringify(form2js(this.form, '.', true, null, true)),
+            success: function(data, textStatus, jqXHR) {
+              $("#form input:not(:button)").each(function(index, element) {
+                $(element).val(data[$(element).attr("id")]);
+              });
+              console.debug(data.message);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              console.error(errorThrown);
+            }
+          });
+        });
+      });
+    </script>
   </head>
 
   <body>
