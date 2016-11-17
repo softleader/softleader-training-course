@@ -8,7 +8,7 @@ class PolAction {
 	}
 
 	handleSubmit(data) {
-		AppDispatcher.handleViewAction({
+		AppDispatcher.handleViewAction({ // 透過 AppDispatcher 發佈事件 POL_SUBMIT
 			eventName: PolEvents.POL_SUBMIT,
 			data: data
 		});

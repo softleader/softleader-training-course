@@ -3,7 +3,7 @@ import {EventEmitter} from 'events';
 import {CommonEvents, PolEvents} from "../constants/Events.jsx";
 import $ from "jquery";
 
-const _datas = {formData: {}};
+const _datas = {formData: {}}; // 儲存 Store 處理完的資料
 
 class PolStore extends EventEmitter {
 
@@ -11,20 +11,29 @@ class PolStore extends EventEmitter {
 		super();
 	}
 
+	/**
+	 * 提供 View 或其他 Store 取得當前處理完的 data
+	 */
 	getDatas() {
 		return _datas;
 	}
 
+	/**
+	 * 提供 View 註冊此 Store 的 DATA_CHANGE 事件
+	 */
 	addChangeListener(callback) {
 		this.on(CommonEvents.DATA_CHANGE, callback);
 	}
 
+	/**
+	 * 提供 View 反註冊此 Store 的 DATA_CHANGE 事件
+	 */
 	removeChangeListener(callback) {
 		this.removeListener(CommonEvents.DATA_CHANGE, callback);
 	}
 
 	/**
-	 * handleSubmit
+	 * 業務邏輯，處理完後會透過 this.emit() 發佈 DATA_CHANGE 事件
 	 */
 	handleSubmit(data) {
 		$.ajax({
@@ -46,6 +55,9 @@ class PolStore extends EventEmitter {
 
 }
 
+/**
+ * 此處是 Store 向 AppDispatcher 註冊想要關注的事件
+ */
 const polStore = new PolStore();
 export default polStore;
 
