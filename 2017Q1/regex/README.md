@@ -3,7 +3,7 @@
 ## 前情提要
 
 #### 常用表達式
-```markdown
+```
 abc -> 比對abc字串
 ^abc -> 比對以abc開頭的字串
 abc$ -> 比對以abc結尾的字串
@@ -14,7 +14,7 @@ abc$ -> 比對以abc結尾的字串
 ```
 ---
 #### 特殊表達式
-```markdown
+```
 . -> 任一字元(不含空白)
 \ -> 跳脫特殊字元
 
@@ -41,7 +41,7 @@ abc$ -> 比對以abc結尾的字串
 ```
 ---
 #### 特殊表達式!
-```markdown
+```
 (?abc) -> 比對以abc開頭的字串但結果不包含abc
 (?=abc) -> 比對以abc結尾的字串但結果不包含abc
 (?:abc|cde) -> 比對abc或cde
@@ -49,7 +49,7 @@ abc$ -> 比對以abc結尾的字串
 ```
 ---
 #### 特殊表達式?!
-```markdown
+```
 ab.*d -> 比對'abcd', 'abccccd', 'abcdcccdcd ()
 ab.*?d -> 比對'abcd', 'abccccd', 'abcd'cccdcd
 ```
