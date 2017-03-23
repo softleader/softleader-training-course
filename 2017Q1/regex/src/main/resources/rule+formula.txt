@@ -1,0 +1,6 @@
+when
+sampleEntity : SampleEntity($code1:code)
+sampleEntity2 : SampleEntity2()
+if ($code1 == "1" && #max[Formula.max(1, 0)] == 1 && #trim["apple "].equals("apple")) #max[1, #max[Formula.max(1, 0), #max[1, 0]]] do[_1]
+else if ($code1 == "2") do[_2]
+then
