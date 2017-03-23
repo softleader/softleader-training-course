@@ -69,7 +69,7 @@ ab.*?d -> 比對'abcd', 'abccccd', 'abcd'cccdcd (比對到最近的一個符合)
 > 例: `16n0127B`,`1720202B`,`1720202C`,`1720202D`,`A16n0126B`,`M16n0126C`,`M16n0126AA`,`M16n0126AB`
 - 請根據上述規則實作`tw.com.softleader.sample.havard.CardParser`
 	1. 挑出不合規則的產品編號
-	2. 將產品編號轉為tw.com.softleader.sample.havard.model.Product
+	2. 將產品編號轉為`tw.com.softleader.sample.havard.model.Product`
 
 #### 除了用來找東西以外還可以這樣做!
 - 情境:為了富邦的上傳400, Rhys開了`XTF01`~`XTF20`的Table, Dao都寫完了, 才發現泛型忘了加
