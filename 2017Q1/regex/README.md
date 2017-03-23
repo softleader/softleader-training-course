@@ -50,8 +50,8 @@ abc$ -> 比對以abc結尾的字串
 ---
 #### 特殊表達式?!
 ```
-ab.*d -> 比對'abcd', 'abccccd', 'abcdcccdcd ()
-ab.*?d -> 比對'abcd', 'abccccd', 'abcd'cccdcd
+ab.*d -> 比對'abcd', 'abccccd', 'abcdcccdcd' (盡可能的最大化比對)
+ab.*?d -> 比對'abcd', 'abccccd', 'abcd'cccdcd (比對到最近的一個符合)
 ```
 ---
 
