@@ -145,7 +145,7 @@ $ npm run build
 
 ## 打包 css
 
-以及 public 資料夾，並在 public 底下建立 css 及 fonts 資料夾
+新增 public 資料夾，並在 public 底下建立 css 及 fonts 資料夾
 
 ``` 
 $ mkdir app public
@@ -175,7 +175,7 @@ $ mkdir css fonts
 
 ##### ExtractTextPlugin
 
-在這裡我們利用 `ExtractTextPlugin` 這個 plugin 將 css 部分另外打包到 `style.css`。不是包到 `bundle.js`。
+在這裡我們利用 `ExtractTextPlugin`([See more](https://github.com/webpack-contrib/extract-text-webpack-plugin)) 這個 plugin 將 css 部分另外打包到 `style.css`。不是包到 `bundle.js`。
 
 ``` 
 $ npm install --save-dev css-loader extract-text-webpack-plugin file-loader url-loader
@@ -238,7 +238,7 @@ $ npm run build
 在開發專案的過程中，我們引用的模組 `node_modules` 的變動頻率往往沒有我們的程式碼頻繁。如果我們每次都整個打包成 bundle.js ，會造成打包時間相對過久。因此我們可以將載入的模組另外打包成 `vendor.js`，我們的程式碼打包成 `main.js`。
 
 #### CommonsChunkPlugin
-所以我們 `webpack.config.js` 會變成如下：
+所以我們 `webpack.config.js`([See more](https://webpack.js.org/plugins/commons-chunk-plugin/)) 會變成如下：
 
 **webpack.config.js**
 
@@ -287,6 +287,7 @@ $ npm run build
 ```
 
 ### webpack-dev-server
+[ webpack-dev-server 設定](https://webpack.js.org/configuration/dev-server/#devserver)
 
 ``` node
 npm install --save-dev webpack-dev-server
@@ -305,8 +306,6 @@ const webpackConfig = require("./webpack.config");
 
 const compiler = Webpack(webpackConfig);
 const server = new WebpackDevServer(compiler, {
-	hot: true,
-	publicPath:  '/app/',
 	stats: {
 		colors: true
 	}
@@ -326,7 +325,7 @@ server.listen(8080, "127.0.0.1", function() {
   ...
   "scripts": {
     "build": "webpack",
-    "dev": node server.js
+    "dev": "node server.js"
   },
   ...
 }
