@@ -5,6 +5,11 @@
 
 官網 [Webpack](https://webpack.js.org/)
 
+本篇主要介紹：
+
+1. 利用 webpack 打包 js/css 檔案 
+2. 利用 webpack-dev-server 執行一個可提供測試的 server
+
 ### Create a bundle
 
 建立一個空的資料夾，並建立一個 node 專案，Install webpack
