@@ -1,9 +1,18 @@
 # Webpack-Demo
 
+官網 [Webpack](https://webpack.js.org/)
+
+## 介紹
+
+近幾年 Webpack 興起，那 Webpack 到底是什麼呢？
+
+Webpack 是一個 JavaScript 模組的打包工具。我們平常在寫網頁的時候，往往會載入很多其他人寫好的 `.js`。
+
+而平常我們最常用的就是利用 `CDN`(content distribution network) 的方式載入，當我們需要載入多個外部的 `.js` 檔時，我們的程式碼就會有很多個 `<script>` ，隨著程式碼越來越複雜，維護的難度也會隨之上升。
+
+因此 Webpack 就是來解決這類問題的。利用 Webpack 我們可以將原本很龐大的 `.js` 拆成很多個模組，而各模組間宣告的變數彼此不會互相影響，最後利用 Webpack 將我們寫好的程式打包成少數幾個檔案 (`.js`, `.css` ...)使用。
 
 ## Getting started
-
-官網 [Webpack](https://webpack.js.org/)
 
 本篇主要介紹：
 
