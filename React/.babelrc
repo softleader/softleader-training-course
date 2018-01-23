@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "chrome >= 52",
+            "ie >= 10"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-stage-3"
+  ]
+}
