@@ -7,8 +7,8 @@
 |-----|------|-----|
 | `3:00 ~ 3:30` | ECMAScript 6 features | David | 
 | `3:50 ~ 4:20` | Better Logging | Matt | 
-| `4:40 ~ 5:30` | Stream的各種玩法* | Rhys | 
-| `5:50 ~ 6:20` | ldap 介紹 | Dennis | 
+| `4:40 ~ 5:40` | Stream的各種玩法* | Rhys | 
+| `6:00 ~ 6:30` | ldap 介紹 | Dennis | 
 
 > 1. \* 為 workshop 課程, 請準備好電腦並安裝好 Java 8 及你習慣使用的 IDE
 > 2. 每堂課之間間隔放大成 20 分鐘為預留 buff 時間給講師活用
