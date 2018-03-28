@@ -8,8 +8,7 @@
       {
         "targets": {
           "browsers": [
-            "chrome >= 52",
-            "ie >= 10"
+            "chrome >= 62"
           ]
         }
       }

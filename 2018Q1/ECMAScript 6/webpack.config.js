@@ -7,7 +7,7 @@ module.exports = function (app = "js/app.js") {
     },
     output: {
       path: path.resolve(__dirname, 'build'),
-      filename: 'softleader-training.js',
+      filename: 'bundle.js',
       chunkFilename: '[name].js'
     },
     module: {

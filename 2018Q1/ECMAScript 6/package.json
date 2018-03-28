@@ -1,28 +1,16 @@
 {
-  "name": "@softleader/components",
-  "version": "2.0.0-beta.11",
-  "description": "Softleader components",
-  "author": "Softleader",
-  "license": "ISC",
-  "main": "lib/index.js",
-  "jsnext:main": "es/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/softleader/softleader-web-resources.git"
-  },
+  "name": "ECMAScript6",
+  "version": "0.0.1",
+  "private": true,
+  "author": "David Hsu",
   "dependencies": {
     "es6bindall": "0.0.9",
-    "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.5.8",
     "react": "^16.2.0",
-    "react-bootstrap": "^0.32.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.36",
     "@babel/core": "^7.0.0-beta.36",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.36",
     "@babel/polyfill": "^7.0.0-beta.36",
@@ -44,7 +32,9 @@
     "webpack-encoding-plugin": "^0.2.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./scripts/start.js"
+  },
+  "engines": {
+    "node": "6.2.0"
   }
 }
