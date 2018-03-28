@@ -1,0 +1,40 @@
+{
+  "name": "ECMAScript6",
+  "version": "0.0.1",
+  "private": true,
+  "author": "David Hsu",
+  "dependencies": {
+    "es6bindall": "0.0.9",
+    "prop-types": "^15.5.8",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.36",
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.36",
+    "@babel/polyfill": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "@babel/preset-react": "^7.0.0-beta.36",
+    "@babel/preset-stage-3": "^7.0.0-beta.36",
+    "babel-loader": "^8.0.0-beta.0",
+    "bundle-loader": "^0.5.5",
+    "css-loader": "^0.28.8",
+    "file-loader": "^1.1.6",
+    "fs-extra": "^5.0.0",
+    "ncp": "^2.0.0",
+    "style-loader": "^0.19.1",
+    "uglify-loader": "^2.0.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-body-parser": "^1.11.110",
+    "webpack-dev-server": "^2.10.0",
+    "webpack-encoding-plugin": "^0.2.0"
+  },
+  "scripts": {
+    "start": "node ./scripts/start.js"
+  },
+  "engines": {
+    "node": "6.2.0"
+  }
+}
