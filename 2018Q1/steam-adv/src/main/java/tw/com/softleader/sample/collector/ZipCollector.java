@@ -1,4 +1,4 @@
-package tw.com.softleader.sample.zip;
+package tw.com.softleader.sample.collector;
 
 import java.io.File;
 import java.io.OutputStream;
@@ -10,6 +10,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collector;
 
 import com.google.common.collect.Sets;
+
+import tw.com.softleader.sample.zip.ZipBuilder;
 
 public class ZipCollector implements Collector<File, ZipBuilder, ZipBuilder> {
 
