@@ -1,7 +1,8 @@
-package tw.com.softleader.practice;
+package tw.com.softleader.practice.answer;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.YearMonth;
@@ -9,13 +10,19 @@ import java.time.chrono.MinguoDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.TreeMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.google.common.collect.Lists;
 
 import tw.com.softleader.commons.function.Parses;
+import tw.com.softleader.sample.MergeTxtsToZipSampleApp;
 
-public class CountTxtsByYearMonthPracticeApp {
+public class CountTxtsByYearMonthAnswerApp {
 	public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyMMdd");
 
 	/**
@@ -30,6 +37,18 @@ public class CountTxtsByYearMonthPracticeApp {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
+		final Map<String, CaseType> caseTypes = Stream.of(CaseType.values()).collect(Collectors.toMap(CaseType::name, Function.identity()));
+
+		Files.walk(Paths.get(MergeTxtsToZipSampleApp.class.getResource("/txts").toURI()))
+				.map(Path::toFile)
+				.filter(File::isDirectory)
+				.map(File::getName)
+				.map(caseNo -> Optional.ofNullable(caseTypes.get(caseNo.substring(0, 2))).map(ct -> ct.toCaseInfo(caseNo)).orElse(null))
+				.filter(Objects::nonNull)
+				.collect(Collectors.groupingBy(ci -> YearMonth.from(ci.getDate())))
+				.forEach((ym, caseInfos) -> {
+					System.out.println(ym + ": " + caseInfos.size());
+				});
 
 	}
 
@@ -38,7 +57,7 @@ public class CountTxtsByYearMonthPracticeApp {
 	 * @throws Exception
 	 */
 	public static void nonStream() throws Exception {
-		final URL txtsUrl = CountTxtsByYearMonthPracticeApp.class.getResource("/txts");
+		final URL txtsUrl = CountTxtsByYearMonthAnswerApp.class.getResource("/txts");
 		final Path txtPath = Paths.get(txtsUrl.toURI());
 
 		final Map<YearMonth, List<String>> result = new TreeMap<>();
