@@ -25,8 +25,8 @@
 
 Open Source:
 
-- OpenLDAP
 - [ApacheDS](http://directory.apache.org/apacheds/)
+- OpenLDAP
 - OpenDJ
 - 389 Directory Server
 
