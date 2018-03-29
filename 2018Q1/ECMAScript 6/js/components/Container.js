@@ -34,12 +34,6 @@ export default class Container extends React.Component {
     return (
       <div style={main}>
         <div style={left}>
-          <p><button onClick={() => this.handleClick(<TemplateStrings/>)}>Template Strings</button></p>
-
-          <p><button onClick={() => this.handleClick(<LetConst/>)}>Let Const</button></p>
-
-          <p><button onClick={() => this.handleClick(<Arrows/>)}>Arrows</button></p>
-
           <p><button onClick={() => this.handleClick(
             <div>
               non static: {new Children().getX}
@@ -47,6 +41,12 @@ export default class Container extends React.Component {
               static: {Children.getZ()}
             </div>
           )}>Classes</button></p>
+
+          <p><button onClick={() => this.handleClick(<LetConst/>)}>Let Const</button></p>
+
+          <p><button onClick={() => this.handleClick(<TemplateStrings/>)}>Template Strings</button></p>
+
+          <p><button onClick={() => this.handleClick(<Arrows/>)}>Arrows</button></p>
 
           <p><button onClick={() => this.handleClick(<EnhancedObjectLiterals/>)}>Enhanced Object Literals</button></p>
 
@@ -58,9 +58,9 @@ export default class Container extends React.Component {
 
           <p><button onClick={() => this.handleClick(<ForOf/>)}>For..Of</button></p>
 
-          <p><button onClick={() => this.handleClick(<Generator/>)}>Generator</button></p>
+          <p><button onClick={() => this.handleClick(<SetMap/>)}>Set Map</button></p>
 
-          <p><button onClick={() => this.handleClick(<SetMap/>)}>SetMap</button></p>
+          <p><button onClick={() => this.handleClick(<Generator/>)}>Generator</button></p>
 
           <p><button onClick={() => this.handleClick(<Promises/>)}>Promises</button></p>
 
