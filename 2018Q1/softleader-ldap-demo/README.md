@@ -49,5 +49,6 @@ Commercial:
 
 - [softleader-tree](https://github.com/softleader/softleader-wiki/wiki/Tree-Setup)
 - [softleader-boot-starter-ldap](https://github.com/softleader/softleader-boot-starter/tree/master/softleader-boot-starter-ldap)
+- [softleader ldap-client](https://github.com/softleader/dockerfile/tree/master/ldap-client)
 - [techopedia](https://www.techopedia.com/definition/2439/lightweight-directory-access-protocol-ldap)
 - [zytrax](http://www.zytrax.com/books/ldap/ch2/index.html#history)
