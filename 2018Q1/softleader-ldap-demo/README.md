@@ -42,6 +42,7 @@ Commercial:
 - RDN: Relative Distinguished Name
 - objectClass
 - Attributes
+- .ldif
 - [Commonly Used Attributes](http://www.zytrax.com/books/ldap/ape/)
 
 ## Reference
