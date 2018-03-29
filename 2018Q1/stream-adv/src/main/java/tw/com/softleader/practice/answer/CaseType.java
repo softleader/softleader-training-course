@@ -2,6 +2,9 @@ package tw.com.softleader.practice.answer;
 
 import java.util.function.Function;
 
+/**
+ * 處理不同的CaseNo成為各自的CaseInfo
+ */
 public enum CaseType {
 
 	HW(HwCaseInfo::new),

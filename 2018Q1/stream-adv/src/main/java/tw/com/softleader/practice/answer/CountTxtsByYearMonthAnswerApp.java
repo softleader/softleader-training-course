@@ -43,12 +43,12 @@ public class CountTxtsByYearMonthAnswerApp {
 				.map(Path::toFile)
 				.filter(File::isDirectory)
 				.map(File::getName)
+				// 根據不同的案件類型，初始化成不同的CaseInfo
 				.map(caseNo -> Optional.ofNullable(caseTypes.get(caseNo.substring(0, 2))).map(ct -> ct.toCaseInfo(caseNo)).orElse(null))
 				.filter(Objects::nonNull)
+				// 算出年月份
 				.collect(Collectors.groupingBy(ci -> YearMonth.from(ci.getDate())))
-				.forEach((ym, caseInfos) -> {
-					System.out.println(ym + ": " + caseInfos.size());
-				});
+				.forEach((ym, caseInfos) -> System.out.println(ym + ": " + caseInfos.size()));
 
 	}
 
