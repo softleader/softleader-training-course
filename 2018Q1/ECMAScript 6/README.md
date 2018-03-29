@@ -31,3 +31,12 @@ http://kangax.github.io/compat-table/es6/
 ## Total Features
 
 http://es6-features.org
+
+## Run
+
+```cmd
+npm install
+npm start
+```
+
+[http://localhost:3000/](http://localhost:3000/)
