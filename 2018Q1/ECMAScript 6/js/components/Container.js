@@ -34,13 +34,15 @@ export default class Container extends React.Component {
     return (
       <div style={main}>
         <div style={left}>
-          <p><button onClick={() => this.handleClick(
-            <div>
-              non static: {new Children().getX}
-              <br/>
-              static: {Children.getZ()}
-            </div>
-          )}>Classes</button></p>
+          <p>
+            <button onClick={() => this.handleClick(
+              <div>
+                non static: getX: {new Children().getX}, getY: {new Children().getY}
+                <br/>
+                static: {Children.getZ()}
+              </div>
+            )}>Classes</button>
+          </p>
 
           <p><button onClick={() => this.handleClick(<LetConst/>)}>Let Const</button></p>
 

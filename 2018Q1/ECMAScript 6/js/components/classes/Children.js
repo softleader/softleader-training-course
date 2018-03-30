@@ -10,10 +10,6 @@ export default class Children extends Parent {
     return "c";
   }
 
-  get getY() {
-    return "d";
-  }
-
   static getZ() {
     return "z";
   }
