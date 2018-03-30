@@ -11,32 +11,32 @@ import java.util.stream.Collector;
 
 import com.google.common.collect.Sets;
 
-import tw.com.softleader.sample.zip.ZipBuilder;
+import tw.com.softleader.sample.zip.Zipper;
 
-public class ZipCollector implements Collector<File, ZipBuilder, ZipBuilder> {
+public class ZipCollector implements Collector<File, Zipper, Zipper> {
 
-	private ZipBuilder zipBuilder;
+	private Zipper zipper;
 
 	public ZipCollector(OutputStream outputStream) {
-		this.zipBuilder = new ZipBuilder(outputStream);
+		this.zipper = new Zipper(outputStream);
 	}
 
 	public ZipCollector(OutputStream outputStream, Function<File, String> naming) {
-		this.zipBuilder = new ZipBuilder(outputStream, naming);
+		this.zipper = new Zipper(outputStream, naming);
 	}
 
 	@Override
-	public Supplier<ZipBuilder> supplier() {
-		return () -> zipBuilder;
+	public Supplier<Zipper> supplier() {
+		return () -> zipper;
 	}
 
 	@Override
-	public BiConsumer<ZipBuilder, File> accumulator() {
-		return ZipBuilder::add;
+	public BiConsumer<Zipper, File> accumulator() {
+		return Zipper::add;
 	}
 
 	@Override
-	public BinaryOperator<ZipBuilder> combiner() {
+	public BinaryOperator<Zipper> combiner() {
 		return (zb1, zb2) -> {
 			zb1.addAll(zb2);
 			return zb1;
@@ -44,7 +44,7 @@ public class ZipCollector implements Collector<File, ZipBuilder, ZipBuilder> {
 	}
 
 	@Override
-	public Function<ZipBuilder, ZipBuilder> finisher() {
+	public Function<Zipper, Zipper> finisher() {
 		return Function.identity();
 	}
 

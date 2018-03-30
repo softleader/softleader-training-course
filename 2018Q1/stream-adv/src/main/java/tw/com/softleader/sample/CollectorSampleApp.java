@@ -1,24 +1,34 @@
 package tw.com.softleader.sample;
 
 import java.time.temporal.WeekFields;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import tw.com.softleader.sample.data.TimeClockDatas;
+import com.google.common.collect.Lists;
+
 import tw.com.softleader.sample.data.TimeClockEntity;
 
 public class CollectorSampleApp {
 
 	public static void main(String[] args) {
-		final List<TimeClockEntity> timeClocks = TimeClockDatas.get();
+//		final List<TimeClockEntity> timeClocks = TimeClockDatas.get();
+//
+//		grouping(timeClocks);
+//		groupingAndSumValue(timeClocks);
+//		toMapAndSumValue(timeClocks);
+//		toMapByIdentity(timeClocks);
+//		littleHardToRead(timeClocks);'
 
-		grouping(timeClocks);
-		groupingAndSumValue(timeClocks);
-		toMapAndSumValue(timeClocks);
-		toMapByIdentity(timeClocks);
-		littleHardToRead(timeClocks);
+		final ArrayList<String> msgs = Lists.newArrayList("msg1", "msg2", "msg3", "msg4", "msg5");
+
+		final String s = msgs.stream().collect(Collectors.joining(","));
+
+		System.out.println(s);
+
+
 	}
 
 	/**
@@ -51,7 +61,8 @@ public class CollectorSampleApp {
 	 * (因為沒有collect成list的動作，因此比上面快)
 	 */
 	public static void toMapAndSumValue(List<TimeClockEntity> timeClocks) {
-		final Map<String, Double> result = timeClocks.stream().collect(Collectors.toMap(
+		final Map<String, Double> result = timeClocks.stream()
+				.collect(Collectors.toMap(
 				TimeClockEntity::getEmployeeName,
 				TimeClockEntity::calcSalary,
 				(s1, s2) -> s1 + s2
@@ -78,12 +89,13 @@ public class CollectorSampleApp {
 	 * 並算出每人的周薪
 	 */
 	public static void littleHardToRead(List<TimeClockEntity> timeClocks) {
-		final Map<String, Map<Integer, Double>> result = timeClocks.stream().collect(Collectors.groupingBy(
-				TimeClockEntity::getEmployeeName,
-				Collectors.groupingBy(
-						t -> t.getTimeIn().get(WeekFields.ISO.weekOfYear()),
-						Collectors.summingDouble(TimeClockEntity::calcSalary)
-				)
+		final Map<String, Map<Integer, Double>> result = timeClocks.stream()
+				.collect(Collectors.groupingBy(
+					TimeClockEntity::getEmployeeName,
+					Collectors.groupingBy(
+							t -> t.getTimeIn().get(WeekFields.ISO.weekOfYear()),
+							Collectors.summingDouble(TimeClockEntity::calcSalary)
+					)
 		));
 
 		System.out.println(result);

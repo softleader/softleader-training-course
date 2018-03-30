@@ -31,7 +31,7 @@ public class MergeTxtsToTxtSampleApp {
 		final List<String> totalReport = Files.walk(Paths.get(MergeTxtsToTxtSampleApp.class.getResource("/txts").toURI()))
 				.filter(p -> p.toFile().isFile())
 				.filter(p -> p.toFile().getName().endsWith(".txt"))
-				.map(Unchecked.apply(Files::readAllLines))
+				.map(Unchecked.apply(Files::readAllLines)) // 將檔案以純文字文件的方式讀成List<String>
 				.peek(report -> handleReportTime(reportTime, report)) // 處理報表內的時間文字
 				.reduce(new ReportReducer("FormFeed")) // 合併檔案，以FormFeed間隔
 				.orElseGet(Lists::newArrayList);
