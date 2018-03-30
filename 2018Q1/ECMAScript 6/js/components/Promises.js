@@ -12,7 +12,7 @@ export default class Promises extends React.Component {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           react.setState({msg: [...react.state.msg, " task1 done"]});
-          return resolve(" task1 is success");
+          return resolve(" task1");
         }, 3000);
       });
     }
@@ -21,16 +21,16 @@ export default class Promises extends React.Component {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           react.setState({msg: [...react.state.msg, " task2 done"]});
-          return reject(" task2 is error");
+          return reject(" task2");
         }, 1000);
       });
     }
 
     task1(this)
-      .then(data => this.setState({msg: [...this.state.msg, data]}));
+      .then(data => this.setState({msg: [...this.state.msg, data + " is success"]}));
     task2(this)
-      .then(data => this.setState({msg: [...this.state.msg, data]}))
-      .catch(error => this.setState({msg: [...this.state.msg, error]}));
+      .then(data => this.setState({msg: [...this.state.msg, data + " is success"]}))
+      .catch(error => this.setState({msg: [...this.state.msg, error + " is error"]}));
   }
 
   render() {

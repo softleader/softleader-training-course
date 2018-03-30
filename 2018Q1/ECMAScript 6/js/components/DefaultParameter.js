@@ -9,7 +9,7 @@ export default class DefaultParameter extends React.Component {
   render() {
     // before ES6
     function abc(x) {
-      if(!!x) {
+      if(!x) {
         x = 100;
       }
       return x;
