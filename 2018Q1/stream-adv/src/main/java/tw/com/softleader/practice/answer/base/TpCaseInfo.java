@@ -1,4 +1,4 @@
-package tw.com.softleader.practice.answer;
+package tw.com.softleader.practice.answer.base;
 
 import lombok.Getter;
 import lombok.Setter;

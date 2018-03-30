@@ -13,6 +13,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import tw.com.softleader.practice.answer.base.CaseType;
 import tw.com.softleader.sample.MergeTxtsToZipSampleApp;
 
 public class CountTxtsByYearMonthAnswerApp {
