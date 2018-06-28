@@ -1,5 +1,7 @@
 package tw.com.softleader.trainingexception.base.validation;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,9 @@ public class Validation {
 	/** 檢核通過否 */
 	private boolean pass;
 
+	/** 檢核成功時間 */
+	private LocalDateTime passTime;
+
 	/** 操作通過的人員 */
 	private String userAcct;
 
@@ -34,6 +39,7 @@ public class Validation {
 
 	public Validation pass(User user) {
 		this.pass = true;
+		this.passTime = LocalDateTime.now();
 		this.userAcct = user.getAcct();
 		return this;
 	}
