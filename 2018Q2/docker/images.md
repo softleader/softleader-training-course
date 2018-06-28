@@ -60,7 +60,7 @@ docker image inspect mytomcat
 
 ### Quiz 1
 
-將 `index.html` 抽到外層以方便維護
+Docker build 的時候才將 `index.html` 包進去
 
 ## Next steps
 
