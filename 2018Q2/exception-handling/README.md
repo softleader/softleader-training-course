@@ -1,5 +1,5 @@
 # Best practices to handle exceptions
-## 使用 try/cacth 的時機，與注意點
+## 使用 try/catch 的時機，與注意點
 ### 一些比較特殊的使用例
 
 1. AutoCloseable
@@ -35,7 +35,7 @@
 		try {
 			// do something which throw CheckedException
 		} catch (CheckedException e) {
-			throw new RuntimeExceptnio(e);
+			throw new RuntimeException(e);
 		}
 	}
 	```
@@ -46,7 +46,7 @@
 		try {
 			// do something which throw CheckedException
 		} catch (CheckedException e) {
-			throw new RuntimeExceptnio(e);
+			throw new RuntimeException(e);
 		}
 	})
 	```

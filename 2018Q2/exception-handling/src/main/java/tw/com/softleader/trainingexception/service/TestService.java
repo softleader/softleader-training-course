@@ -32,7 +32,7 @@ public class TestService {
 
 	public void confirm() {
 		log.info("confirm");
-//		throw new RuntimeException("確認發生錯誤");
+		throw new RuntimeException("確認發生錯誤");
 	}
 
 	public void sendReview() {
