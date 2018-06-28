@@ -51,4 +51,4 @@ docker-compose logs --follow
 
 ## Next steps
 
-- Learn about [What's more](./more.md)
+- Learn about [How docker changes the way we develop](./more.md)
