@@ -47,7 +47,7 @@ docker-compose logs --follow
 
 ### Quiz 3
 
-將 `$TOMCAT_HOME/webapps/ROOT` mount 出來的版本也改成 compose 吧
+將 `index.html` mount 出來的版本也改成 compose 吧
 
 ## Next steps
 
