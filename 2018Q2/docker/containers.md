@@ -86,7 +86,7 @@ docker exec -it <CONTAINER> bash
 
 ### Quiz 2
 
-直接將 `index.html mount 出來讓工程師可以直接修改吧!
+直接將 `index.html` mount 出來讓工程師可以直接修改吧!
 
 ## Next steps
 
