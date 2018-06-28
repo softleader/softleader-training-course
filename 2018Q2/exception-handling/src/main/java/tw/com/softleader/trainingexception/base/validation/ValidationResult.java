@@ -10,7 +10,7 @@ import com.google.common.collect.Lists;
 import lombok.Getter;
 import tw.com.softleader.trainingexception.base.web.Msg;
 
-public class Validations {
+public class ValidationResult {
 
 	/**
 	 * 有些 List 的方法不想讓外面呼叫到，因此用隱含而非繼承的方式
@@ -23,11 +23,11 @@ public class Validations {
 	@Getter
 	private ValidationType finalType = ValidationType.SUCCESS;
 
-	public Validations() {
+	public ValidationResult() {
 		this.validations = Lists.newArrayList();
 	}
 
-	public Validations(Validation... elements) {
+	public ValidationResult(Validation... elements) {
 		this.validations = Lists.newArrayList(elements);
 		Stream.of(elements)
 				.map(Validation::getType)
@@ -52,10 +52,10 @@ public class Validations {
 		return validations.add(validation);
 	}
 
-	public boolean addAll(Validations validations) {
-		final ValidationType currentType = validations.getFinalType();
+	public boolean addAll(ValidationResult validationResult) {
+		final ValidationType currentType = validationResult.getFinalType();
 		this.finalType = currentType.isLt(this.finalType) ? currentType : this.finalType;
-		return validations.addAll(validations);
+		return this.validations.addAll(validationResult.validations);
 	}
 
 }

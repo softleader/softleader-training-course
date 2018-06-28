@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import tw.com.softleader.trainingexception.base.security.User;
 import tw.com.softleader.trainingexception.base.security.UserSupplier;
-import tw.com.softleader.trainingexception.base.validation.Validations;
+import tw.com.softleader.trainingexception.base.validation.ValidationResult;
 import tw.com.softleader.trainingexception.web.TestForm;
 
 @Service
@@ -16,15 +16,15 @@ public class TestService {
 	@Autowired
 	private VerifyComponent verifyComponent;
 
-	public Validations verify(TestForm testForm) {
+	public ValidationResult verify(TestForm testForm) {
 		log.info("verifing");
-		final Validations validations = new Validations();
+		final ValidationResult validationResult = new ValidationResult();
 
 		final User user = UserSupplier.get();
-		validations.addAll(verifyComponent.checkHellowRequird(testForm, user));
-		validations.addAll(verifyComponent.checkWorldRequird(testForm, user));
+		validationResult.addAll(verifyComponent.checkHellowRequird(testForm, user));
+		validationResult.addAll(verifyComponent.checkWorldRequird(testForm, user));
 
-		return validations;
+		return validationResult;
 	}
 
 	public void confirm() {
