@@ -42,7 +42,7 @@ docker run --rm -it softleader/cli whereis ${your.name} -l 100 -d _1M..today
 > [softleader/softleader-cli](https://github.com/softleader/softleader-cli)
 
 ```sh
-docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock softleader/docker images | grep mytomcat
+docker run -it --entrypoint=bash -v /var/run/docker.sock:/var/run/docker.sock --rm softleader/docker -c "/usr/local/bin/docker images | grep mytomcat"
 ```
 
 > [docker in docker](https://github.com/softleader/dockerfile/tree/master/docker)
