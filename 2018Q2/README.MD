@@ -5,6 +5,7 @@
 
 | 時間 | 主題 | 講師 |
 |-----|------|-----|
+| `2:00 ~ 2:30` | A&H 開發與心得分享 | Ray & Glen | 
 | `2:30 ~ 3:00` | How we implements Microservice | David | 
 | `3:20 ~ 4:20` | Docker* | Matt | 
 | `4:40 ~ 5:10` | Tensorflow quickstart | Dennis | 
