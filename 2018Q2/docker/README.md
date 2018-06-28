@@ -20,6 +20,7 @@ Before we get started...
 	```sh
 	docker pull softleader/tomcat85
 	docker pull softleader/cli
+	docker pull softleader/docker
 	```
 
 ## Orientation
