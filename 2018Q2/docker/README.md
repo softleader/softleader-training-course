@@ -22,12 +22,13 @@ Before we get started...
 	docker pull softleader/cli
 	docker pull softleader/docker
 	```
-	
-> [https://www.youtube.com/watch?v=4ht22ReBjno](https://www.youtube.com/watch?v=4ht22ReBjno)
 
 ## Orientation
 
 ![](./moving-forward.png)
+
+
+> [https://www.youtube.com/watch?v=4ht22ReBjno](https://www.youtube.com/watch?v=4ht22ReBjno)
 
 ### Containers and VMs
 
