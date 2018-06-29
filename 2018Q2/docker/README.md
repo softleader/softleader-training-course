@@ -22,6 +22,10 @@ Before we get started...
 	docker pull softleader/cli
 	docker pull softleader/docker
 	```
+	
+	![](./docker_for_windows_network_dns_fixed.png)
+	
+	> 如果 Docker for Windows 發生無法 pull 情況, 將 DNS Server fix 成 8.8.8.8 後再試一次
 
 ## Orientation
 
