@@ -58,6 +58,8 @@ docker image inspect mytomcat
 - `RUN` - build layer 中執行的指令
 - `CMD` - container 啟動時執行的指令
 
+> [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/)
+
 ### Quiz 1
 
 Docker build 的時候才將 `index.html` 包進去
