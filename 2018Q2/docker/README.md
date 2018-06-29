@@ -27,7 +27,6 @@ Before we get started...
 
 ![](./moving-forward.png)
 
-
 > [https://www.youtube.com/watch?v=4ht22ReBjno](https://www.youtube.com/watch?v=4ht22ReBjno)
 
 ### Containers and VMs
