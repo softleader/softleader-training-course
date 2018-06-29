@@ -20,7 +20,10 @@ public class TestService {
 		log.info("verifing");
 		final ValidationResult validationResult = new ValidationResult();
 
+		// 資料準備
 		final User user = UserSupplier.get();
+
+		// 進行檢核，並整理成檢核結果
 		validationResult.addAll(verifyComponent.checkHellowRequird(testForm, user));
 		validationResult.addAll(verifyComponent.checkWorldRequird(testForm, user));
 
@@ -29,7 +32,7 @@ public class TestService {
 
 	public void confirm() {
 		log.info("confirm");
-//		throw new RuntimeException("確認發生錯誤");
+		throw new RuntimeException("確認發生錯誤");
 	}
 
 	public void sendReview() {

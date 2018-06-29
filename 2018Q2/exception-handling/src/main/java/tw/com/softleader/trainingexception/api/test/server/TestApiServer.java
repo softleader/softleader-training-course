@@ -46,7 +46,7 @@ public class TestApiServer {
 			try {
 				testService.apiGet();
 			} catch (Exception e) {
-				throw new ApiServerException(Msgs.ERR0002.build("呼叫Service失敗"));
+				throw new ApiServerException(Msgs.ERR0002.build("呼叫Service失敗:" + e.getMessage()));
 			}
 		} catch (ApiServerException e) {
 			// ApiServerException 大多是已知的錯誤，但仍然log下來以便系統間溝通

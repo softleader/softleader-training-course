@@ -15,6 +15,9 @@ import tw.com.softleader.trainingexception.base.validation.Validation;
 import tw.com.softleader.trainingexception.base.validation.ValidationResult;
 import tw.com.softleader.trainingexception.web.TestForm;
 
+/**
+ * 個檢核的功能統一以這種方式抽成原件，單一化檢核職責，增加檢核的可讀性
+ */
 @Component
 public class VerifyComponent {
 

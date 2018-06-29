@@ -28,7 +28,7 @@ public class TestController {
 	@GetMapping("/confirm")
 	public ResponseEntity confirm(TestForm testForm) {
 		try {
-			UserSupplier.set(DummyUsers.WORKER);
+			UserSupplier.set(DummyUsers.DEPT);
 
 			// 檢核
 			final ValidationResult validationResult = testService.verify(testForm);

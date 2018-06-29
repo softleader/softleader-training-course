@@ -30,6 +30,7 @@ public class ValidationResult {
 	public ValidationResult(Validation... elements) {
 		this.validations = Lists.newArrayList(elements);
 		Stream.of(elements)
+				.filter(v -> !v.isPass())
 				.map(Validation::getType)
 				.min(Comparator.comparing(ValidationType::getLevel))
 				.ifPresent(type -> this.finalType = type);
@@ -47,8 +48,10 @@ public class ValidationResult {
 	}
 
 	public boolean add(Validation validation) {
-		final ValidationType currentType = validation.getType();
-		this.finalType = currentType.isLt(this.finalType) && !validation.isPass() ? currentType : this.finalType;
+		if (!validation.isPass()) {
+			final ValidationType currentType = validation.getType();
+			this.finalType = currentType.isLt(this.finalType) && !validation.isPass() ? currentType : this.finalType;
+		}
 		return validations.add(validation);
 	}
 
