@@ -109,3 +109,6 @@
         3. `ABORT`: 系統檢核訊息，出了之後必須中斷操作的訊息
     - 每個訊息需保留簽核者(甚至是簽核時間)
     - 最好有歷程能夠追蹤
+---
+### 補充資料
+1. 目前 Microservice 所使用的 Restful 回應架構: [Response-Structure](https://github.com/softleader/softleader-microservice-wiki/wiki/Response-Structure)
