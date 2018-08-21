@@ -30,4 +30,4 @@
 
 ## Table Of Contents
 
-點擊 [TOC.md](./TOC.md) 查看
+點擊 [TOC](./toc) 查看
