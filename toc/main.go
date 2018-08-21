@@ -19,7 +19,7 @@ const (
 | Season | Course |
 |---|---|
 {{- range $index, $course := $courses }}
-| {{ $course.Season }} | [{{ $course.Course }}](./{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}) |
+| {{ $course.Season }} | [{{ $course.Course }}](../{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}) |
 {{- end }}
 {{- end }}
 `
