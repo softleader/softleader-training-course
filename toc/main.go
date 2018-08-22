@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"io/ioutil"
 	"path"
+	"sort"
 	"github.com/softleader/captain-kube/tmpl"
 	"fmt"
-	"sort"
 )
 
 const (
@@ -19,12 +19,13 @@ const (
 {{- $courses := index . "courses" }}
 {{- range $_, $year := $years }}
 
-## {{ $year }}
+## {{ $year -}}
+{{ range $_, $season := index $courses $year }}
 
-| Season | Course |
-|---|---|
-{{- range $_, $course := index $courses $year }}
-| {{ $course.Season }} | [{{ $course.Course }}](../{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}) |
+### [{{ $season.Season }}](../{{ $year }}/{{ $season.Season }}) 
+{{ range $_, $course := $season.Courses }}
+- [{{ $course.Course }}](../{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}) 
+{{- end }}
 {{- end }}
 {{- end }}
 `
@@ -54,17 +55,21 @@ func main() {
 		}
 	})
 
-	// group by year
-	groupByYear := make(map[int][]Course)
+	var years []int
+	groupByYear := make(map[int]Seasons)
 	for _, c := range courses {
-		groupByYear[c.Year] = append(groupByYear[c.Year], c)
+		if seasons, found := groupByYear[c.Year]; found {
+			seasons.add(c)
+			groupByYear[c.Year] = seasons
+		} else {
+			seasons = Seasons{}
+			seasons.add(c)
+			groupByYear[c.Year] = seasons
+			years = append(years, c.Year)
+		}
 	}
 
 	// Reversing years
-	var years []int
-	for year := range groupByYear {
-		years = append(years, year)
-	}
 	sort.Ints(years)
 	for i := len(years)/2 - 1; i >= 0; i-- {
 		opp := len(years) - 1 - i
@@ -105,6 +110,26 @@ func walkDir(dirpath string, currentDepth int, depth int, walkFn func(path strin
 			continue
 		}
 	}
+}
+
+type Seasons []Season
+
+func (seasons *Seasons) add(c Course) {
+	for i := 0; i < len(*seasons); i++ {
+		if (*seasons)[i].Season == c.Season {
+			(*seasons)[i].Courses = append((*seasons)[i].Courses, c)
+			return
+		}
+	}
+	*seasons = append(*seasons, Season{
+		Season:  c.Season,
+		Courses: []Course{c},
+	})
+}
+
+type Season struct {
+	Season  string
+	Courses []Course
 }
 
 type Course struct {
