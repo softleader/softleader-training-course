@@ -2,6 +2,8 @@
 
 ![](./training.png)
 
+> 點擊 [Table Of Contents](./toc) 查看課程目錄
+
 ## Directory Structure
 
 請講師將上課教材，依照下述目錄結構擺放, **課程名稱不可以有空白!**
@@ -27,7 +29,3 @@
         ├── design-patterns
         └── ...
 ```
-
-## Table Of Contents
-
-點擊 [TOC](./toc) 查看
