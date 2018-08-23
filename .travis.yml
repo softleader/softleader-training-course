@@ -1,5 +1,5 @@
 language: go
-before_deploy:
+script:
 - cd toc && ./toc-linux
 deploy:
   provider: pages
