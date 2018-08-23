@@ -18,10 +18,6 @@
 - [microservices](../2018/Q2/microservices)
 - [tensorflow](../2018/Q2/tensorflow)
 
-### [Q3](../2018/Q3) 
-
-- [deep-into-docker](../2018/Q3/deep-into-docker)
-
 ## 2017
 
 ### [Q1](../2017/Q1) 
