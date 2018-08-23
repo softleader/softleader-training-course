@@ -5,7 +5,7 @@ deploy:
   provider: pages
   skip-cleanup: true
   target-branch: master
-  github-token: N0QvGYNjRIQRidL1mpZK6tpW1Shfe0whvPKlrQERJS6VKmYu0obJr7xfI9wjAS+odlScjZYPdTxfZLE+eCUWNoUvSiolrVYP3B63IAPaYyjDYZluK9KOn9Qd1rtYH4PM57yuSg/jTP8EcaYtdcmfo1IU1tmz8oCfvweixvZ0IDBsrfY1cPz7Q10cJHo1hs/AA3PdgpqGqdznSAKISwXMfRXbuyjyIutfp0PTENr6HYlVrRdsv7o9O7XNZ6P2x8aVYc5x631NWByUiZgtolOwpugMKZDlihDjttFWOkPYJvtNgnYdatsy9rbnG6rmYhDWbNyHuZfaVvbjL99LacFyA8Wq3rcqy7AELrOyKGAM3TWAHsAzuJsd+/gGV1Bq9F9pdJHv6BpjDK/HOoryNjcPTsceOZWhes89PcD/6zTi9ApgQV9401vqLwt/oRbL6xp11xWD7gQPbGdgCX7fOdInyids8dXGFVxfhvSd2mLslgn5VIFDkSgrBEhJpkkQdKG/TDuYuvuueS3f1efQPqp5vmUr0GHQAEa5ZuqOoH6ndNnsGIFU8vyDw/mKSIrf2qzwmlLVOR3Iifx8GnWZ4utN5t92t0kZMoadz+NZFKNiBW4XIdT8BS/0pid56wOplMdiXhrS+Egi6fe7nkcmq6NonEi/dq9TDH+6ltBKNAjeYUQ=
+  github-token: $GH_TOKEN # https://docs.travis-ci.com/user/environment-variables#Defining-Variables-in-Repository-Settings
   keep-history: true
   verbose: true
   on:
