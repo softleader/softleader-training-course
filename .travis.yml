@@ -1,4 +1,4 @@
-language: java
+language: go
 before_deploy:
 - cd toc && ./toc-linux
 deploy:
