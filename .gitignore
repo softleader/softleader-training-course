@@ -8,3 +8,5 @@
 /2018Q2/exception-handling/training-exception.iml
 /2018Q2/exception-handling/*.iml
 /2018Q2/exception-handling/.mvn
+.DS_Store
+target/
