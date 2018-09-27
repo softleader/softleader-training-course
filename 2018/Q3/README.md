@@ -8,10 +8,10 @@
 | `14:00 ~ 14:30` | Implements SSO with Spring Session | Eric | 
 | `14:30 ~ 15:00` | JMeter 應用 | Thomas | 
 | *coffee break* | |
-| `15:20 ~ 15:50` | Getting Started with TensorFlow* | David | 
-| `15:50 ~ 16:20` | Deep into Docker | Matt | 
+| `15:20 ~ 16:20` | Getting Started with TensorFlow* | David | 
 | *coffee break* | |
-| `16:40 ~ 17:30` | 從 Spring Cloud 開始的 Microservice | Rhys | 
+| `16:40 ~ 17:10` | Deep into Docker | Matt | 
+| `17:10 ~ 18:00` | 從 Spring Cloud 開始的 Microservice | Rhys | 
 
 > 1. \* 為 workshop 課程
 > 2. 每堂課之間間隔 20 分鐘預留給講師活用
