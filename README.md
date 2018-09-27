@@ -6,7 +6,9 @@
 
 ![](./training.png)
 
-> 點擊 [Table Of Contents](./toc) 查看課程目錄
+## 課程目錄
+
+連結 [Table Of Contents](./toc) 查看
 
 ## Directory Structure
 
