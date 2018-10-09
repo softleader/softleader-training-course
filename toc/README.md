@@ -21,6 +21,7 @@
 ### [Q3](../2018/Q3) 
 
 - [deep-into-docker](../2018/Q3/deep-into-docker)
+- [tensorflow](../2018/Q3/tensorflow)
 
 ## 2017
 
