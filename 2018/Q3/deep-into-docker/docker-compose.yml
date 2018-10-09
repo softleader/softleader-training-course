@@ -1,0 +1,7 @@
+version: '3'
+services:
+  time:
+    build: ./time
+    restart: on-failure
+    ports:
+      - 8000:8000
