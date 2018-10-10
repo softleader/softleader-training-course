@@ -10,7 +10,7 @@
 | *coffee break* | |
 | `15:20 ~ 16:20` | Getting Started with TensorFlow* | David | 
 | *coffee break* | |
-| `16:40 ~ 17:10` | Deep into Docker | Matt | 
+| `16:40 ~ 17:10` | Building Docker Images | Matt | 
 | `17:10 ~ 18:00` | 從 Spring Cloud 開始的 Microservice | Rhys | 
 
 > 1. \* 為 workshop 課程
