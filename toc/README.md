@@ -21,7 +21,6 @@
 ### [Q3](../2018/Q3) 
 
 - [building-docker-images](../2018/Q3/building-docker-images)
-- [deep-into-docker](../2018/Q3/deep-into-docker)
 - [jmeter](../2018/Q3/jmeter)
 - [tensorflow](../2018/Q3/tensorflow)
 
