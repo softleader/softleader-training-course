@@ -18,12 +18,12 @@
 ### A Builder Pattern Dockerfile
 
 ```
-FROM <base-image-with-compiler-tool> As build-env
-RUN <build commands>
+FROM {base-image-with-compiler-tool} As build-env
+RUN {build commands}
 
-FROM <runtime-base-image>
-COPY --from=build-env /path/from/build/container /path/in/runtime/container
-ENTRYPOINT ["/bin/sh", "-c", "<run commands>"]
+FROM {runtime-base-image}
+COPY --from=build-env {/path/from/build/container} {/path/in/runtime/container}
+ENTRYPOINT ["/bin/sh", "-c", "{run commands}"]
 ```
 
 ## References
