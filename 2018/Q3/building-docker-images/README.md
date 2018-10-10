@@ -18,7 +18,7 @@
 ```
 FROM {base-image-with-compiler-tool} As build-env
 WORKDIR /build
-ADD . /build
+COPY . .
 RUN {build commands}
 
 FROM {runtime-base-image}
@@ -31,9 +31,9 @@ ENTRYPOINT ["/bin/sh", "-c", "{run commands}"]
 ```
 FROM maven:{specific-tag} As build-env
 WORKDIR /build
-ADD pom.xml /build
+COPY pom.xml .
 RUN mvn -B dependency:resolve-plugins dependency:resolve
-ADD . /build
+COPY . .
 RUN mvn -B clean package
 
 FROM openjdk:{specific-tag}
