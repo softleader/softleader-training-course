@@ -46,4 +46,4 @@ ENTRYPOINT ["/bin/sh", "-c", "{run commands}"]
 - SoftLeader Docker Hub - [https://hub.docker.com/u/softleader/](https://hub.docker.com/u/softleader/)
 - softleader/dockerfile - [https://github.com/softleader/dockerfile](https://github.com/softleader/dockerfile)
 - Building Small Containers (Kubernetes Best Practices) - [https://youtu.be/wGz_cbtCiEA](https://youtu.be/wGz_cbtCiEA)
-- Building a Secure Docker Application - [https://www.youtube.com/watch?v=LmUw2H6JgJo](https://www.youtube.com/watch?v=LmUw2H6JgJo)
+- Building a Secure Docker Application - [https://youtu.be/LmUw2H6JgJo](https://youtu.be/LmUw2H6JgJo)
