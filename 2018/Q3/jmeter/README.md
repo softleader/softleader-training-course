@@ -23,22 +23,27 @@
 
 
 ## 實際找一專案測試
+### 登入
 ### Response 解析
 1. CSRF_TOKEN
 2. SESSION
 
 ### 內建的好用函數
-options/function help dialog
+1. 位置 options/function help dialog
 
-
-宣告/使用變數
-宣告/使用函數
-${__log())
-${__time())
-${__intSum(5, 3, result)}
-${__intSum(${result}, 2)}
-${__javaScript(邏輯, 變數名稱)}
-"productTypeId":${__javaScript(${productTypeCodeIdMap}.filter(function(ele) ele.code == '${productTypeCode}').map(function(ele) ele.id)[0])},
+2. 舉例
+- 時間 ${__time())
+- 加總 ${__intSum(5, 3, result)}
+    ```
+    ${__intSum(${result}, 2)}
+    ```
+- 程式 ${__javaScript(邏輯, 變數名稱)}
+    ```
+    "productTypeId":
+    ${__javaScript(${productTypeCodeIdMap}
+    .filter(function(ele) ele.code == '${productTypeCode}')
+    .map(function(ele) ele.id)[0])},
+    ```
 
 ### 測試案例 應用
 使用Google Spreadsheet
@@ -52,18 +57,17 @@ CSV、JSON 轉換
 http://www.convertcsv.com/json-to-csv.htm
 
 
-###用Command line執行你的Jmeter測試計畫
+### 用Command line執行你的Jmeter測試計畫
 
 1. 步驟
-    1. 建立一個全新的csv當作結果log  
+    - 建立一個全新的csv當作結果log  
     ```
     touch /Users/chenhaoxian/Downloads/jmeter_cmd.csv
     ```
-    2. 建立一個簡單的測試計畫
-
-    3. 打開command line 視窗下指令  
+    - 建立一個簡單的測試計畫
+    - 打開command line 視窗下指令  
     ```
-    chenhaoandeMBP2:bin chenhaoxian$ sh jmeter -n -t /Users/chenhaoxian/Downloads/AH.jmx -l /Users/chenhaoxian/Downloads/jmeter_cmd.csv
+    sh jmeter -n -t /Users/chenhaoxian/Downloads/AH.jmx -l /Users/chenhaoxian/Downloads/jmeter_cmd.csv
     ```  
 
 2. 說明
@@ -89,10 +93,6 @@ Tidying up ...    @ Thu Aug 23 23:18:28 CST 2018 (1535037508858)
 chenhaoandeMBP2:bin chenhaoxian$ sh jmeter -h
 指令查詢
 chenhaoandeMBP2:bin chenhaoxian$ sh jmeter -?
-
-
-
-
 
 
 
