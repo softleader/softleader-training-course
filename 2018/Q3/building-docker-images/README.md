@@ -19,10 +19,12 @@
 
 ```
 FROM {base-image-with-compiler-tool} As build-env
+WORKDIR /app
+ADD . /app
 RUN {build commands}
 
 FROM {runtime-base-image}
-COPY --from=build-env {/path/from/build/container} {/path/in/runtime/container}
+COPY --from=build-env /app{/path/from/build/container} {/path/in/runtime/container}
 ENTRYPOINT ["/bin/sh", "-c", "{run commands}"]
 ```
 
