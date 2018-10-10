@@ -4,7 +4,7 @@
 
 ## Base Images
 
-1. Use Official repository on [hub.docker.com](https://hub.docker.com/) as possible, ex: [maven](https://hub.docker.com/_/maven/), [openjdk](https://hub.docker.com/_/openjdk/)
+1. Use Official repository on [hub.docker.com](https://hub.docker.com/), ex: [maven](https://hub.docker.com/_/maven/), [openjdk](https://hub.docker.com/_/openjdk/)
 1. Minimal images: `alpine`, `slim`
 1. Specific tags, ex: `maven:3.5-jdk-8-alpine`, `openjdk:8-jre-alpine`
 1. Don't install any remote access tool, ex: *ssh*, *vnc*
