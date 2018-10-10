@@ -1,6 +1,6 @@
 # Building Docker Images
 
-> 介紹幾個打包 Docker Images 的重點
+> Things you should know before building docker images
 
 ## Base Images
 
@@ -15,16 +15,29 @@
 
 > https://www.weave.works/blog/kubernetes-best-practices
 
-### A Builder Pattern Dockerfile
-
 ```
 FROM {base-image-with-compiler-tool} As build-env
-WORKDIR /app
-ADD . /app
+WORKDIR /build
+ADD . /build
 RUN {build commands}
 
 FROM {runtime-base-image}
-COPY --from=build-env /app{/path/from/build/container} {/path/in/runtime/container}
+COPY --from=build-env /build{/path/from/build/container} {/path/in/runtime/container}
+ENTRYPOINT ["/bin/sh", "-c", "{run commands}"]
+```
+
+### A Maven Builder Pattern Dockerfile
+
+```
+FROM maven:{specific-tag} As build-env
+WORKDIR /build
+ADD pom.xml /build
+RUN mvn -B dependency:resolve-plugins dependency:resolve
+ADD . /build
+RUN mvn -B clean package
+
+FROM openjdk:{specific-tag}
+COPY --from=build-env /build{/path/from/build/container} {/path/in/runtime/container}
 ENTRYPOINT ["/bin/sh", "-c", "{run commands}"]
 ```
 
