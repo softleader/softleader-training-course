@@ -26,9 +26,9 @@ const (
 ## {{ $year -}}
 {{ range $_, $season := index $courses $year }}
 
-### [{{ $season.Season }}](../{{ $year }}/{{ $season.Season }}) 
+### [{{ $season.Season }}](/{{ $year }}/{{ $season.Season }}) 
 {{ range $_, $course := $season.Courses }}
-- [{{ $course.Course }}](../{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}) 
+- [{{ $course.Course }}](/{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}) 
 {{- end }}
 {{- end }}
 {{- end }}
@@ -57,7 +57,7 @@ func main() {
 		}
 	})
 
-	// 將課程轉換成 template 容易使用的 struct
+	// 將課程轉換成 template 容易的結構
 	var years []int
 	groupByYear := make(map[int]Seasons)
 	for _, c := range courses {
