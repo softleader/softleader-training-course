@@ -23,10 +23,10 @@ const (
 {{- $courses := index . "courses" }}
 {{- range $_, $year := $years }}
 
-## {{ $year -}}
+### {{ $year -}}
 {{ range $_, $season := index $courses $year }}
 
-### [{{ $season.Season }}](/{{ $year }}/{{ $season.Season }}) 
+#### [{{ $season.Season }}](/{{ $year }}/{{ $season.Season }}) 
 {{ range $_, $course := $season.Courses }}
 - [{{ $course.Course }}](/{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}) 
 {{- end }}
