@@ -4,6 +4,10 @@
 
 # 松凌科技教育訓練專區
 
+[http://bit.ly/softleader-training-course](http://bit.ly/softleader-training-course)
+
+![](./qr-code.svg)
+
 ![](./training.png)
 
 ## Directory Structure
