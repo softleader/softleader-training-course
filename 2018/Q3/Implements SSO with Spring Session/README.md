@@ -22,6 +22,6 @@ docker 執行 redis
 
 ```localhost:8181/index/ERIC```
 
-```localhost:8181/setSession/很帥
+```localhost:8181/setSession/很帥```
 
 ```localhost:8787/getSession```
