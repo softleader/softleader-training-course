@@ -6,7 +6,7 @@
 
 [http://bit.ly/softleader-training-course](http://bit.ly/softleader-training-course)
 
-![](./qr-code.svg)
+<img src="./qr-code.svg" width="500">
 
 ![](./training.png)
 
