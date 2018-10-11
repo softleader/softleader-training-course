@@ -1,6 +1,6 @@
 language: go
 script:
-- cd toc && ./toc-linux
+- ./toc-linux
 deploy:
   provider: pages
   skip-cleanup: true
