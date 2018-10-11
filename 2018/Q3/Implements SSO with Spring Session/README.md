@@ -8,7 +8,7 @@ docker 執行 redis
 
 進入redis中
 
-```docker exec -it a8f1548ace0e(containerId) redis-cli```
+```docker exec -it (containerId) redis-cli```
 
 找所有在redis中的key
 
