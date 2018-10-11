@@ -5,6 +5,7 @@
 # 松凌科技教育訓練專區
 
 [http://bit.ly/softleader-training-course](http://bit.ly/softleader-training-course)
+
 <img src="./qr-code.svg" width="500">
 
 ![](./training.png)
