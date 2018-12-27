@@ -68,6 +68,7 @@
 #### [Q1](/2017/Q1) 
 
 - [redux](/2017/Q1/redux)
+- [regex](/2017/Q1/regex)
 - [web-security-protection](/2017/Q1/web-security-protection)
 - [webpack](/2017/Q1/webpack)
 
