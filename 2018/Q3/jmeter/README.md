@@ -1,5 +1,6 @@
 ## Jmeter功能介紹
-
+### 下載jmeter 主程式
+1. [官方網站](https://jmeter.apache.org/download_jmeter.cgi)
 ### 下載jmeter plugins manager
 1. 下載[plugins-manager.jar](https://jmeter-plugins.org/get/)
 2. 將下載完的JAR丟到lib/ext(libexec/lib/ext)
