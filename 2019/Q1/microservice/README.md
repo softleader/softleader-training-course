@@ -31,6 +31,7 @@ https://start.spring.io/
         >   1. [SpringCloud官方文件](https://cloud.spring.io/spring-cloud-commons/multi/multi__spring_cloud_context_application_context_services.html#_the_bootstrap_application_context)
         >   2. [boostrap.yml vs application.yml](https://hk.saowen.com/a/3bba1a89981b5f3d2c4f463e913e41c4397267bf80dfe61eafaaa9f184e2e273)
     - 實作:
+
         <img src="./img/rpc.svg" height="400"/>
 
 2. Gateway
@@ -57,6 +58,7 @@ https://start.spring.io/
         public class GatewayApplication {
         ```
     - 實作:
+
         <img src="./img/gateway.svg" height="400"/>
     - Stub:
         ```java
