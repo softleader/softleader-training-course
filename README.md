@@ -45,6 +45,10 @@
 - [microservice](/2019/Q1/microservice)
 - [react-redux](/2019/Q1/react-redux)
 
+#### [Q2](/2019/Q2) 
+
+- [a-beginners-guide-to-kubernetes](/2019/Q2/a-beginners-guide-to-kubernetes)
+
 ### 2018
 
 #### [Q1](/2018/Q1) 
