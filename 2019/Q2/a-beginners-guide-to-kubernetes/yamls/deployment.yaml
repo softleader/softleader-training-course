@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  # ReplicaSet 的設定套用在帶有 app: nginx 的 Pod 上
+  selector:
+    matchLabels:
+      app: nginx
+   # .spec.template 是在定義 Pod 的 label
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.9.1

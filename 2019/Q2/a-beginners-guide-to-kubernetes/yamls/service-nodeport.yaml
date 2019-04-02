@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-server-nodeport
+spec:
+  type: NodePort
+  # 定義挑選 Pod 的 label
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    # 設定對外要開放的 Port (30000-32767)
+    nodePort: 30080
