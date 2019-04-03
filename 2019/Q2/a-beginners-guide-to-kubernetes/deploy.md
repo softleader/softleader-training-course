@@ -2,21 +2,12 @@
 
 ![](https://godleon.github.io/blog/images/kubernetes/k8s-deployment.png)
 
-| Objects | Short name |
+| Resources | Short name |
 |---|---|
 | namespace | ns |
 | deployment | deploy |
 | replicaset | rs |
 | pod | po |
-
-### Create Namepsace
-
-```sh
-kubectl create namespace k8s-training
-
-# 切換 namespace
-kubens k8s-training
-```
 
 ### Apply a Deployment
 
@@ -32,22 +23,17 @@ kubectl apply -f ./yamls/deployment.yaml --record
 檢查結果:
 
 ```sh
-kubectl get deployment
-
 # 檢視 deployment
-kubectl describe deploy <NAME>
-```
+kubectl get deployment
+kubectl describe deployment <DEPLOY_NAME>
 
-繼續往下看 ReplicaSet:
-
-```sh
-# 檢視 rs, 名稱將會是 [DEPLOYMENT-NAME]-[POD-TEMPLATE-HASH-VALUE]
+# 檢視 ReplicaSet, 名稱將會是 [DEPLOYMENT-NAME]-[POD-TEMPLATE-HASH-VALUE]
 kubectl get replicaset
-kubectl describe rs <NAME>
+kubectl describe rs <RS_NAME>
 
-# 檢視 pod
+# 檢視 Pod
 kubectl get pod
-kubectl describe po <NAME>
+kubectl describe po <POD_NAME>
 ```
 
 ### Update a Deployment
@@ -59,7 +45,7 @@ vim ./yamls/deployment.yaml
 kubectl apply -f ./yamls/deployment.yaml --record
 ```
 
-查看所有 Kubernetes event
+查看 Event
 
 ```sh
 kubectl get event

@@ -2,7 +2,6 @@
 
 ![](https://danlebrero.com/images/blog/kubernetes-explained/kubernetes-explained-theme-park.jpg)
 
-
 ### The Contract
 
 ![](https://danlebrero.com/images/blog/kubernetes-explained/kubernetes-node-pool.jpg)
@@ -21,4 +20,4 @@ The *Kubernetes Control Plane* works to make the cluster’s current state match
 
 ## Next
 
-- Learn about [Deployment](./deploy.md)
+- Let's [run](./run.md)

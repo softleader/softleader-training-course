@@ -1,16 +1,16 @@
 ## IBM Cloud Private
 
-## What is ICP
+### What is ICP
 
 IBM Cloud Private is an application platform for developing and managing on-premises, containerized applications. It is an integrated environment for managing containers that includes the container orchestrator Kubernetes, a private image registry, a management console, and monitoring frameworks.
 
 > More details about [IBM Cloud Private Overview](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/getting_started/introduction.html)
 
-### TL;DR
+#### TL;DR
 
 ![](https://www.ibm.com/blogs/think/tw-zh/wp-content/uploads/sites/13/2018/01/Think-blog-02.jpg)
 
-## ICP Architecture
+### ICP Architecture
 
 - Boot node - 進行安裝, 配置, 更新 ICP Cluster
 - Master node - 負責管理, 控制 Worker nodes
@@ -18,7 +18,7 @@ IBM Cloud Private is an application platform for developing and managing on-prem
 
 ![](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/images/architecture.jpg)
 
-## Recipes 
+### Recipes 
 
 - Single-node
 

@@ -25,35 +25,27 @@ docker run -d postgres
 
 ### Cross-platform commands!
 
-```sh
-docker run --rm \
-    -v "$(pwd)":/data \
-    -v ~/.m2:/root/.m2 \
-    softleader/freesia-playbooks \
-    pack.yml -vvv
+- ldapsearch
+
+```
+docker run -it --rm \
+    -e HOST=softleader.com.tw \
+    -e PORT=10388 \
+    softleader/ldap-client search dc=softleader,dc=example,dc=com
 ```
 
-> [softleader-freesia playbooks](https://github.com/softleader/softleader-freesia/tree/playbooks)
+- [curl](https://curl.haxx.se/download.html) + [jq](https://github.com/stedolan/jq)
 
 ```sh
-docker run --rm -it softleader/cli whereis ${your.name} -l 100 -d _1M..today
+docker run -t --rm softleader/curl-jq \
+  "-sS https://icp.softleader.com.tw/eureka-jasmine-uat/registry | jq .application "
 ```
-
-> [softleader/softleader-cli](https://github.com/softleader/softleader-cli)
-
-```sh
-docker run -it --entrypoint=bash -v /var/run/docker.sock:/var/run/docker.sock --rm softleader/docker -c "docker images | grep mytomcat"
-```
-
-> [docker in docker](https://github.com/softleader/dockerfile/tree/master/docker)
-
 
 ## Congratulations
 
 你已經學會了基本款的 docker 應用了, 期待之後的 [Kubernetes Tutorials](https://kubernetes.io/docs/tutorials/) 吧!
 
 - [返回第一頁](./README.md)
-
 
 ### References
 

@@ -26,35 +26,31 @@ kubectl describe ingress nginx
 
 ### Take a Peek
 
-- inside the Pod
+- 在 Pod 中打自己查看
 
 ```sh
 kubectl get po
-
-# 在 Pod 中執行指令
-kubectl exec -it NAME curl localhost
+kubectl exec POD_NAME curl localhost
 ```
 
-- inside the Pod through Service
+- 在 Pod 中打 Service 查看
 
 ```sh
 kubectl get svc
 kubectl get po
-
-# 在 Pod 中執行指令
-kubectl exec -it NAME curl SERVICE_PORT
+kubectl exec -it POD_NAME curl SERVICE
 ```
 
-- from NodePort
+- 在 k8s 外打 node port
 
 ```
-curl HOST:NODEPORT
+curl K8S_HOST:NODEPORT
 ```
 
-- from Ingress
+- 在 k8s 外打 ingress path
 
 ```
-curl HOST/INGRESS_PATH -k
+curl K8S_HOST/INGRESS_PATH -k
 ```
 
 ## Next

@@ -4,6 +4,7 @@
 
 [The Illustrated Children's Guide to Kubernetes](https://www.youtube.com/watch?v=Q4W8Z-D-gcQ)
 
-## Next steps
+> 簡體中文版 - [寫給孩子看的 Kubernetes 動畫指南](https://www.bilibili.com/video/av10087636/)
 
-- Install [command-line tool](./cli.md) against Kubernetes
+## Next steps
+- Install some [tools](./tools.md) against Kubernetes
