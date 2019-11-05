@@ -1,7 +1,7 @@
 ## 2018Q1 Stream
 
 ### 重新回憶一下當年的 Stream 入門課
-[Softleader Stream & Lambda介紹](https://github.com/softleader/softleader-training-course/blob/master/2016Q1/Stream%26Lambda.md)
+[Softleader Stream & Lambda介紹](https://github.com/softleader/softleader-training-course/blob/master/2016/Q1/stream-and-lambda/Stream%26Lambda.md)
 1. 像是生產線一樣處理串流化的集合
 2. 所有繼承自 `Collection` 的物件可直接呼叫
 3. StreamAPI 中提供的方法主要區分為 `intermediate` 與 `terminal` 兩種
