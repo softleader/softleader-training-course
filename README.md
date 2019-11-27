@@ -50,6 +50,10 @@
 - [a-beginners-guide-to-kubernetes](/2019/Q2/a-beginners-guide-to-kubernetes)
 - [design-soft-from-hard](/2019/Q2/design-soft-from-hard)
 
+#### [Q4](/2019/Q4) 
+
+- [mapstruct](/2019/Q4/mapstruct)
+
 ### 2018
 
 #### [Q1](/2018/Q1) 
