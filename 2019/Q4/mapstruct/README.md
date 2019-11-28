@@ -24,6 +24,7 @@ MapStruct 基於 [JSR 269](https://www.jcp.org/en/jsr/detail?id=269) 來幫你�
 <properties>
     <mapstruct.version>1.3.1.Final</mapstruct.version>
     <lombok.version>1.18.0</lombok.version>
+	<m2e.apt.activation>jdt_apt</m2e.apt.activation>
 </properties>
 ...
 <dependencies>
