@@ -69,11 +69,11 @@ Fluent Bit 在公司微服務環境中所負責的只在收集我們自己撰寫
       <stackTrace>
         <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
           <maxDepthPerThrowable>30</maxDepthPerThrowable>
-          <maxLength>10240</maxLength>
           <!-- 最多帶 10k 的 stack trace, 超過應該也沒用了 -->
+          <maxLength>10240</maxLength>
           <shortenedClassNameLength>20</shortenedClassNameLength>
-          <rootCauseFirst>true</rootCauseFirst>
           <!-- 將 root cause 擺最前面, 避免超過 10k 被 trim 掉 -->
+          <rootCauseFirst>true</rootCauseFirst>
         </throwableConverter>
       </stackTrace>
     </providers>
