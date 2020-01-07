@@ -31,53 +31,53 @@ Fluent Bit 在公司微服務環境中所負責的只在收集我們自己撰寫
 
 ```xml
 <dependency>
-	<groupId>net.logstash.logback</groupId>
-	<artifactId>logstash-logback-encoder</artifactId>
-	<version>${logstash-logback-encoder.version}</version>
+  <groupId>net.logstash.logback</groupId>
+  <artifactId>logstash-logback-encoder</artifactId>
+  <version>${logstash-logback-encoder.version}</version>
 </dependency>
 ```
 > 請從 [Logstash Logback Encoder - Maven Repository](https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder) 選擇版本
 
 ### logback.xml
 
-在 `logback.xml` 中, 我們先加上以下 appender
+在 `logback.xml` 中, 我們先加上以下 JSON appender, 並且設定 `app_name` 來自於 properties 中的 `spring.application.name`
 
 ```xml
 <springProperty scope="context" name="appName" source="spring.application.name"/>
 
 <appender class="ch.qos.logback.core.ConsoleAppender" name="JSON">
-	<encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
-		<providers>
-			<mdc/>
-			<timestamp>
-				<timeZone>Asia/Taipei</timeZone>
-			</timestamp>
-			<logLevel/>
-			<threadName/>
-			<loggerName>
-				<fieldName>class_name</fieldName>
-			</loggerName>
-			<message/>
-			<pattern>
-				<pattern>
-				{
-				"app_name": "${appName:-}",
-				"pid": "${PID:-}"
-				}
-				</pattern>
-			</pattern>
-			<stackTrace>
-				<throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
-					<maxDepthPerThrowable>30</maxDepthPerThrowable>
-					<maxLength>10240</maxLength>
-					<!-- 最多帶 10k 的 stack trace, 超過應該也沒用了 -->
-					<shortenedClassNameLength>20</shortenedClassNameLength>
-					<rootCauseFirst>true</rootCauseFirst>
-					<!-- 將 root cause 擺最前面, 避免超過 10k 被 trim 掉 -->
-				</throwableConverter>
-			</stackTrace>
-		</providers>
-	</encoder>
+  <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+    <providers>
+      <mdc/>
+      <timestamp>
+        <timeZone>Asia/Taipei</timeZone>
+      </timestamp>
+      <logLevel/>
+      <threadName/>
+      <loggerName>
+        <fieldName>class_name</fieldName>
+      </loggerName>
+      <message/>
+      <pattern>
+        <pattern>
+        {
+        "app_name": "${appName:-}",
+        "pid": "${PID:-}"
+        }
+        </pattern>
+      </pattern>
+      <stackTrace>
+        <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+          <maxDepthPerThrowable>30</maxDepthPerThrowable>
+          <maxLength>10240</maxLength>
+          <!-- 最多帶 10k 的 stack trace, 超過應該也沒用了 -->
+          <shortenedClassNameLength>20</shortenedClassNameLength>
+          <rootCauseFirst>true</rootCauseFirst>
+          <!-- 將 root cause 擺最前面, 避免超過 10k 被 trim 掉 -->
+        </throwableConverter>
+      </stackTrace>
+    </providers>
+  </encoder>
 </appender>
 ```
 
@@ -86,15 +86,15 @@ Fluent Bit 在公司微服務環境中所負責的只在收集我們自己撰寫
 最後在 root 的地方, 建議透過指定 Spring Profile 才啟動開 JSON appender, 以下範例是當啟動 spring profile `efk`  時, 就停用所有其他的 appender 只開啟 json appender
 
 ```xml
-<root level="info">
-	<springProfile name="!efk">
-		<appender-ref ref="STDOUT" />
-		<appender-ref ref="FILE" />
-		...
-	</springProfile>
-	<springProfile name="efk">
-		<appender-ref ref="JSON" />
-	</springProfile>
-	...
+<root level="...">
+  <springProfile name="!efk">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+    ...
+  </springProfile>
+  <springProfile name="efk">
+    <appender-ref ref="JSON" />
+  </springProfile>
+  ...
 </root>
 ```
