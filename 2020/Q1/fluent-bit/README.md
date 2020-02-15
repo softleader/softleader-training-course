@@ -14,16 +14,9 @@ OpenShift 預設的 [Container Logs Aggregator](https://docs.openshift.com/conta
 
 ## Getting Started
 
-Fluent Bit 在公司微服務環境中所負責的只在收集我們自己撰寫的 Ap Log, 並非整個 Docker 環境或 Kubernetes 環境的 Log, 因此我們定義了一些規則, 只有符合下述規則的 Log 才會被收集出來送到 Elasticsearch 上:
+Fluent Bit 在公司的配置中有制定一些規則, 只有符合規則的 App log 才會被收集, 你可以在這邊 [公司 fluent-bit 的配置](https://github.com/softleader/log-aggregation) 查看是怎麼配置的
 
-1. Log 是輸出在 Ap 的 Console (STDOUT) 中
-2. Log 的內容必須是 JSON 格式, 且不可斷行
-3. 每一行不可超過 32k
-4. 每一行的 JSON 中必須要有 `app_name` key, 且其 value 不可為空
-
-此篇接下來會介紹及建議在一個 Spring Boot App 中要怎麼配置, 可以簡單的達到上述條件!
-
-> 延伸閱讀: [公司 fluent-bit 的配置](https://github.com/softleader/log-forwarder/tree/master/fluent-bit/)
+此篇接下來會介紹及建議在一個 Spring Boot App 中要怎麼配置才能符合規則!
 
 ### pom.xml
 
