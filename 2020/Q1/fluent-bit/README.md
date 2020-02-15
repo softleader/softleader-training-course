@@ -6,7 +6,7 @@ OpenShift 預設的 [Container Logs Aggregator](https://docs.openshift.com/conta
 - **Fluentd** - Log Collector, Processor, and Aggregator
 - **Kibana** - Explore, Visualize, and Share
 
-[Fluent Bit](https://fluentbit.io/) 跟 [Fluentd](https://www.fluentd.org/) 都是 [Treasure Data](https://www.treasuredata.com/opensource/) 的產品, 而 Fluent Bit 像是一個輕量級的 Fluentd, 專門處例 Log Collector 及 Processor, 而有較少的 Log Aggregator 功能
+[Fluent Bit](https://fluentbit.io/) 跟 [Fluentd](https://www.fluentd.org/) 都是 [Treasure Data](https://www.treasuredata.com/opensource/) 的產品, 而 Fluent Bit 像是一個輕量級的 Fluentd, 專門處理 Log Collector 及 Processor, 而有較少的 Log Aggregator 功能
 
 跟 Fluentd 相比效能更好, 不論 CPU 跟記憶體的使用率 Fluent Bit 都有更好的表現, 因此在公司轉換 OpenShfit 之前, 我們將使用 Fluent Bit 來取代 Logstach 來收集公司微服務中的 Log
 
