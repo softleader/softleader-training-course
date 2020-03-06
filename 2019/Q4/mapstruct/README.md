@@ -232,4 +232,19 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
     > 呼叫的時候, 將 `MapStructUtils.CycleAvoidingContext` new 出來
     > 需注意這個 instance 是不能共用的, 每當需要時就得 new 一個
 
-7. 
+7. 複製出的物件同時有兩個以上的來源時
+    ```java
+    // 欄位攤在裡面的情況
+    // FooBarDto.fooCode = foo.code, FooBarDto.barCode = bar.code
+    @Mapping(source = "foo.code", target = "fooCode")
+    @Mapping(source = "bar.code", target = "barCode")
+    FooBarEntity from(FooVo foo, BarVo bar);
+    ```
+    
+    ```java
+    // 來源本身就是其中一個field的情況
+    // FooBarDto.foo = foo, FooBarDto.bar = bar
+    @Mapping(source = "foo", target = "foo")
+    @Mapping(source = "bar", target = "bar")
+    FooBarDto from(FooVo foo, BarVo bar);
+    ```
