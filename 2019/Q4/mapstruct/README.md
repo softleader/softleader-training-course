@@ -163,7 +163,7 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
       private List<BooEntity> boo;
    
       @org.mapstruct.Mapper
-        public interface Mapper {
+      public interface Mapper {
         Mapper INSTANCE = Mappers.getMapper(Mapper.class);
    
         FooEntiy from(FooVo source);
@@ -193,7 +193,7 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
       private List<BooEntity> boo;
    
       @org.mapstruct.Mapper
-        public interface Mapper {
+      public interface Mapper {
         Mapper INSTANCE = Mappers.getMapper(Mapper.class);
 
         FooEntiy from(FooVo source, @Context MapStructUtils.CycleAvoidingContext context);
