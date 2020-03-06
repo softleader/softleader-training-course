@@ -49,9 +49,8 @@ MapStruct 基於 [JSR 269](https://www.jcp.org/en/jsr/detail?id=269) 來幫你�
 ...
 ```
 
-> 請確保使用版本不可低於: MapStruct 1.2.0.Beta1 及 Lombok 1.16.14  
-> 需注意, 有MapperClass存在的專案就必須親自引用 `mapstruct-processor`, 無論其專案下引用的jar是否曾經包含過, 否則不會正常compile出實作
-
+> 請確保使用版本不可低於: MapStruct 1.2.0.Beta1 及 Lombok 1.16.14
+> ### 需注意, 有MapperClass存在的專案, 無論其專案下引用的jar是否曾經包含過, 本身都必須親自引用 `mapstruct-processor`, 否則不會正常compile出實作, 將會發生 NoSuchMethod 或者是 ClassNotFound
 
 ## Softleader Guide
 
