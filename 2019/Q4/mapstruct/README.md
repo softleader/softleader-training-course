@@ -273,6 +273,7 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
     }
     
     public class BarMapperDef {
+      // 這就是那個比較複雜的轉換邏輯
       Map<Integer, List<BarDto>> mappingBarMap(Map<Integer, List<BarEntity>> source) {
         Map<Integer, List<BarDto>> result = Maps.newHashMap();
         for (Entry<Integer, List<BarEntity>> entry : source.entrySet()) {
