@@ -248,3 +248,37 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
     @Mapping(source = "bar", target = "bar")
     FooBarDto from(FooVo foo, BarVo bar);
     ```
+
+8. 物件下的某欄位其型別已有該型別的Mapper, 可以直接引用 `Foo.bar`, 不用再寫一次關於該型別的轉換
+    ```java
+    @org.mapstruct.Mapper(uses = BarMapper.class)
+    public interface FooMapper {
+      FooMapper INSTANCE = Mappers.getMapper(FooMapper.class);
+      FooDto from(FooEntity source);
+    }
+    ```
+
+9. 物件裡的欄位有比較複雜的轉換邏輯時 `Foo.bars = new HashMap<>()`
+    ```java
+    @org.mapstruct.Mapper(uses = BarMapperDef.class)
+    public interface FooMapper {
+      FooMapper INSTANCE = Mappers.getMapper(FooMapper.class);
+      FooDto from(FooEntity source);
+    }
+    @org.mapstruct.Mapper
+    public interface BarMapper {
+      BarMapper INSTANCE = Mappers.getMapper(BarMapper.class);
+      BarDto from(BarEntity source);
+    }
+    
+    public class BarMapperDef {
+      Map<Integer, List<BarDto>> mappingBarMap(Map<Integer, List<BarEntity>> source) {
+        Map<Integer, List<BarDto>> result = Maps.newHashMap();
+        for (Entry<Integer, List<BarEntity>> entry : source.entrySet()) {
+          result.put(entry.getKey(), BarMapper.INSTANCE.from(entry.getValue()));
+        }
+        return result;
+      }
+    }
+    ```
+    > 當 Mapper 發現 user 所定義的 class 裡, 有出現跟轉換型別一樣的 input 的 method 時, 會自動使用該 method 進行轉換
