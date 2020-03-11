@@ -257,7 +257,7 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
       FooDto from(FooEntity source);
     }
     ```
-    > 需注意這種情況, 兩個 Mapper 不能有一樣的 method
+    > 需注意這種情況, 兩個Mapper的Class不能相同(會與我們一開始定的規則牴觸, 所以遇到這種情況, 建議不要寫inner class, 直接拉出來獨立寫, 並且確實命名(例 FooDtoMapper, BarEntityMapper 等)
 
 9. 物件裡的欄位有比較複雜的轉換邏輯時 `Foo.bars = new HashMap<>()`
     ```java
