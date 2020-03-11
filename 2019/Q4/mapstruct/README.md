@@ -251,7 +251,7 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
 
 8. 物件下的某欄位其型別已有該型別的Mapper, 可以直接引用 `Foo.bar`, 不用再寫一次關於該型別的轉換
     ```java
-    @org.mapstruct.Mapper(uses = BarMapper.class)
+    @org.mapstruct.Mapper(imports = BarMapper.class)
     public interface FooMapper {
       FooMapper INSTANCE = Mappers.getMapper(FooMapper.class);
       FooDto from(FooEntity source);
