@@ -257,6 +257,7 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
       FooDto from(FooEntity source);
     }
     ```
+    > 需注意這種情況, 兩個 Mapper 不能有一樣的 method
 
 9. 物件裡的欄位有比較複雜的轉換邏輯時 `Foo.bars = new HashMap<>()`
     ```java
