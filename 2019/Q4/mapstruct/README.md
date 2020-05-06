@@ -283,3 +283,18 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
     }
     ```
     > 當 Mapper 發現 user 所定義的 class 裡, 有出現跟轉換型別一樣的 input 的 method 時, 會自動使用該 method 進行轉換
+
+10. 物件內有欄位的型別轉換時 `Money to BigDecimal`
+    ```java
+    @org.mapstruct.Mapper
+    interface Mapper {
+      Mapper INSTANCE = Mappers.getMapper(Mapper.class);
+
+      FooVo to(FooEntity source);
+
+      default BigDecimal convert(Money money) {
+        return Optional.ofNullable(money).map(Money::getNumberStripped).orElse(null);
+      }
+    }
+    ```
+    > 其實就是當作Mapper的對應邏輯之一, 只是因為不是值的1:1轉換, 因此直接寫成預設實作來處理
