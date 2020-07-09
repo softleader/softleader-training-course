@@ -57,11 +57,34 @@ MapStruct 基於 [JSR 269](https://www.jcp.org/en/jsr/detail?id=269) 來幫你�
 ### 撰寫規範
 
 要點:
-1. Mapper 以 `@org.mapstruct.Mapper public interface Mapper` 宣告於所屬 class 下
+1. Mapper 的 Class 宣告以其中一方作為標的(v26而言, 推薦以Entity作為標的宣告, 如 PosPolicyEntityMapper), 原則上一個Domain只有一個MapperClass
+	> (舊) Mapper 以 `@org.mapstruct.Mapper public interface Mapper` 宣告於所屬 class 下  
+	> 因考量到專案的 Entity Field 欄位數量較多, 因此此種方法閱讀不易
 2. Mapper Instance 使用 `Mapper INSTANCE = Mappers.getMapper(Mapper.class);` 不註冊至 spring
-3. Method 的宣告, 以From的角度進行撰寫
-4. Method Name 以 from, copy, update 為開頭進行宣告, 可依當下情境選擇
+3. Method 的宣告, 以以下 pattern 為主, 以下以PosPolicy 為例
+	```java
+	// from 系列可精簡宣告 
+	PosPolicyEntity from(PosPolicyRequest)
+	PosPolicyEntity from(PosPolicyDto)
+	PosPolicyEntity from(QotPolicyEntity)
+	// from 的對象如果是 list 則沒辦法精簡宣告
+	List<PosPolicyEntity> fromRequests(List<PosPolicyRequest>)
+	List<PosPolicyEntity> fromDtos(List<PosPolicyDto>)
+	// to 系列一律進行完整宣告
+	PosPolicyRequest toRequest(PosPolicyEntity)
+	PosPolicyDto toDto(PosPolicyEntity)
+	List<PosPolicyRequest> toRequests(List<PosPolicyEntity>)
+	List<PosPolicyDto> toDtos(List<PosPolicyEntity>)
+	// copy 系列可精簡宣告
+	void copy(PosPolicyEntity, @MappingTarget PosPolicyEntity)
+	void copy(PosPolicyRequest, @MappingTarget PosPolicyEntity)
+	void copy(PosPolicyDto, @MappingTarget PosPolicyEntity)
+	// 如果是是相關 Domain 但是跟標的 Class 無職間關係 改用 convert 關鍵字命名, 可精簡宣告
+	PosPolicyRiskEntity convert(PosPolicyRiskRequest)
+	PosPolicyRiskItemEntity convert(PosPolicyRiskItemRequest)
+	```
 
+`Mapper作為InnerClass此為舊版規範, 可無視`
 由於公司的Entity, Vo數量眾多, 為了方便管理, 以及避免重複造輪等理由, 建議將Mapper以InnerClass的形式進行撰寫在 Entity or Vo class內  
 例:
 
