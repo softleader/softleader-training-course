@@ -79,7 +79,7 @@ MapStruct 基於 [JSR 269](https://www.jcp.org/en/jsr/detail?id=269) 來幫你�
 	void copy(PosPolicyEntity, @MappingTarget PosPolicyEntity)
 	void copy(PosPolicyRequest, @MappingTarget PosPolicyEntity)
 	void copy(PosPolicyDto, @MappingTarget PosPolicyEntity)
-	// 如果是是相關 Domain 但是跟標的 Class 無職間關係 改用 convert 關鍵字命名, 可精簡宣告
+	// 如果是是相關 Domain 但是跟標的 Class 無直接關係 改用 convert 關鍵字命名, 可精簡宣告
 	PosPolicyRiskEntity convert(PosPolicyRiskRequest)
 	PosPolicyRiskItemEntity convert(PosPolicyRiskItemRequest)
 	```
