@@ -321,3 +321,20 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
     }
     ```
     > 其實就是當作Mapper的對應邏輯之一, 只是因為不是值的1:1轉換, 因此直接寫成預設實作來處理
+
+11. 多個欄位放進一個欄位 Foo.key = Bar.id + ":" + Bar.localname
+    ```java
+    @org.mapstruct.Mapper
+    interface Mapper {
+        Mapper INSTANCE = Mappers.getMapper(Mapper.class);
+
+        @Mapping(target = "key", ignore = true)
+        Foo from(Bar bar);
+
+        @AfterMapping
+        default void setBookAuthor(@MappingTarget Foo foo, Bar bar) {
+            foo.key = bar.id + ":" + bar.localName;
+        }
+    }
+    ```
+    > 使用 `@AfterMapping` 在整個mapping結束後額外處理, 記得要先將欲處理的欄位先設定ignore, 否則會有mapping不到的錯誤 
