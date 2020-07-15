@@ -322,7 +322,7 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
     ```
     > 其實就是當作Mapper的對應邏輯之一, 只是因為不是值的1:1轉換, 因此直接寫成預設實作來處理
 
-11. 多個欄位放進一個欄位 Foo.key = Bar.id + ":" + Bar.localname
+11. 多個欄位放進一個欄位 `Foo.key = Bar.id + ":" + Bar.localname`
     ```java
     @org.mapstruct.Mapper
     interface Mapper {
