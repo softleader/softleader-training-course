@@ -305,8 +305,29 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
       }
     }
     ```
-    > 當 Mapper 發現 user 所定義的 class 裡, 有出現跟轉換型別一樣的 input 的 method 時, 會自動使用該 method 進行轉換
-
+    或是使用default method
+    ```java
+    @org.mapstruct.Mapper(uses = BarMapperDef.class)
+    public interface FooMapper {
+      FooMapper INSTANCE = Mappers.getMapper(FooMapper.class);
+      FooDto from(FooEntity source);
+      
+      default Map<Integer, List<BarDto>> mappingBarMap(Map<Integer, List<BarEntity>> source) {
+        Map<Integer, List<BarDto>> result = Maps.newHashMap();
+        for (Entry<Integer, List<BarEntity>> entry : source.entrySet()) {
+          result.put(entry.getKey(), BarMapper.INSTANCE.from(entry.getValue()));
+        }
+        return result;
+      }
+    }
+    @org.mapstruct.Mapper
+    public interface BarMapper {
+      BarMapper INSTANCE = Mappers.getMapper(BarMapper.class);
+      BarDto from(BarEntity source);
+    }
+    
+    ```
+    > 當 Mapper 發現 user 所定義的 class 裡或 default Method(但不可重複), 有出現跟轉換型別一樣的 input 的 method 時, 會自動使用該 method 進行轉換
 10. 物件內有欄位的型別轉換時 `Money to BigDecimal`
     ```java
     @org.mapstruct.Mapper
