@@ -14,9 +14,7 @@ OpenShift 預設的 [Container Logs Aggregator](https://docs.openshift.com/conta
 
 ## Getting Started
 
-Fluent Bit 在公司的配置中有制定一些規則, 只有符合規則的 App log 才會被收集, 你可以在這邊 [公司 fluent-bit 的配置](https://github.com/softleader/log-aggregation) 查看是怎麼配置的
-
-此篇接下來會介紹及建議在一個 Spring Boot App 中要怎麼配置才能符合規則!
+> 以 Spring Boot App 為範例, 來介紹要怎麼配置成 JSON logging
 
 ### pom.xml
 
@@ -31,14 +29,24 @@ Fluent Bit 在公司的配置中有制定一些規則, 只有符合規則的 App
 ```
 > 請從 [Logstash Logback Encoder - Maven Repository](https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder) 選擇版本
 
+### Spring profiles
+
+準備一個 Profile 名稱, 如 `jsonout`, 只有在開啟該 profile 才會啟動
+
+```
+# application-jsonout.yaml
+logging:
+  config: classpath:logback-spring-jsonout.xml
+```
+
 ### logback.xml
 
-在 `logback.xml` 中, 我們先加上以下 JSON appender, 並且設定 `app_name` 來自於 properties 中的 `spring.application.name`
+在 `logback-spring-jsonout.xml` 中, 我們先加上以下 JSON appender, 並且設定 `app_name` 來自於 properties 中的 `spring.application.name`
 
 ```xml
 <springProperty scope="context" name="appName" source="spring.application.name"/>
 
-<appender class="ch.qos.logback.core.ConsoleAppender" name="JSON">
+<appender class="ch.qos.logback.core.ConsoleAppender" name="jsonout">
   <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
     <providers>
       <mdc/>
@@ -80,14 +88,8 @@ Fluent Bit 在公司的配置中有制定一些規則, 只有符合規則的 App
 
 ```xml
 <root level="...">
-  <springProfile name="!efk">
-    <appender-ref ref="STDOUT" />
-    <appender-ref ref="FILE" />
-    ...
-  </springProfile>
-  <springProfile name="efk">
-    <appender-ref ref="JSON" />
-  </springProfile>
-  ...
+  <appender-ref ref="jsonout" />
 </root>
+
+<logger name="..." level="debug"/>
 ```
