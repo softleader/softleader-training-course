@@ -33,7 +33,7 @@ OpenShift 預設的 [Container Logs Aggregator](https://docs.openshift.com/conta
 
 準備一個 Profile 名稱, 如 `jsonout`, 只有在開啟該 profile 才會啟動
 
-```
+```yaml
 # application-jsonout.yaml
 logging:
   config: classpath:logback-spring-jsonout.xml
@@ -80,16 +80,12 @@ logging:
     </providers>
   </encoder>
 </appender>
-```
 
-> 延伸閱讀: [Providers 的配置說明](https://github.com/logstash/logstash-logback-encoder#providers-for-loggingevents)
-
-最後在 root 的地方, 建議透過指定 Spring Profile 才啟動開 JSON appender, 以下範例是當啟動 spring profile `efk`  時, 就停用所有其他的 appender 只開啟 json appender
-
-```xml
 <root level="...">
   <appender-ref ref="jsonout" />
 </root>
 
 <logger name="..." level="debug"/>
 ```
+
+> 延伸閱讀: [Providers 的配置說明](https://github.com/logstash/logstash-logback-encoder#providers-for-loggingevents)
