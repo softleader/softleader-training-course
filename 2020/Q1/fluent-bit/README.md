@@ -62,7 +62,8 @@ logging:
       <pattern>
         <pattern>
         {
-          <!-- 以下加入客製的額外資訊, 如 app_name, app_version, 而 app_name 在非 kubernetes 是很有用的, 但在 kubernetes 環境中可以用 container_name 取代 -->
+          <!-- 以下加入客製的額外資訊, 如 app_name, app_version...等
+               而 app_name 在非 kubernetes 環境是很有用的, 但在 kubernetes 環境中可以用 container_name 取代 -->
           "app_name": "${appName:-}",
           "pid": "${PID:-}"
         }
