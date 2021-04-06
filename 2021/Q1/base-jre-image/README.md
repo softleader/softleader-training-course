@@ -39,7 +39,7 @@ docker build harbor.softleader.com.tw/${my-project}/${my-image}:${my-tag} \
 
 大部分我們的專案都是使用 Jenkins 作為 CI/CD 工具, 因此要稍作調整, 首先修改 Jenkinsfile, 找到打包 Image 步驟, 將其中的打包語法一樣加上 `--no-cache` 及 `--pull`:
 
-```
+```groovy
 stage('docker build') {
     steps {
         sh "docker build --no-cache=${noCache} --pull=${noCache} -t harbor.softleader.com.tw/jasmine/${env.JOB_NAME}:${tag} . -f Dockerfile-ocp"
