@@ -26,12 +26,12 @@ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
 
 我們採用 [Trivy](https://github.com/aquasecurity/trivy) 做為 Image 安全掃描機制, 在每天五夜自動的掃描所有 Harbor Registry 上的 Image,  包含了 Base JRE Image 及使用這些 Base JRE Image 的專案 Image 等
 
-若專案的 Image 也想要套用公司最新的 JRE Base Image 或 OS Package, 需要重新打包, 並且在打包時強制 docker 拉取 Base Image (`--pull`) 及忽略 Cach Layer (`--no-cache`), 如:
+專案的 Image 只要打包過, 在同一個環境的 Docker 會 cache 這些上層的 Image 及 Layers, 若想套用公司最新的 JRE Base Image 或 OS Package 的這些 Fix Pack, 則專案 Image 就必須要重新打包, 並且提醒 Docker 要重新拉取 Base Image (`--pull`) 及忽略 Cach Layer (`--no-cache`), 如:
 
 ```sh
 docker build harbor.softleader.com.tw/${my-project}/${my-image}:${my-tag} \
-	--pull
-	--no-cache
+	--pull \
+	--no-cache \
 	--push
 ```
 
