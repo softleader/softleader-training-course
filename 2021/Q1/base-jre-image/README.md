@@ -20,11 +20,11 @@ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
 若你真的很急想要立馬重 Build, 你可以:
 
 1. 到 [softleader/dockerfile/actions](https://github.com/softleader/dockerfile/actions/workflows/azul.yml) 點選 **Run workflow**
-1. 若上述沒權限, 也可以 checkout [softleader/dockerfile](https://github.com/softleader/dockerfile) 專案, 執行  `azul/build-image.sh` 或 `azul/build-image-no-cache.sh`
+1. 若上述沒權限, 也可以 checkout [softleader/dockerfile](https://github.com/softleader/dockerfile) 專案, 執行 `azul/build-image-no-cache.sh`
 
 ## Vulnerability Scan
 
-我們採用 [Trivy](https://github.com/aquasecurity/trivy) 做為 Image 安全掃描機制, 在每天五夜自動的掃描所有 Harbor Registry 上的 Image,  包含了 Base JRE Image 及使用這些 Base JRE Image 的專案 Image 等
+我們採用 [Trivy](https://github.com/aquasecurity/trivy) 做為 Image 安全掃描機制, 在每天午夜自動的掃描所有 Harbor Registry 上的 Image,  包含了 Base JRE Image 及使用這些 Base JRE Image 的專案 Image 等
 
 專案的 Image 只要打包過, 在同一個環境的 Docker 會 cache 這些上層的 Image 及 Layers, 若想套用公司最新的 JRE Base Image 或 OS Package 的這些 Fix Pack, 則專案 Image 就必須要重新打包, 並且提醒 Docker 要重新拉取 Base Image (`--pull`) 及忽略 Cach Layer (`--no-cache`), 如:
 
