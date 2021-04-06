@@ -57,3 +57,7 @@ stage('docker build') {
 ![](./jenkins-job-param.png)
 
 這樣完成後, 只要在打包 Image 時打勾 `noCache`, 即可套用當前所有的 Security Issue Fix Pack!
+
+### Containerize Tool
+
+如果專案使用的是 [Jib](https://github.com/GoogleContainerTools/jib) 或是 [Buildpacks](https://buildpacks.io/) 等 Image 打包工具, 則應該都不用特別去處理, 因為這些工具通常預設都會去檢查 Base Image 是否有任何更新!
