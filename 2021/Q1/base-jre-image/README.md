@@ -9,8 +9,8 @@
 
 公司維護的 JRE Base Image 都收錄於 [Harbor Registry](https://harbor.softleader.com.tw/), 名稱為:
 
-- **harbor.softleader.com.tw/library/zulu-openjdk-alpine**
-- **harbor.softleader.com.tw/library/adoptopenjdk-alpine**
+- **harbor.softleader.com.tw/library/zulu-openjdk-alpine:{tag}**
+- **harbor.softleader.com.tw/library/adoptopenjdk-alpine:{tag}**
 
 你可以透過 docker 指令拉取, 如:
 
@@ -22,7 +22,7 @@ docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
 docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre-taipei
 ```
 
-要查檢視所有 Tag 請點:
+點擊以下連擊檢視所有 Tag:
 
 - [Azul Zulu Tags](https://harbor.softleader.com.tw/harbor/projects/251/repositories/zulu-openjdk-alpine)
 - [AdoptOpenJDK Tags](https://harbor.softleader.com.tw/harbor/projects/251/repositories/adoptopenjdk-alpine)
@@ -33,7 +33,7 @@ docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre-taipei
 
 若你真的很急想要立馬重 Build, 你可以:
 
-1. 到 [softleader/dockerfile/actions](https://github.com/softleader/dockerfile/actions/workflows/azul.yml) 點選 **Run workflow**
+1. 到 [softleader/dockerfile/actions](https://github.com/softleader/dockerfile/actions) 中選擇對應的 workflow, 點選 **Run workflow**
 2. 若上述沒權限, 也可以 checkout [softleader/dockerfile](https://github.com/softleader/dockerfile) 專案, 執行  `azul-zulu/build-image-no-cache.sh` 或 `adoptopenjdk/build-image-no-cache.sh`
 
 ## Vulnerability Scan
@@ -45,8 +45,7 @@ docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre-taipei
 ```sh
 docker build harbor.softleader.com.tw/${my-project}/${my-image}:${my-tag} \
 	--pull \
-	--no-cache \
-	--push
+	--no-cache
 ```
 
 ### Jenkins Setting
