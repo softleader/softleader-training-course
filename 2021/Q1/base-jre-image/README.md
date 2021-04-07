@@ -1,26 +1,42 @@
 # JRE Base Image
 
-公司有維護 [JRE Base Image](https://github.com/softleader/dockerfile/tree/master/azul), 包含了 Java 8, Java 11 等在公司專案中常用的 JRE 版本, 這些 Image 的上層依賴了 [Azul Zulu](https://www.azul.com/products/zulu-enterprise/jdk-comparison-matrix/), 而公司會再多處理如 TimeZone 等常見的共通性設定
+公司有維護 JRE Base Image, 共有以下版本:
+
+- [Azul Zulu](https://github.com/softleader/dockerfile/tree/master/azul-zulu)
+- [AdoptOpenJDK](https://github.com/softleader/dockerfile/tree/master/adoptopenjdk)
+
+不論哪種版本, 都包含了 Java 8, Java 11 等在公司專案中常用的 JRE 版本
 
 ## Harbor Registry
 
-公司維護的 JRE Base Image 都收錄於 [Harbor Registry](https://harbor.softleader.com.tw/), 名稱為 **harbor.softleader.com.tw/library/zulu-openjdk-alpine**, 你可以透過 docker 指令拉取, 如:
+公司維護的 JRE Base Image 都收錄於 [Harbor Registry](https://harbor.softleader.com.tw/), 名稱為:
+
+- **harbor.softleader.com.tw/library/zulu-openjdk-alpine**
+- **harbor.softleader.com.tw/library/adoptopenjdk-alpine**
+
+你可以透過 docker 指令拉取, 如:
 
 ```sh
+// Azul Zulu
 docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
+
+// AdoptOpenJDK
+docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre-taipei
 ```
 
-> 點擊[檢視所有 Tag](https://harbor.softleader.com.tw/harbor/projects/251/repositories/zulu-openjdk-alpine)
+要查檢視所有 Tag 請點:
 
+- [Azul Zulu Tags](https://harbor.softleader.com.tw/harbor/projects/251/repositories/zulu-openjdk-alpine)
+- [AdoptOpenJDK Tags](https://harbor.softleader.com.tw/harbor/projects/251/repositories/adoptopenjdk-alpine)
 
 ## Nightly Build
 
-為了能盡快套用上層 Azul Zulu Image 或 OS Package 的 Security Issue Fix Pack, 我們使用 [GitHub Action](https://github.com/softleader/dockerfile/blob/master/.github/workflows/azul.yml) 在每天晚間會自動的重 Build 這些 JRE Base Image
+為了能盡快套用上層的 Azul Zulu / AdoptOpenJDK Image 或 OS Package 的 Security Issue Fix Pack, 我們使用 [GitHub Action](https://github.com/softleader/dockerfile/blob/master/.github/workflows) 在每天晚間會自動的重 Build 這些 JRE Base Image
 
 若你真的很急想要立馬重 Build, 你可以:
 
 1. 到 [softleader/dockerfile/actions](https://github.com/softleader/dockerfile/actions/workflows/azul.yml) 點選 **Run workflow**
-1. 若上述沒權限, 也可以 checkout [softleader/dockerfile](https://github.com/softleader/dockerfile) 專案, 執行 `azul/build-image-no-cache.sh`
+2. 若上述沒權限, 也可以 checkout [softleader/dockerfile](https://github.com/softleader/dockerfile) 專案, 執行  `azul-zulu/build-image-no-cache.sh` 或 `adoptopenjdk/build-image-no-cache.sh`
 
 ## Vulnerability Scan
 
