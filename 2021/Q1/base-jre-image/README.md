@@ -17,10 +17,10 @@
 你可以透過 docker 指令拉取, 如:
 
 ```sh
-// Azul Zulu
+# Azul Zulu
 docker pull harbor.softleader.com.tw/library/zulu-openjdk-alpine:11-jre-taipei
 
-// AdoptOpenJDK
+# AdoptOpenJDK
 docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre-taipei
 ```
 
