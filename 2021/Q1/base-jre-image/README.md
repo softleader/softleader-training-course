@@ -1,11 +1,9 @@
 # JRE Base Image
 
-公司有維護 JRE Base Image, 共有以下版本:
+公司有維護 JRE Base Image, 包含了 Java 8, Java 11 等在公司專案中常用的 JRE 版本, 再多做些如 TimeZone 等常見的共通性設定, 一共有以下版本:
 
 - [Azul Zulu](https://github.com/softleader/dockerfile/tree/master/azul-zulu)
 - [AdoptOpenJDK](https://github.com/softleader/dockerfile/tree/master/adoptopenjdk)
-
-不論哪種版本, 都包含了 Java 8, Java 11 等在公司專案中常用的 JRE 版本
 
 ## Harbor Registry
 
