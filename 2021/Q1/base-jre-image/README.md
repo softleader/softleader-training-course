@@ -38,9 +38,9 @@ docker pull harbor.softleader.com.tw/library/adoptopenjdk-alpine:11-jre-taipei
 
 ## Vulnerability Scan
 
-我們支援 [Clair](https://github.com/quay/clair) 及 [Trivy](https://github.com/aquasecurity/trivy) 做為 Image 安全掃描機制, 在每天午夜自動的掃描所有 Harbor Registry 上的 Image,  包含了 Base JRE Image 及使用這些 Base JRE Image 的專案 Image 等
+我們 Harbor Registry 支援 [Clair](https://github.com/quay/clair) 及 [Trivy](https://github.com/aquasecurity/trivy) 做為 Image 安全掃描機制, 在每天午夜自動的掃描所有 Image, 其中包含了 Base JRE Image 及使用這些 Base JRE Image 的專案 Image 等
 
-專案的 Image 只要打包過, 在同一個環境的 Docker 會 cache 這些上層的 Image 及 Layers, 若想套用公司最新的 JRE Base Image 或 OS Package 的這些 Fix Pack, 則專案 Image 就必須要重新打包, 並且提醒 Docker 要重新拉取 Base Image (`--pull`) 及忽略 Cach Layer (`--no-cache`), 如:
+任何專案的 Image 只要打包過, 在同一個環境的 Docker 會自動的 Cache 這些上層的 Image 及其 Layers, 若想套用公司最新的 JRE Base Image, 則專案 Image 就必須要重新打包, 並且提醒 Docker 要重新拉取 Base Image (`--pull`) 及忽略 Cach Layer (`--no-cache`), 就好像 Maven force update (`-U`) 的概念一樣:
 
 ```sh
 docker build harbor.softleader.com.tw/${my-project}/${my-image}:${my-tag} \
