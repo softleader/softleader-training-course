@@ -22,9 +22,9 @@ MapStruct 基於 [JSR 269](https://www.jcp.org/en/jsr/detail?id=269) 來幫你�
 ```xml
 ...
 <properties>
-    <mapstruct.version>1.3.1.Final</mapstruct.version>
-    <lombok.version>1.18.0</lombok.version>
-	<m2e.apt.activation>jdt_apt</m2e.apt.activation>
+    <mapstruct.version>1.4.2.Final</mapstruct.version>
+    <lombok.version>1.18.20</lombok.version>
+    <m2e.apt.activation>jdt_apt</m2e.apt.activation>
 </properties>
 ...
 <dependencies>
@@ -47,6 +47,36 @@ MapStruct 基於 [JSR 269](https://www.jcp.org/en/jsr/detail?id=269) 來幫你�
     </dependency>
 </dependencies>
 ...
+<build>
+  <plugins>
+     <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+           <source>${java.version}</source>
+           <target>${java.version}</target>
+           <annotationProcessorPaths>
+              <path>
+                 <groupId>org.mapstruct</groupId>
+                 <artifactId>mapstruct-processor</artifactId>
+                 <version>${mapstruct.version}</version>
+              </path>
+              <path>
+                 <groupId>org.projectlombok</groupId>
+                 <artifactId>lombok</artifactId>
+                 <version>${lombok.version}</version>
+              </path>
+              <path>
+                 <groupId>org.projectlombok</groupId>
+                 <artifactId>lombok-mapstruct-binding</artifactId>
+                 <version>0.2.0</version>
+              </path>
+           </annotationProcessorPaths>
+        </configuration>
+     </plugin>
+  </plugins>
+</build>
 ```
 
 > 請確保使用版本不可低於: MapStruct 1.2.0.Beta1 及 Lombok 1.16.14
