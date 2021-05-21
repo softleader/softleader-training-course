@@ -42,8 +42,8 @@ curl localhost:8081
 
 ```sh
 # Start the container in background, $(pwd) 取代成當前的目錄
-docker run -d -p 8081:8080 -v "$(pwd)":/logs mytomcat
-docker run -d -p 8081:8080 -v "/d/docker":/logs mytomcat
+docker run -d -p 8081:8080 -v "$(pwd):/logs" mytomcat
+docker run -d -p 8081:8080 -v "/d/docker:/logs" mytomcat
 ```
 
 檢查當前目錄:
