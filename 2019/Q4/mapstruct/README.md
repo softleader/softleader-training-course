@@ -354,7 +354,7 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
 
 11. 多個欄位放進一個欄位 `Foo.key = Bar.id + ":" + Bar.localname`
     ```java
-    @org.mapstruct.Mapper
+    @org.mapstruct.Mapper(builder = @org.mapstruct.Builder(disableBuilder = true))
     interface Mapper {
         Mapper INSTANCE = Mappers.getMapper(Mapper.class);
 
@@ -367,4 +367,5 @@ FinancePayInfoRequest copyPropertiesToRequest(FinancePayInfoData data){
         }
     }
     ```
-    > 使用 `@AfterMapping` 在整個mapping結束後額外處理, 記得要先將欲處理的欄位先設定ignore, 否則會有mapping不到的錯誤 
+    > 使用 `@AfterMapping` 在整個mapping結束後額外處理, 記得要先將欲處理的欄位先設定ignore, 否則會有mapping不到的錯誤  
+    > 此外 `@AfterMapping` 與 lombok.Builder無法相容, 必須要註記此Mapper不使用Builder
