@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Genrate TOC
-        run: pwd
+        run: ./toc-linux
 
       - uses: actions/upload-artifact@v1
         with:
