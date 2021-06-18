@@ -41,4 +41,4 @@
 
 ## GitHub Action
 
-本 Repo 設有 [GitHub Action](./github/workflows) 在 Push 時自動的觸發 *toc*
+本 Repo 設有 [GitHub Action](./.github/workflows) 在 Push 或 PR 時自動的觸發 *toc*
