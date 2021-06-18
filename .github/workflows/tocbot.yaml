@@ -34,4 +34,4 @@ jobs:
           branch: master
           commit_user_name: tocbot 🤖
           commit_user_email: actions@github.com
-          commit_author: tocbot 🤖 @softleader.com.tw
+          commit_author: tocbot 🤖 <actions@github.com>
