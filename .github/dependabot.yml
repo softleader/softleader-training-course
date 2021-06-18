@@ -1,0 +1,8 @@
+version: 2
+updates:
+  # Maintain dependencies for GitHub Actions
+  # ref: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
