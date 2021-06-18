@@ -25,3 +25,6 @@ jobs:
         with:
           commit_message: 'docs: Update generated README'
           branch: master
+          commit_user_name: tocbot 🤖
+          commit_user_email: actions@github.com
+          commit_author: tocbot 🤖 @softleader.com.tw
