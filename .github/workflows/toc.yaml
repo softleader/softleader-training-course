@@ -9,19 +9,19 @@ jobs:
   generate-toc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
 
       - name: Genrate TOC
         run: ./toc-linux
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v2
         with:
           name: README.md
           path: README.md
 
-      - uses: stefanzweifel/git-auto-commit-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'docs: Update generated README'
           branch: master
