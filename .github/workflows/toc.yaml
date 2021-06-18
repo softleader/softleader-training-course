@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
   
 jobs:
-  markscribe:
+  generate-toc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
 
       - name: Genrate TOC
-        run: toc-linux
+        run: pwd
 
       - uses: actions/upload-artifact@v1
         with:
