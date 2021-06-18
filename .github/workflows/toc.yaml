@@ -1,0 +1,20 @@
+name: Genrate TOC
+
+on:
+  push:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  markscribe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Genrate TOC
+        run: ./toc-linux
+
+      - uses: stefanzweifel/git-auto-commit-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit_message: 'docs: Update generated README'
+          branch: master
