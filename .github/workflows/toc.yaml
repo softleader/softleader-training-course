@@ -9,8 +9,15 @@ jobs:
   markscribe:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
+
       - name: Genrate TOC
-        run: ./toc-linux
+        run: toc-linux
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: README.md
+          path: README.md
 
       - uses: stefanzweifel/git-auto-commit-action@v2
         env:
