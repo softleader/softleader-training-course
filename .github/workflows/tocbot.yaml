@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.PAT }}
 
       - name: Genrate TOC
-        run: ./toc/toc-macos . -t toc/templates/readme.md.tpl
+        run: ./toc/toc-linux . -t toc/templates/readme.md.tpl
 
       - uses: actions/upload-artifact@v2
         with:
