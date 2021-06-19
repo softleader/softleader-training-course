@@ -8,6 +8,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strconv"
 	"text/template"
@@ -19,12 +20,11 @@ const (
 {{- $courses := index . "courses" }}
 {{- range $_, $year := $years }}
 
-### {{ $year -}}
-{{ range $_, $season := index $courses $year }}
+#### {{ $year -}}
 
-#### [{{ $season.Season }}](/{{ $year }}/{{ $season.Season }})
-{{ range $_, $course := $season.Courses }}
-- [{{ $course.Course }}](/{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }})
+{{- range $_, $season := index $courses $year }}
+{{- range $_, $course := $season.Courses }}
+- {{ $season.Season }} - [{{ $course.Course }}](/{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}){{ if ne $course.Description "" }} - {{ $course.Description }}{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}`
@@ -101,6 +101,15 @@ func generateTOC(c *config) (err error) {
 				Season: filepath.Base(season),
 				Course: filepath.Base(path),
 			}
+			if md, err := ioutil.ReadFile(filepath.Join(path, "README.md")); err == nil {
+				re := regexp.MustCompile("#{1,6}\\s+(.+)")
+				match := re.FindStringSubmatch(string(md))
+				if len(match) > 0 {
+					if desc := match[1]; desc != c.Course {
+						c.Description = match[1]
+					}
+				}
+			}
 			courses = append(courses, c)
 		}
 	}); err != nil {
@@ -155,6 +164,7 @@ func generateTOC(c *config) (err error) {
 	fmt.Printf("Successfully genereated %s\n", readme)
 	return
 }
+
 func renderTemplate(text string, data interface{}) (string, error) {
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Parse(text))
@@ -209,7 +219,8 @@ type Season struct {
 }
 
 type Course struct {
-	Year   int
-	Season string
-	Course string
+	Year        int
+	Season      string
+	Course      string
+	Description string
 }
