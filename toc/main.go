@@ -51,9 +51,10 @@ PATH 用來指定從哪層目錄 (相對於工作目錄) 開始爬文, 如: '.' 
 
 	$ toc .
 
-傳入 '--workdir' 指定工作目錄, 預設執行指令的當前目錄, 如: 從上一層爬文
+傳入 '--workdir' 指定工作目錄, 可為絕對路徑或相對於當前目錄的路徑, 預設執行指令的當前目錄
 
-	$ toc . --workdir ../
+	$ toc . --workdir ../../
+	$ toc . --workdir /tmp
 
 傳入 '--template' 指定 template 位置 (相對於工作目錄)
 
@@ -84,11 +85,12 @@ PATH 用來指定從哪層目錄 (相對於工作目錄) 開始爬文, 如: '.' 
 }
 
 func generateTOC(c *config) (err error) {
-	if c.workdir == "" {
-		if c.workdir, err = os.Getwd(); err != nil {
-			return err
-		}
+	if c.workdir, err = filepath.Abs(c.workdir); err != nil {
+		return err
 	}
+	fmt.Println(c.workdir)
+
+	return
 
 	// 爬子目錄收集所有課程目錄
 	var courses []Course
