@@ -2,7 +2,7 @@
 > 如何在Java中好好的理解並處理I/O
 
 ## slide
-[Java IO.pptx](Java IO.pptx)
+- [Java IO.pptx](Java%20IO.pptx)
 
 ## demo src
 - [基本使用](demo): 
