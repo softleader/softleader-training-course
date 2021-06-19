@@ -60,7 +60,7 @@ PATH 用來指定從哪層目錄 (相對於工作目錄) 開始爬文, 如: '.' 
 
 	$ toc . --template templates/my.tpl
 
-傳入 '--output' 指令輸出的檔案
+傳入 '--output' 指令輸出的檔案 (相對於工作目錄)
 
 	$ toc . --template templates/my.tpl --output my.file
 `,
@@ -88,9 +88,6 @@ func generateTOC(c *config) (err error) {
 	if c.workdir, err = filepath.Abs(c.workdir); err != nil {
 		return err
 	}
-	fmt.Println(c.workdir)
-
-	return
 
 	// 爬子目錄收集所有課程目錄
 	var courses []Course

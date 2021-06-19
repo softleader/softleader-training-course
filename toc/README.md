@@ -47,7 +47,7 @@ PATH 用來指定從哪層目錄 (相對於工作目錄) 開始爬文, 如: '.' 
 
 	$ toc . --template templates/my.tpl
 
-傳入 '--output' 指令輸出的檔案
+傳入 '--output' 指令輸出的檔案 (相對於工作目錄)
 
 	$ toc . --template templates/my.tpl --output my.file
 
