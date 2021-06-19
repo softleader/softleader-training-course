@@ -5,4 +5,4 @@
 **/mvnw*
 **/.mvn
 **/vendor
-
+**/node_modules
