@@ -11,6 +11,7 @@ import (
 	"regexp"
 	"sort"
 	"strconv"
+	"strings"
 	"text/template"
 )
 
@@ -100,12 +101,13 @@ func generateTOC(c *config) (err error) {
 				Season: filepath.Base(season),
 				Course: filepath.Base(path),
 			}
+			// 找看看課程目錄中的 README.md, 並試著擷取出第一個 header 作為課程說明
 			if md, err := ioutil.ReadFile(filepath.Join(path, "README.md")); err == nil {
 				re := regexp.MustCompile("#{1,6}\\s+(.+)")
 				match := re.FindStringSubmatch(string(md))
 				if len(match) > 0 {
-					if desc := match[1]; desc != c.Course {
-						c.Description = match[1]
+					if desc := match[1]; desc != c.Course { // 當說明跟課程名稱不一樣時才顯示
+						c.Description = strings.TrimSpace(desc)
 					}
 				}
 			}
@@ -173,26 +175,24 @@ func renderTemplate(text string, data interface{}) (string, error) {
 	return buf.String(), nil
 }
 
-// 在第 depth 層的時候依序針對當下的 dir 執行 walkFn
-func walkDir(dirpath string, currentDepth int, depth int, walkFn func(path string)) error {
-	if currentDepth > depth {
+// walkDir 在第 depth 層的時候依序針對當下的 dir 執行 walkFn
+func walkDir(currentPath string, currentDepth int, maxDepth int, walkFn func(path string)) error {
+	if currentDepth > maxDepth {
 		return nil
 	}
-	files, err := ioutil.ReadDir(dirpath)
+	files, err := ioutil.ReadDir(currentPath)
 	if err != nil {
 		return err
 	}
 	for _, file := range files {
 		if file.IsDir() {
-			p := path.Join(dirpath, file.Name())
-			if currentDepth == depth {
+			p := path.Join(currentPath, file.Name())
+			if currentDepth == maxDepth {
 				walkFn(p)
 			}
-			walkDir(p, currentDepth+1, depth, walkFn)
-			continue
-		} else {
-			continue
+			walkDir(p, currentDepth+1, maxDepth, walkFn)
 		}
+		continue
 	}
 	return nil
 }
