@@ -25,7 +25,7 @@ const (
 
 {{- range $_, $season := index $courses $year }}
 {{- range $_, $course := $season.Courses }}
-- {{ $season.Season }} - [{{ $course.Course }}](/{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}){{ if ne $course.Description "" }} - {{ $course.Description }}{{- end }}
+- {{ $season.Season }} - [{{ $course.Course }}](/{{ $course.Year }}/{{ $course.Season }}/{{ $course.Course }}){{ if ne $course.Title "" }} - {{ $course.Title }}{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}`
@@ -101,13 +101,13 @@ func generateTOC(c *config) (err error) {
 				Season: filepath.Base(season),
 				Course: filepath.Base(path),
 			}
-			// 找看看課程目錄中的 README.md, 並試著擷取出第一個 header 作為課程說明
+			// 找看看課程目錄中的 README.md, 並試著擷取出第一個 header 作為課程標題
 			if md, err := ioutil.ReadFile(filepath.Join(path, "README.md")); err == nil {
 				re := regexp.MustCompile("#{1,6}\\s+(.+)")
 				match := re.FindStringSubmatch(string(md))
 				if len(match) > 0 {
-					if desc := match[1]; desc != c.Course { // 當說明跟課程名稱不一樣時才顯示
-						c.Description = strings.TrimSpace(desc)
+					if title := match[1]; title != c.Course { // 當課程標題跟課程名稱不一樣時才顯示
+						c.Title = strings.TrimSpace(title)
 					}
 				}
 			}
@@ -218,8 +218,8 @@ type Season struct {
 }
 
 type Course struct {
-	Year        int
-	Season      string
-	Course      string
-	Description string
+	Year   int
+	Season string
+	Course string
+	Title  string
 }
