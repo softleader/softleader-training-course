@@ -1,6 +1,5 @@
 import '../App.css';
 import React from "react";
-import PropTypes from 'prop-types';
 
 export default class Client extends React.Component {
 

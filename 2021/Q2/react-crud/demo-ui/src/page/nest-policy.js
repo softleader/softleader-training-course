@@ -1,6 +1,5 @@
 import '../App.css';
 import React from "react";
-import PropTypes from 'prop-types';
 import Client from "./nest-client";
 
 export default class Policy extends React.Component {
