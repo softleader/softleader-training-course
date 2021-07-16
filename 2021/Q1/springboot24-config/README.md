@@ -103,7 +103,7 @@ public class AppNameController {
 
 接著開啟專案中的 `application.properties`, 加上:
 
-```yaml
+```properties
  spring.application.name=MyApp
 ```
 
@@ -118,7 +118,7 @@ Hello MyApp
 
 通常在雲平台中, 都有提供 volume mounted 功能將設定檔 mount 至 Container 中, 因此現在我們需要配置一個目錄給之後 mount config 用, 開啟 `application.properties` 加上
 
-```
+```properties
 spring.config.import=optional:file:/tmp/config/
 ```
 
