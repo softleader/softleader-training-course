@@ -52,6 +52,8 @@ spring.application.name=myapp
 spring.config.import=optional:file:./dev.properties
 ```
 
+`spring.config.import` 除了 properties 或 YAML 格式以外, 還[支援了更多其他的設定方式](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.external-config.files.configtree)
+
 ### Profile Specific Files
 
 Spring Boot 2.4 之後在讀取 `application` properties 外, 也跟之前一樣會試著讀取 `application-{profile}` 檔案, 假設我們啟動了 `prod,live` profile , 則載入的順序如下 (檔案沒找到不會報錯):
