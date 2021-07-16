@@ -287,8 +287,8 @@ Hello MyKubernetesApp
 
 ```yaml
 spring:
-	application:
-		name: ${APP_NAME:MyApp}
+  application:
+    name: ${APP_NAME:MyApp}
 ```
 
 然後我們會在 configmap 配置這些挖好的洞, 在部署前先給客戶填寫:
@@ -299,7 +299,7 @@ kind: ConfigMap
 metadata:
   name: demo-config
 data:
-	APP_NAME: MyKubernetesApp
+  APP_NAME: MyKubernetesApp
 ```
 
 對開發人員來說, 需要挖洞的確比較麻煩, 像是:
