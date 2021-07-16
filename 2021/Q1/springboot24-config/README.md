@@ -6,7 +6,7 @@ Spring Boot 2.4 改進了處理 `application.properties` 等設定檔的讀取�
 
 ## Config Data File
 
-Spring Boot 在啟動時會參考許多設定來源 (Configuration Sources), Spring 也提供了[許多方式來配置](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config), 這些源包含了以下常見的 (順序是重要的):
+Spring Boot 在啟動時會參考許多設定來源 (Configuration Sources), Spring 也提供了[許多方式來配置](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config), 這些源包含了以下常見的 (順序是重要的):
 
 - Config data file(如 `application.properties`)
 - OS environment variables
@@ -52,7 +52,7 @@ spring.application.name=myapp
 spring.config.import=optional:file:./dev.properties
 ```
 
-`spring.config.import` 除了 properties 或 YAML 格式以外, 還[支援了更多其他的設定方式](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.external-config.files.configtree)
+`spring.config.import` 除了 properties 或 YAML 檔案格式以外, 還支援了更多其他的設定方式, 如: [Configuration Trees](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.configtree)
 
 ### Profile Specific Files
 
@@ -67,7 +67,7 @@ Spring Boot 2.4 之後在讀取 `application` properties 外, 也跟之前一樣
 -  `,` - 使用逗號分隔多個目錄/檔案，且**有載入順序**的概念
 -  `;` - 使用分號分隔多個目錄/檔案, 是沒有順序的建議，所有目錄/檔案都會被視為同一等級。
 
-> 點擊參考[官方範例說明](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.external-config.files.profile-specific)
+> 點擊參考[官方範例說明](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific)
 
 當設定檔被 Spring 載入後, 會被放入 `Map` 結構的物件中, 若同樣的 key 重複載入時, 其 value 將會被更新, 即後蓋前。換句話說, **載入順序越後面的設定將會最終被採用**
 
