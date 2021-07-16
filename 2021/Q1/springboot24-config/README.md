@@ -73,7 +73,7 @@ Spring Boot 2.4 之後在讀取 `application` properties 外, 也跟之前一樣
 
 ## Prepare Application
 
-首先我們要準備一個 Spring Boot 2.4+ 的 Application, 請到 [Spring Initializr](https://start.spring.io/) 下載一個全新的專, Spring Boot 版本選擇 **2.4.3**, Dependencies 選擇 **Spring Web**, 或是執行以下指令取得:
+首先我們要準備一個 Spring Boot 2.4+ 的 Application, 請到 [Spring Initializr](https://start.spring.io/) 下載一個全新的專, Spring Boot 版本選擇 **2.4+**, Dependencies 選擇 **Spring Web**, 或是執行以下指令取得:
 
 ```bash
 $ curl https://start.spring.io/starter.zip \
@@ -240,6 +240,13 @@ spec:
       containers:
       - name: demo
         image: demo:1.0.0
+        resources:
+          limits:
+            cpu: 2
+            memory: 1Gi
+          requests:
+            cpu: 1
+            memory: 500Mi
         ports:
         - containerPort: 8080
         volumeMounts:
