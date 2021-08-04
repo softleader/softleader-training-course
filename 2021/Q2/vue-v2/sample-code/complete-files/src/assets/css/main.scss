@@ -1,0 +1,17 @@
+
+@mixin default-radius{
+    border-radius: 7px ;
+}
+@mixin btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+@mixin action-btn{
+  @include default-radius;
+  @include btn;
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0 5px;
+}
