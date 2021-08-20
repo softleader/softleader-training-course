@@ -1,94 +1,81 @@
 package tw.com.softleader.demoweb.sample.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tw.com.softleader.demoweb.sample.dao.SampleDao;
-import tw.com.softleader.demoweb.sample.dao.SampleDetailDao;
-import tw.com.softleader.demoweb.sample.entity.SampleDetailEntity;
 import tw.com.softleader.demoweb.sample.entity.SampleEntity;
-import tw.com.softleader.demoweb.sample.web.SampleDetailDto;
 import tw.com.softleader.demoweb.sample.web.SampleDto;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Transactional
 @Service
 public class SampleService {
 
-    @Autowired SampleDao sampleDao;
-    @Autowired SampleDetailDao sampleDetailDao;
+    @Autowired
+    private SampleDao sampleDao;
 
     public List<SampleDto> query(String name, LocalDate dateFrom, LocalDate dateTo) {
-        Specification<SampleEntity> spec = Specification.where(null);
-        if (name != null) {
-            spec = spec.and((r, cq, cb) -> cb.like(r.get("name"), name + "%"));
-        }
-        if (dateFrom != null) {
-            spec = spec.and((r, cq, cb) -> cb.greaterThanOrEqualTo(r.get("date"), dateFrom));
-        }
-        if (dateTo != null) {
-            spec = spec.and((r, cq, cb) -> cb.lessThanOrEqualTo(r.get("date"), dateTo));
-        }
-
-        List<SampleEntity> entities = sampleDao.findAll(spec);
-        List<SampleDto> dtos = new ArrayList<>();
-        for (SampleEntity entity : entities) {
-            dtos.add(toDto(entity));
-        }
-        return dtos;
+        Iterable<SampleEntity> entities = sampleDao.findAll();
+        return StreamSupport.stream(entities.spliterator(), false)
+            .map(this::toDto)
+            .collect(Collectors.toList());
     }
 
     public SampleDto queryOne(Long id) {
-        SampleEntity entity = sampleDao.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("查無物件 ID:" + id));
-        return toDto(entity);
+        return sampleDao.findById(id)
+            .map(this::toDto)
+            .orElseThrow(() -> new IllegalArgumentException(String.format("查無資料 ID:%s", id)));
     }
 
     public void insert(SampleDto sampleDto) {
-        SampleEntity entity = new SampleEntity();
-        entity.setName(sampleDto.getName());
-        entity.setDate(sampleDto.getDate());
-
-//        List<SampleDetailEntity> detailEntities = new ArrayList<>();
-//        for (SampleDetailDto detailDto : sampleDto.getDetails()) {
-//            SampleDetailEntity detailEntity = new SampleDetailEntity();
-//            updateToEntity(detailDto, detailEntity);
-//            detailEntities.add(detailEntity);
-//        }
-
+        SampleEntity entity = toEntity(sampleDto);
         sampleDao.save(entity);
-//        entity.setDetails(detailEntities);
     }
 
     public void update(SampleDto sampleDto) {
-        SampleEntity entity = Optional.ofNullable(sampleDto.getId())
-            .flatMap(sampleDao::findById)
-            .orElseThrow(() -> new IllegalArgumentException("查無物件 ID:" + sampleDto.getId()));
+        Long id = requiredId(sampleDto);
+        SampleEntity dbEntity = sampleDao.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException(String.format("查無資料 ID:%s", id)));
+        updateEntity(sampleDto, dbEntity);
+        sampleDao.save(dbEntity);
+    }
 
-        entity.setName(sampleDto.getName());
-        entity.setDate(sampleDto.getDate());
+    private Long requiredId(SampleDto sampleDto) {
+        return Optional.ofNullable(sampleDto.getId())
+            .orElseThrow(() -> new IllegalArgumentException(String.format("沒有輸入 ID", sampleDto.getId())));
     }
 
     public void delete(Long id) {
         sampleDao.deleteById(id);
     }
 
-    private SampleDto toDto(SampleEntity entity) {
-        SampleDto dto = new SampleDto();
-        dto.setId(entity.getId());
-        dto.setName(entity.getName());
-        dto.setDate(entity.getDate());
-        return dto;
+    SampleDto toDto(SampleEntity entity) {
+        return SampleDto.builder()
+            .id(entity.getId())
+            .name(entity.getName())
+            .amount(entity.getAmount())
+            .date(entity.getDate())
+            .build();
     }
 
-    private void updateToEntity(SampleDetailDto dto, SampleDetailEntity entity) {
-        entity.setId(dto.getId());
-        entity.setName(dto.getName());
-        entity.setDate(dto.getDate());
+    SampleEntity toEntity(SampleDto dto) {
+        return SampleEntity.builder()
+            .id(dto.getId())
+            .name(dto.getName())
+            .amount(dto.getAmount())
+            .date(dto.getDate())
+            .build();
     }
+
+    void updateEntity(SampleDto dto, SampleEntity entity) {
+        entity.setName(dto.getName());
+        entity.setAmount(dto.getAmount());
+    }
+
 }

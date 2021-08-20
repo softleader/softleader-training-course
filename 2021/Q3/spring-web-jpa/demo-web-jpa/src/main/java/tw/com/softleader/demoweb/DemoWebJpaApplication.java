@@ -19,8 +19,8 @@ public class DemoWebJpaApplication {
 	@Bean
 	public Jackson2ObjectMapperBuilderCustomizer jsonCustomizer() {
 		return builder -> builder
-			.serializers(new LocalDateSerializer(DateTimeFormatter.ofPattern("yyyy/MM/dd")))
-			.deserializers(new LocalDateDeserializer(DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+			.serializers(new LocalDateSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+			.deserializers(new LocalDateDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 	}
 
 }
