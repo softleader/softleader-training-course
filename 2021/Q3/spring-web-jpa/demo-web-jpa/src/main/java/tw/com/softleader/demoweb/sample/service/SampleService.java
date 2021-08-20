@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tw.com.softleader.demoweb.sample.dao.SampleDao;
+import tw.com.softleader.demoweb.sample.dao.SampleDetailDao;
+import tw.com.softleader.demoweb.sample.entity.SampleDetailEntity;
 import tw.com.softleader.demoweb.sample.entity.SampleEntity;
+import tw.com.softleader.demoweb.sample.web.SampleDetailDto;
 import tw.com.softleader.demoweb.sample.web.SampleDto;
 
 import java.time.LocalDate;
@@ -19,6 +22,9 @@ public class SampleService {
 
     @Autowired
     private SampleDao sampleDao;
+
+    @Autowired
+    private SampleDetailDao sampleDetailDao;
 
     public List<SampleDto> query(String name, LocalDate dateFrom, LocalDate dateTo) {
         Iterable<SampleEntity> entities = sampleDao.findAll();
@@ -38,6 +44,17 @@ public class SampleService {
         sampleDao.save(entity);
     }
 
+//    public void changeDetail(Long sampleId, Long newDetailId) {
+//        SampleEntity sample = sampleDao.findById(sampleId)
+//            .orElseThrow(() -> new IllegalArgumentException(String.format("查無資料 ID:%s", sampleId)));
+//
+//        SampleDetailEntity sampleDetail = sampleDetailDao.findById(newDetailId)
+//            .orElseThrow(() -> new IllegalArgumentException(String.format("查無Detail資料 ID:%s", newDetailId)));
+//
+////        sample.getDetails().get(0).setSampleId(newDetailId);
+//        sample.setDetails(List.of(sampleDetail));
+//    }
+
     public void update(SampleDto sampleDto) {
         Long id = requiredId(sampleDto);
         SampleEntity dbEntity = sampleDao.findById(id)
@@ -56,20 +73,36 @@ public class SampleService {
     }
 
     SampleDto toDto(SampleEntity entity) {
+        List<SampleDetailDto> details = entity.getDetails().stream()
+            .map(this::toDto)
+            .collect(Collectors.toList());
         return SampleDto.builder()
             .id(entity.getId())
             .name(entity.getName())
             .amount(entity.getAmount())
             .date(entity.getDate())
+            .details(details)
+            .build();
+    }
+
+    SampleDetailDto toDto(SampleDetailEntity entity) {
+        return SampleDetailDto.builder()
+            .id(entity.getId())
+            .name(entity.getName())
+            .date(entity.getDate())
             .build();
     }
 
     SampleEntity toEntity(SampleDto dto) {
+        List<SampleDetailEntity> details = dto.getDetails().stream()
+            .map(this::toEntity)
+            .collect(Collectors.toList());
         return SampleEntity.builder()
             .id(dto.getId())
             .name(dto.getName())
             .amount(dto.getAmount())
             .date(dto.getDate())
+            .details(details)
             .build();
     }
 
@@ -78,4 +111,11 @@ public class SampleService {
         entity.setAmount(dto.getAmount());
     }
 
+    SampleDetailEntity toEntity(SampleDetailDto dto) {
+        return SampleDetailEntity.builder()
+            .id(dto.getId())
+            .name(dto.getName())
+            .date(dto.getDate())
+            .build();
+    }
 }
