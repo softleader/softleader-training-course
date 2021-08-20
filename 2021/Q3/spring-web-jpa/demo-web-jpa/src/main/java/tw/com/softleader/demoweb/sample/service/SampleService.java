@@ -48,7 +48,7 @@ public class SampleService {
 
     private Long requiredId(SampleDto sampleDto) {
         return Optional.ofNullable(sampleDto.getId())
-            .orElseThrow(() -> new IllegalArgumentException(String.format("沒有輸入 ID", sampleDto.getId())));
+            .orElseThrow(() -> new IllegalArgumentException(String.format("沒有輸入 ID")));
     }
 
     public void delete(Long id) {
