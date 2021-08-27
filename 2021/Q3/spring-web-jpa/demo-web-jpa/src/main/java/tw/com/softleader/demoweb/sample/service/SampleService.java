@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tw.com.softleader.demoweb.sample.dao.SampleDao;
-import tw.com.softleader.demoweb.sample.dao.SampleDetailDao;
 import tw.com.softleader.demoweb.sample.entity.SampleDetailEntity;
 import tw.com.softleader.demoweb.sample.entity.SampleEntity;
 import tw.com.softleader.demoweb.sample.web.SampleDetailDto;
@@ -22,9 +21,6 @@ public class SampleService {
 
     @Autowired
     private SampleDao sampleDao;
-
-    @Autowired
-    private SampleDetailDao sampleDetailDao;
 
     public List<SampleDto> query(String name, LocalDate dateFrom, LocalDate dateTo) {
         Iterable<SampleEntity> entities = sampleDao.findAll();
