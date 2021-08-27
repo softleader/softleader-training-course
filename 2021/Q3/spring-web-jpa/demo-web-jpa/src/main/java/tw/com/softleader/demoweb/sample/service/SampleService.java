@@ -1,6 +1,7 @@
 package tw.com.softleader.demoweb.sample.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tw.com.softleader.demoweb.sample.dao.SampleDao;
@@ -23,7 +24,28 @@ public class SampleService {
     private SampleDao sampleDao;
 
     public List<SampleDto> query(String name, LocalDate dateFrom, LocalDate dateTo) {
-        Iterable<SampleEntity> entities = sampleDao.findAll();
+        var spec = Specification.<SampleEntity>where(null);
+        if (name != null && name.length() > 0) {
+            spec = spec.and((r, cq, cb) -> cb.equal(r.get("name"), name));
+        }
+        var dateSpec1 = Specification.<SampleEntity>where(null);
+        if (dateFrom != null) {
+            dateSpec1 = dateSpec1.and((r, cq, cb) -> cb.greaterThanOrEqualTo(r.get("date"), dateFrom));
+        }
+        if (dateFrom != null) {
+            dateSpec1 = dateSpec1.and((r, cq, cb) -> cb.lessThanOrEqualTo(r.get("date"), dateTo));
+        }
+        var dateSpec2 = Specification.<SampleEntity>where(null);
+        if (dateFrom != null) {
+            dateSpec2 = dateSpec2.and((r, cq, cb) -> cb.greaterThanOrEqualTo(r.join("details").get("date"), dateFrom));
+        }
+        if (dateFrom != null) {
+            dateSpec2 = dateSpec2.and((r, cq, cb) -> cb.lessThanOrEqualTo(r.join("details").get("date"), dateTo));
+        }
+        var dateAll = dateSpec1.or(dateSpec2);
+        spec = spec.and(dateAll);
+
+        Iterable<SampleEntity> entities = sampleDao.findAll(spec);
         return StreamSupport.stream(entities.spliterator(), false)
             .map(this::toDto)
             .collect(Collectors.toList());
