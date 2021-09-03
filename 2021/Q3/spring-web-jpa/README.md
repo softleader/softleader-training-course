@@ -1,4 +1,4 @@
-# Spring-MVC
+# Spring-MVC & Spring-Data
 
 ## 相關文章
 [教育訓練 spring-mvc](https://github.com/softleader/java_training_firstins/tree/master/lecture-w6-spring-mvc)
