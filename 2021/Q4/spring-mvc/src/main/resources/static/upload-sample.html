@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Sample</title>
+</head>
+<body>
+  <h1>Upload Sample</h1>
+  <form id="uploadForm">
+    <input name="helloFile" type="file">
+  </form>
+  <button id="do_upload" type="button">upload now!</button>
+
+  <script>
+    document.querySelector('#do_upload').onclick = function (e) {
+      let formData = new FormData(document.querySelector('#uploadForm'));
+      console.log(formData)
+      fetch('/upload', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json()
+      ).then(data => {
+        console.log(data);
+      });
+    }
+  </script>
+</body>
+</html>
