@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.6.1</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <groupId>org.example</groupId>
+  <artifactId>demo-with-sub-parent</artifactId>
+  <version>${revision}</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <revision>1.0.0-SNAPSHOT</revision>
+    <java.version>11</java.version>
+
+    <jib-maven-plugin.version>2.6.0</jib-maven-plugin.version>
+    <image.registry>harbor.softleader.com.tw/demo</image.registry>
+    <jib-maven-plugin.username>robot$demo</jib-maven-plugin.username>
+    <jib-maven-plugin.password>
+      eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mzg1NDcyMDAsImlhdCI6MTYzODUyMTU1NCwiaXNzIjoiaGFyYm9yLXRva2VuLWRlZmF1bHRJc3N1ZXIiLCJpZCI6NTg0NDc0LCJwaWQiOjI1OCwiYWNjZXNzIjpbeyJSZXNvdXJjZSI6Ii9wcm9qZWN0LzI1OC9yZXBvc2l0b3J5IiwiQWN0aW9uIjoicHVzaCIsIkVmZmVjdCI6IiJ9LHsiUmVzb3VyY2UiOiIvcHJvamVjdC8yNTgvaGVsbS1jaGFydCIsIkFjdGlvbiI6InJlYWQiLCJFZmZlY3QiOiIifSx7IlJlc291cmNlIjoiL3Byb2plY3QvMjU4L2hlbG0tY2hhcnQtdmVyc2lvbiIsIkFjdGlvbiI6ImNyZWF0ZSIsIkVmZmVjdCI6IiJ9XX0.WNGEZYFxyk6ijymzhvZ69PosWenIvCTcFSxkRiT-P_KQUMcPgepSwlOzLafBBUOwHTZUgfZVoSBQ0Kvz90ugh1p39IVp672BAZ_henbzG0NUL1TZkVPaWgl9_ca8pEEw1CnJXEY0QYCPqCu07IBuGXrn75xbFkke-ZRf1ViwQ0Tbp2XzNpr0YFwOdQZOPVUo3qzl3VwImrUhR7CYAWH5A0oqsrSWCLviO-D7krO1JnwdGVeCSkxVRYpjCH255dn7L3O8ifaVoNSnXTiPZ4VuTYrt4KHmlngHlsm5LjjWZAws-SwGUFIVjJiHI6N6CEnY9LfqqakZQ3mrkHEhsKdqt7_uN-Li9pDHPYbXwMiJzg2kODEelCzIcHBHmHVfKPE0ZrAEeLXV5Z0fidepx-h9t66CKwYY4BiUbUANfziB6HBCZLW75cn-HLEO8lC_Fl1eKLp9GkX-kihWTd2MFvtmyQSAwBUkcszCjlMOBsfeZqkWQ78VfT8BRA1ZyKDnVE7DcYDLevQF9RZBLZeSdJhyrSBojtssu0RjA2LGSVsZvIxmsX-LlrcZgkVhPpT5pgyKvJDxzM67XkW7FM36TlrFLdxlLd9H7ZfkBcWSzpeSIWTD2kHorBN04-NO7e78NQGlzmE0w8CUGZYd5m41vHPJHa7zrC0DvuKndDj0R0BNo_M
+    </jib-maven-plugin.password>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.example</groupId>
+        <artifactId>demo-core</artifactId>
+        <version>${revision}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>demo-core</module>
+    <module>demo-sub-1</module>
+    <module>demo-sub-2</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.google.cloud.tools</groupId>
+          <artifactId>jib-maven-plugin</artifactId>
+          <version>${jib-maven-plugin.version}</version>
+          <configuration>
+            <to>
+              <image>${image.registry}/${artifactId}</image>
+              <tags>
+                <tag>${revision}</tag>
+              </tags>
+              <auth>
+                <username>${jib-maven-plugin.username}</username>
+                <password>${jib-maven-plugin.password}</password>
+              </auth>
+            </to>
+            <container>
+              <ports>
+                <port>8080</port>
+              </ports>
+            </container>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
