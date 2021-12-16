@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  sonar:
+    image: sonarqube:9.2.2-community
+    environment:
+      sonar.jdbc.url: jdbc:postgresql://db:5432/sonarqube
+      sonar.jdbc.username: sonarqube
+      sonar.jdbc.password: sleader
+    ports:
+      - 9000:9000
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: sonarqube
+      POSTGRES_PASSWORD: sleader
+      PGDATA: /tmp
+
+  db-ui:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@root.ip"
+      PGADMIN_DEFAULT_PASSWORD: "sleader"
+    ports:
+      - 5433:80
