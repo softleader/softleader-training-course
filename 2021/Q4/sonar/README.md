@@ -10,8 +10,8 @@ A: 隆重推薦 >> **SonarQube** <<
 ![](Snipaste_2021-12-16_17-59-59.png)
 > 以上資訊取自 SonarQube台灣代理商: [聚達資服](https://www.extremedata.com.tw/sonarqube/)
 
-## 部屬 SoanrQube(社群版)
-### 前置作業 (SoanrQube內嵌一個Elasticsearch, 需要修改max_map_count)
+## 部屬 SonarQube(社群版)
+### 前置作業 (SonarQube內嵌一個Elasticsearch, 需要修改max_map_count)
 ```shell
 # Windows才需下此行
 wsl -d docker-desktop
@@ -25,7 +25,7 @@ vi /etc/sysctl.conf
 # vm.max_map_count=262144
 ```
 
-### 啟動 SoanrQube
+### 啟動 SonarQube
 ```shell
 # 都幫你寫好了, 用docker就能啟動!
 docker-compose up -d
