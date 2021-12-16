@@ -155,10 +155,45 @@ docker-compose up -d
 ### 執行 maven build
 ```shell
 mvn -Psonar -e clean package sonar:sonar -Dsonar.host.url=http://localhost:9000/ -Dsonar.login=<token>
+
+# window cmd 執行時, 會需要將特定字串補上雙引號 ex:
+ mvn -Psonar -e clean package sonar:sonar -D"sonar.host.url=http://localhost:9000/" -D"sonar.login=8945b6d46f324037e029eb35256cd7c212b2b136"
 ```
 
 ## 查看 SonarQube 報告
 ![](Snipaste_2021-12-16_18-22-06.png)
+
+### List
 1. 專案
    > maven build 成功後會自動建立, 社群版沒有切分branch功能
-2. 
+2. 狀態 `Pass`/`Failed`
+   > 依據程式碼是否有重大問題、覆蓋率、重複行數
+3. Bugs/Vulnerabilities(弱點)/Hotspots Reviewed(安控點檢視)/Code Smells(程式碼異味)
+4. 測試馬覆蓋率/程式重複率
+
+### Overview
+![](Snipaste_2021-12-17_00-56-32.png)
+1. 本次增加
+2. 全部
+
+### Issue
+![](Snipaste_2021-12-17_00-58-09.png)
+1. 大分類
+   > 建議Bug與Vulnerability(弱點)這兩類的所有問題全部要進行修正，這兩類主要是已經存在程式邏輯問題或者是易被利用的弱點  
+   > Code Smell屬於還沒有造成問題，但屬於會逐漸累積成技術債的程式碼，建議至少處理小分類中的 Blocker/Critcal/Major三項
+2. 小分類
+   > 在大分類下，又依據嚴重等級區分的項目
+
+### Security Hotspots
+![](Snipaste_2021-12-17_01-02-54.png)
+- 安控熱點: 屬於架構類應被關注的安全弱點項目，應全部檢視並處理之
+
+
+## 結合CICD
+
+- 以法巴為例: https://github.com/softleader/cardif-ifrs17/blob/master/Jenkinsfile
+   1. 只於 master 中處理 sonar (節省分支包版時間, 避免分支報告覆蓋 master)
+   2. 透過 sonar 產生源碼掃描報告, 提供SIT測試證明
+   
+- 公司通用Sonar: http://softleader.com.tw:39000/
+   - 需透過oidc進行登入，若尚未使用過公司任何需以oidc登入的服務，初次登入需要聯繫RD進行帳號授權開通

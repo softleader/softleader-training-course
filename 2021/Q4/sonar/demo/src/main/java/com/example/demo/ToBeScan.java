@@ -9,10 +9,6 @@ public class ToBeScan {
         Integer i = 1;
         String s = "S";
         i.equals(s);
-        System.out.println("aaaaa");
-        System.out.println("aaaaa");
-        System.out.println("aaaaa");
-        System.out.println("aaaaa");
     }
 
     public static void main(String[] args) {
