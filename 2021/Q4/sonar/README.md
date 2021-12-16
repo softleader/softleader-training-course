@@ -22,7 +22,7 @@ sysctl -w vm.max_map_count=262144
 # 修改使重開機後依然能生效
 vi /etc/sysctl.conf
 # 於該文檔內容加入下行
-# vm.max_map_count=262144
+vm.max_map_count=262144
 ```
 
 ### 啟動 SonarQube
