@@ -1,6 +1,7 @@
 import React from "react";
 import {CreditCardInput} from "./creditCardInput";
 import {CreditInput} from "./functionComponents";
+import {Policy} from "./Policy";
 
 
 class App extends React.Component {
@@ -13,7 +14,19 @@ class App extends React.Component {
       toInsertData: {
         name: "",
         role: "",
-      }
+      },
+      policy: {
+        policyNo: "SL202112041111",
+        risks: [
+          {
+            riskId: "路人甲", items: [{itemNo: "IT001"}, {itemNo: "IT002"}]
+          },
+          {
+            riskId: "路人乙", items: [{itemNo: "IT301"}, {itemNo: "IT302"}, {itemNo: "IT303"}]
+          }
+        ]
+      },
+      showPolicy: ""
     }
   }
 
@@ -66,8 +79,16 @@ class App extends React.Component {
         </div>
 
         <hr/>
-          <CreditInput value={this.state.credit}/>
+        <CreditInput value={this.state.credit}/>
         <hr/>
+
+        <hr/>
+
+        <Policy policy={this.state.policy}/>
+
+        <button type="button" onClick={() => this.setState({showPolicy: JSON.stringify(this.state.policy)})}>Save</button>
+
+        <code style={{backgroundColor: "#CCC"}}>{this.state.showPolicy}</code>
 
         <div>
           <h1>{this.props.fnName}</h1>
@@ -94,7 +115,9 @@ class App extends React.Component {
             <tbody>
             {this.state.queryResults.map(data => (
               <tr key={data.id}>
-                <td><button type="button" onClick={() => this.handleDelete(data)}>del</button></td>
+                <td>
+                  <button type="button" onClick={() => this.handleDelete(data)}>del</button>
+                </td>
                 <td>{data.id}</td>
                 <td>{data.name}</td>
                 <td>{data.role}</td>
