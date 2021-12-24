@@ -1,16 +1,26 @@
 import React from "react";
+import {CreditCardInput} from "./creditCardInput";
+import {CreditInput} from "./functionComponents";
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      credit: "1234-5678-9012-3456",
+      memValue: "",
       queryResults: [],
       toInsertData: {
         name: "",
         role: "",
       }
     }
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   handleChangeInsertData = (e) => {
@@ -49,6 +59,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <h1>sample</h1>
+
+        <div>
+          <CreditCardInput name="credit" value={this.state.credit} onChange={this.handleChange}/>
+        </div>
+
+        <hr/>
+          <CreditInput value={this.state.credit}/>
+        <hr/>
+
         <div>
           <h1>{this.props.fnName}</h1>
 
@@ -57,7 +77,9 @@ class App extends React.Component {
           <input type="text" name="role" onChange={this.handleChangeInsertData} value={this.state.toInsertData.role}/>
           <button type="button" onClick={this.handleInsert}>insert</button>
         </div>
+
         <hr/>
+
         <div>
           <button type="button" onClick={this.handleQuery}>query</button>
           <table>
