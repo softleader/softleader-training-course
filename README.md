@@ -52,6 +52,11 @@
 
 #### 2022
 - Q1 - [unit-testing](/2022/Q1/unit-testing) - Unit Testing 手把手教學
+- Q4 - [deploy-way-at-softleader](/2022/Q4/deploy-way-at-softleader) - 我們公司的主流部屬方式以及其演進
+- Q4 - [intellij-idea-introduce](/2022/Q4/intellij-idea-introduce) - 從 docker run 開始到 kubectl apply
+- Q4 - [k8s-series-1](/2022/Q4/k8s-series-1) - 給只知道Tomcat的人一步步開始了解Docker跟Container
+- Q4 - [k8s-series-2](/2022/Q4/k8s-series-2) - 從 docker run 開始到 kubectl apply
+- Q4 - [k8s-series-3](/2022/Q4/k8s-series-3) - 從 如何從SLKE上的資訊了解專案的運作內容
 
 #### 2021
 - Q1 - [base-jre-image](/2021/Q1/base-jre-image) - JRE Base Image
