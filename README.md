@@ -58,6 +58,7 @@
 - Q4 - [k8s-series-1](/2022/Q4/k8s-series-1) - 給只知道Tomcat的人一步步開始了解Docker跟Container
 - Q4 - [k8s-series-2](/2022/Q4/k8s-series-2) - 從 docker run 開始到 kubectl apply
 - Q4 - [k8s-series-3](/2022/Q4/k8s-series-3) - 如何從SLKE上的資訊了解專案的運作內容
+- Q4 - [stream](/2022/Q4/stream) - 如何從SLKE上的資訊了解專案的運作內容
 
 #### 2021
 - Q1 - [base-jre-image](/2021/Q1/base-jre-image) - JRE Base Image
