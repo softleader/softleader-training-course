@@ -53,19 +53,20 @@
 #### 2023
 - Q1 - [auto-managed-ingress](/2023/Q1/auto-managed-ingress) - Auto Managed Ingess
 - Q1 - [reducing-if-else](/2023/Q1/reducing-if-else) - 如何減少程式內的IF-ELSE
-- Q1 - [spring-web-101](/2023/Q1/spring-web-101) - 從 Http 開始了解的 Spring Web
+- Q1 - [spring-web-101](/2023/Q1/spring-web-101) - Spring-Web-101 從 Http 開始了解的 Spring Web
+- Q1 - [spring-web-102](/2023/Q1/spring-web-102) - Spring-Web-102 講講Security
 - Q1 - [what-is-spring-bean](/2023/Q1/what-is-spring-bean) - 講講Spring Bean與我們Framework的前世今生
 
 #### 2022
 - Q1 - [unit-testing](/2022/Q1/unit-testing) - Unit Testing 手把手教學
 - Q4 - [deploy-way-at-softleader](/2022/Q4/deploy-way-at-softleader) - 我們公司的主流部屬方式以及其演進
-- Q4 - [intellij-idea-introduce](/2022/Q4/intellij-idea-introduce) - 從 docker run 開始到 kubectl apply
+- Q4 - [intellij-idea-introduce](/2022/Q4/intellij-idea-introduce) - Intellij-idea使用技巧
 - Q4 - [java-data-tips](/2022/Q4/java-data-tips) - Java處理大量資料或迴圈時的注意點
 - Q4 - [k8s-series-1](/2022/Q4/k8s-series-1) - 給只知道Tomcat的人一步步開始了解Docker跟Container
 - Q4 - [k8s-series-2](/2022/Q4/k8s-series-2) - 從 docker run 開始到 kubectl apply
 - Q4 - [k8s-series-3](/2022/Q4/k8s-series-3) - 如何從SLKE上的資訊了解專案的運作內容
 - Q4 - [k8s-series-4](/2022/Q4/k8s-series-4) - Kubernetes deployment 撰寫技巧
-- Q4 - [stream](/2022/Q4/stream) - 如何從SLKE上的資訊了解專案的運作內容
+- Q4 - [stream](/2022/Q4/stream) - Stream Api的活用
 
 #### 2021
 - Q1 - [base-jre-image](/2021/Q1/base-jre-image) - JRE Base Image
