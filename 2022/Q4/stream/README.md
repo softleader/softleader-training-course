@@ -1,4 +1,4 @@
-# 如何從SLKE上的資訊了解專案的運作內容
+# Stream Api的活用
 
 相關教育訓練:
 [2016](https://github.com/softleader/softleader-training-course/blob/master/2016/Q1/stream-and-lambda/Stream%26Lambda.md)
