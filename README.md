@@ -53,6 +53,7 @@
 #### 2023
 - Q1 - [access-control](/2023/Q1/access-control) - Kapok Security - Access Control
 - Q1 - [auto-managed-ingress](/2023/Q1/auto-managed-ingress) - Auto Managed Ingess
+- Q1 - [kuztomize-part1](/2023/Q1/kuztomize-part1) - Kustomize: Part 1
 - Q1 - [reducing-if-else](/2023/Q1/reducing-if-else) - 如何減少程式內的IF-ELSE
 - Q1 - [spring-web-101](/2023/Q1/spring-web-101) - Spring-Web-101 從 Http 開始了解的 Spring Web
 - Q1 - [spring-web-102](/2023/Q1/spring-web-102) - Spring-Web-102 講講Security
