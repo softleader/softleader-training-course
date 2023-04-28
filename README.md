@@ -58,6 +58,7 @@
 - Q1 - [spring-data](/2023/Q1/spring-data) - Spring Data Jpa
 - Q1 - [spring-web](/2023/Q1/spring-web) - 從 Http 開始了解的 Spring Web
 - Q1 - [what-is-spring-bean](/2023/Q1/what-is-spring-bean) - 講講Spring Bean與我們Framework的前世今生
+- Q2 - [aop](/2023/Q2/aop) - 深入淺出 AOP
 
 #### 2022
 - Q1 - [unit-testing](/2022/Q1/unit-testing) - Unit Testing 手把手教學
