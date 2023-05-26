@@ -53,13 +53,13 @@
 #### 2023
 - Q1 - [access-control](/2023/Q1/access-control) - Kapok Security - Access Control
 - Q1 - [auto-managed-ingress](/2023/Q1/auto-managed-ingress) - Auto Managed Ingess
-- Q1 - [kubernetes-101](/2023/Q1/kubernetes-101) - 認識Kubernetes
 - Q1 - [kuztomize-part1](/2023/Q1/kuztomize-part1) - Kustomize: Part 1
 - Q1 - [reducing-if-else](/2023/Q1/reducing-if-else) - 如何減少程式內的IF-ELSE
 - Q1 - [spring-data](/2023/Q1/spring-data) - Spring Data Jpa
 - Q1 - [spring-web](/2023/Q1/spring-web) - 從 Http 開始了解的 Spring Web
 - Q1 - [what-is-spring-bean](/2023/Q1/what-is-spring-bean) - 講講Spring Bean與我們Framework的前世今生
 - Q2 - [aop](/2023/Q2/aop) - 深入淺出 AOP
+- Q2 - [kubernetes-training](/2023/Q2/kubernetes-training) - 認識Kubernetes
 
 #### 2022
 - Q1 - [unit-testing](/2022/Q1/unit-testing) - Unit Testing 手把手教學
