@@ -25,3 +25,7 @@
   - 自 image 啟動 container: `docker run -p 18080:8080 localhost/tomcat-demo:9.0.75-jdk17`
   - 將 image 匯出為 tar檔: `docker save -o tomcat-demo_9.0.75-jdk17.tar localhost/tomcat-demo:9.0.75-jdk17`
   - 將 tar檔 匯入為 image: `docker load -i tomcat-demo_9.0.75-jdk17.tar`
+
+
+## 第三堂: 說明公司主要在使用的過版方式
+- 錄影檔: https://drive.google.com/file/d/193WIwunc-xbO58ZsClLbjZPUkccjvPuu/view?usp=share_link
