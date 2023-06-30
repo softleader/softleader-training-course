@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: tomcat
+spec:
+  selector:
+    name: tomcat
+  type: ClusterIP
+  ports:
+    - port: 8080

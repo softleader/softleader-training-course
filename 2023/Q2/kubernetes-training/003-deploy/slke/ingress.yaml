@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tomcat
+  annotations:
+    kubernetes.io/ingress.class: istio
+    ingress.kubernetes.io/proxy-body-size: "100M"
+    ingress.softleader.com.tw/automanaged: "true" # 標記要由 SLKE 來自動管理
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tomcat
+                port:
+                  number: 8080

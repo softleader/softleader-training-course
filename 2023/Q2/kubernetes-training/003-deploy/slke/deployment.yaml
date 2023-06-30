@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat
+spec:
+  selector:
+    matchLabels:
+      name: tomcat
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: tomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: harbor.softleader.com.tw/demo/tomcat-demo:9.0.75-jdk17
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: 2
+              memory: 500M
+            requests:
+              cpu: 200m
+              memory: 500M

@@ -29,3 +29,19 @@
 
 ## 第三堂: 說明公司主要在使用的過版方式
 - 錄影檔: https://drive.google.com/file/d/193WIwunc-xbO58ZsClLbjZPUkccjvPuu/view?usp=share_link
+
+## 第四堂: 部屬App到K8S
+- 錄影檔: https://drive.google.com/file/d/1z4YiH1IYAmYLwIrFMkVFNY7SdXD1ST47/view?usp=drive_link
+- docker-compose指令
+  - 佈署/啟動: `docker compose up -d`
+  - 啟動 `docker compose start -d`
+  - 停止: `docker compose stop`
+  - 移除部屬: `docker compose down`
+- kubernetes指令
+  - 查詢 pod `kubectl get po`
+  - 查詢 pod 並觀察變化 `kubectl get po -w`
+  - 佈署/啟動(針對本地yaml): `kubectl apply -f .`
+  - 移除佈署(針對本地yaml): `kubectl delete -f .`
+
+## 第五堂: 從案例來看怎麼撰寫 k8s yaml
+- 錄影檔: https://drive.google.com/file/d/1mFhu1HAUY4_ycajgx1XdlSojBy_mzhMG/view?usp=drive_link
