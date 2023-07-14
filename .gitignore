@@ -7,3 +7,5 @@
 **/.mvn
 **/vendor
 **/node_modules
+.bkp
+.dtmp

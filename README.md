@@ -61,6 +61,7 @@
 - Q2 - [aop](/2023/Q2/aop) - 深入淺出 AOP
 - Q2 - [kubernetes-training](/2023/Q2/kubernetes-training) - 認識Kubernetes
 - Q2 - [oidc](/2023/Q2/oidc) - 認識 OAuth2/OIDC 及如何使用 Kapok 串接
+- Q2 - [oomkilled](/2023/Q2/oomkilled) - 為啥我部署到 Kubernetes 的程式被 OOMKilled 了!?
 
 #### 2022
 - Q1 - [unit-testing](/2022/Q1/unit-testing) - Unit Testing 手把手教學
