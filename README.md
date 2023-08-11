@@ -63,7 +63,9 @@
 - Q2 - [oidc](/2023/Q2/oidc) - 認識 OAuth2/OIDC 及如何使用 Kapok 串接
 - Q2 - [oomkilled](/2023/Q2/oomkilled) - 為啥我部署到 Kubernetes 的程式被 OOMKilled 了!?
 - Q3 - [js-es6](/2023/Q3/js-es6) - JavaScript  ES6 都出了這麼久了, 這些特性這麼好用你還沒用嗎?
+- Q3 - [oop-practice](/2023/Q3/oop-practice) - 物件導向的特性運用
 - Q3 - [release-workflow](/2023/Q3/release-workflow) - Release Workflow
+- Q3 - [vue-component-practice](/2023/Q3/vue-component-practice) - 在Vue寫一個Component有什麼要點
 
 #### 2022
 - Q1 - [unit-testing](/2022/Q1/unit-testing) - Unit Testing 手把手教學
