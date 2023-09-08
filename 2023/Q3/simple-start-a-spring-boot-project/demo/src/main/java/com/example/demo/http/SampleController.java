@@ -2,6 +2,8 @@ package com.example.demo.http;
 
 import com.example.demo.Sample;
 import com.example.demo.SampleService;
+import com.example.demo.jpa.SampleNameTypeDto;
+import com.example.demo.jpa.SampleNameTypeVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,16 @@ public class SampleController {
     log.info("id:{}, name:{}", id, name);
 
     return sampleService.query();
+  }
+
+  @GetMapping("/projection/1")
+  public List<SampleNameTypeVo> queryProjection1() {
+    return sampleService.queryProjection1();
+  }
+
+  @GetMapping("/projection/2")
+  public List<SampleNameTypeDto> queryProjection2() {
+    return sampleService.queryProjection2();
   }
 
   @GetMapping("/{id}")

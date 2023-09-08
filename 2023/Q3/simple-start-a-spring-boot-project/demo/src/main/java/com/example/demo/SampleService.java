@@ -2,6 +2,8 @@ package com.example.demo;
 
 import com.example.demo.jpa.SampleDao;
 import com.example.demo.jpa.SampleEntity;
+import com.example.demo.jpa.SampleNameTypeDto;
+import com.example.demo.jpa.SampleNameTypeVo;
 import com.example.demo.mapper.SampleMapper;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +15,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Year;
 import java.time.YearMonth;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -59,15 +61,15 @@ public class SampleService {
   }
 
   public List<Sample> query() {
-    List<SampleEntity> entities = sampleDao.findAll();
+    return sampleDao.findAll().stream().map(sampleMapper::fromJpa).collect(Collectors.toList());
+  }
 
-    List<Sample> result = new ArrayList<>();
-    for (SampleEntity entity : entities) {
-      var dto = sampleMapper.fromJpa(entity);;
-      result.add(dto);
-    }
+  public List<SampleNameTypeVo> queryProjection1() {
+    return sampleDao.findProjection1();
+  }
 
-    return result;
+  public List<SampleNameTypeDto> queryProjection2() {
+    return sampleDao.findProjection2();
   }
 
   public Sample insert(Sample dto) {
