@@ -7,6 +7,9 @@ import com.example.demo.jpa.SampleNameTypeVo;
 import com.example.demo.mapper.SampleMapper;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,6 +61,11 @@ public class SampleService {
             .year(Year.now())
             .build()
     ));
+
+  }
+
+  public Page<Sample> query(Specification<SampleEntity> spec, Pageable pageable) {
+    return sampleDao.findAll(spec, pageable).map(sampleMapper::fromJpa);
   }
 
   public List<Sample> query() {

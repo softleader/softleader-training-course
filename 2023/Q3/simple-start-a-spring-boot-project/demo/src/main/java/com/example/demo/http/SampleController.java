@@ -2,10 +2,14 @@ package com.example.demo.http;
 
 import com.example.demo.Sample;
 import com.example.demo.SampleService;
+import com.example.demo.jpa.SampleEntity;
 import com.example.demo.jpa.SampleNameTypeDto;
 import com.example.demo.jpa.SampleNameTypeVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,13 +29,21 @@ public class SampleController {
   final SampleService sampleService;
 
   @GetMapping
-  public List<Sample> query(
+  public Page<Sample> query(
       @RequestParam(required = false) Long id,
-      @RequestParam(required = false) String name) {
+      @RequestParam(required = false) String name,
+      Pageable pageable) {
 
     log.info("id:{}, name:{}", id, name);
+    var spec = Specification.<SampleEntity>where(null);
+    if (id != null) {
+      spec = spec.and(Specification.where((entity, q, cb) -> cb.equal(entity.get("id"), id)));
+    }
+    if (name != null && !name.isBlank()) {
+      spec = spec.and(Specification.where((entity, q, cb) -> cb.like(entity.get("name"), "%" + name + "%")));
+    }
 
-    return sampleService.query();
+    return sampleService.query(spec, pageable);
   }
 
   @GetMapping("/projection/1")
