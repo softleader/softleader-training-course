@@ -66,6 +66,7 @@
 - Q3 - [oop-practice](/2023/Q3/oop-practice) - 物件導向的特性運用
 - Q3 - [release-workflow](/2023/Q3/release-workflow) - Release Workflow
 - Q3 - [simple-start-a-spring-boot-project](/2023/Q3/simple-start-a-spring-boot-project) - Spring Boot 入門 (Web + Jpa)
+- Q3 - [specification-mapper](/2023/Q3/specification-mapper) - Specification Mapper
 - Q3 - [vue-component-practice](/2023/Q3/vue-component-practice) - 在Vue寫一個Component有什麼要點
 
 #### 2022
