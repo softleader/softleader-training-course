@@ -3,11 +3,12 @@ package com.example.demo.jpa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
+import tw.com.softleader.data.jpa.spec.repository.QueryBySpecExecutor;
 
 import java.util.List;
 
 public interface SampleDao extends
-    JpaRepository<SampleEntity, Long>, JpaSpecificationExecutor<SampleEntity> {
+    JpaRepository<SampleEntity, Long>, JpaSpecificationExecutor<SampleEntity>, QueryBySpecExecutor<SampleEntity> {
 
   List<SampleEntity> findByName(String name);
 

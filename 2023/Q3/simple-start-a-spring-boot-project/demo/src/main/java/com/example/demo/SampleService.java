@@ -68,6 +68,10 @@ public class SampleService {
     return sampleDao.findAll(spec, pageable).map(sampleMapper::fromJpa);
   }
 
+  public Page<Sample> queryBySpec(SampleCriteria criteria, Pageable pageable) {
+    return sampleDao.findBySpec(criteria, pageable).map(sampleMapper::fromJpa);
+  }
+
   public List<Sample> query() {
     return sampleDao.findAll().stream().map(sampleMapper::fromJpa).collect(Collectors.toList());
   }

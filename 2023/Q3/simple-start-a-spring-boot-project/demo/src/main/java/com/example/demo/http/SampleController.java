@@ -1,6 +1,7 @@
 package com.example.demo.http;
 
 import com.example.demo.Sample;
+import com.example.demo.SampleCriteria;
 import com.example.demo.SampleService;
 import com.example.demo.jpa.SampleEntity;
 import com.example.demo.jpa.SampleNameTypeDto;
@@ -44,6 +45,11 @@ public class SampleController {
     }
 
     return sampleService.query(spec, pageable);
+  }
+
+  @GetMapping("/spec")
+  public Page<Sample> queryBySpec(SampleCriteria criteria, Pageable pageable) {
+    return sampleService.queryBySpec(criteria, pageable);
   }
 
   @GetMapping("/projection/1")
