@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25.3
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: nginx-vol
+      volumes:
+        - name: nginx-vol
+          configMap:
+            name: nginx-conf
+            items:
+              - key: index.html
+                path: index.html
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-conf
+data:
+  index.html: |
+    <h1>Hello World</h1>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1 # 請注意版本
+kind: Ingress
+metadata:
+  name: nginx
+  namespace: default
+  annotations:
+    ingress.softleader.com.tw/automanaged: "true" # 標記是管理目標
+spec:
+  ingressClassName: istio
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: nginx-service
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix

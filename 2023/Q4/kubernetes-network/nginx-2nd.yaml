@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-2-deployment
+  labels:
+    app: nginx-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-2
+  template:
+    metadata:
+      labels:
+        app: nginx-2
+    spec:
+      containers:
+        - name: nginx-2
+          image: nginx:1.25.3
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: nginx-vol
+      volumes:
+        - name: nginx-vol
+          configMap:
+            name: nginx-2-conf
+            items:
+              - key: index.html
+                path: index.html
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-2-conf
+data:
+  index.html: |
+    <h1>Hello World 2nd</h1>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-2-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-2
+  ports:
+    - port: 80
+      targetPort: 80
