@@ -69,7 +69,7 @@
 - Q3 - [simple-start-a-spring-boot-project](/2023/Q3/simple-start-a-spring-boot-project) - Spring Boot 入門 (Web + Jpa)
 - Q3 - [specification-mapper](/2023/Q3/specification-mapper) - Specification Mapper
 - Q3 - [vue-component-practice](/2023/Q3/vue-component-practice) - 在Vue寫一個Component有什麼要點
-- Q4 - [kubernetes-network](/2023/Q4/kubernetes-network)
+- Q4 - [kubernetes-network](/2023/Q4/kubernetes-network) - 我該如何Call到Pod (K8S的Servcie運用案例說明)
 - Q4 - [what-happens-when-kubectl-apply-deploy](/2023/Q4/what-happens-when-kubectl-apply-deploy) - 執行 `kubectl apply deployment` 後發生了什麼事
 
 #### 2022
