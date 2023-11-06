@@ -1,6 +1,6 @@
 # 我該如何Call到Pod (K8S的Servcie運用案例說明)
 
-- 錄影檔: 待補
+- [錄影檔](https://drive.google.com/file/d/1NdGPFgbiGnWBeU3_r5XbELkCZwE0-2nP/view?usp=drive_link)
 
 各種不同地方的App互相呼叫
 ![container_on_local.drawio.png](container_on_local.drawio.png)
