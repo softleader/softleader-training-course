@@ -71,6 +71,7 @@
 - Q3 - [vue-component-practice](/2023/Q3/vue-component-practice) - 在Vue寫一個Component有什麼要點
 - Q4 - [kubernetes-basic](/2023/Q4/kubernetes-basic) - K8S deployment詳解
 - Q4 - [kubernetes-network](/2023/Q4/kubernetes-network) - 我該如何Call到Pod (K8S的Servcie運用案例說明)
+- Q4 - [stream-collect](/2023/Q4/stream-collect) - 深度剖析 java.util.stream.Stream#collect
 - Q4 - [what-happens-when-kubectl-apply-deploy](/2023/Q4/what-happens-when-kubectl-apply-deploy) - 執行 `kubectl apply deployment` 後發生了什麼事
 
 #### 2022
