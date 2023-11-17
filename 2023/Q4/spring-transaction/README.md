@@ -1,6 +1,6 @@
 # 講解 Spring Transaction 適用情境與運作原理
 
-錄影檔: 待補
+[錄影檔](https://drive.google.com/file/d/1FpBQks5c1XJx2o8vx2NeL6NAyquY6OYs/view?usp=drive_link)
 
 ## Demos
 
