@@ -60,4 +60,34 @@ class DemoApplicationTests {
     sampleTxNestService.saveOneX2Complex();
   }
 
+  @Test
+  void txNestTest1WithError() {
+    sampleTxNestService.saveTxTwoX2Error();
+  }
+
+  @Test
+  void txNestTest1WithCatchError() {
+    sampleTxNestService.saveTxTwoX2CatchError();
+  }
+
+  @Test
+  void txNestTest2Error() {
+    sampleTxNestService.saveNoTxTwoX2Error();
+  }
+
+  @Test
+  void txNestTest2CatchError() {
+    sampleTxNestService.saveNoTxTwoX2CatchError();
+  }
+
+  @Test
+  void txNestTest3Error() {
+    sampleTxNestService.saveOneX2ComplexCatchError();
+  }
+
+  @Test
+  void txNestTest4() {
+    sampleTxNestService.saveAndInnerSaveRequiresNew();
+  }
+
 }

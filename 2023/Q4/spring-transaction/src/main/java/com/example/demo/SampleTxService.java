@@ -21,6 +21,12 @@ public class SampleTxService {
     sampleDao.save(SampleEntity.builder().name("Rhys").build());
   }
 
+  @Transactional(propagation = Propagation.REQUIRES_NEW)
+  public void saveOneRequiresNewError() {
+    sampleDao.save(SampleEntity.builder().name("Rhys").build());
+    throw new RuntimeException();
+  }
+
   @Transactional(propagation = Propagation.NOT_SUPPORTED)
   public void saveOneNotSupported() {
     sampleDao.save(SampleEntity.builder().name("Rhys").build());

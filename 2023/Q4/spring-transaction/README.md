@@ -1,12 +1,14 @@
 # 講解 Spring Transaction 適用情境與運作原理
 
-[錄影檔](https://drive.google.com/file/d/1FpBQks5c1XJx2o8vx2NeL6NAyquY6OYs/view?usp=drive_link)
+[錄影檔-1](https://drive.google.com/file/d/1FpBQks5c1XJx2o8vx2NeL6NAyquY6OYs/view?usp=drive_link)
+[錄影檔-2](https://drive.google.com/file/d/1ei2FUJ_kB3b5hFB2AqvZGWxeZGgWm7nE/view?usp=drive_link)
 
 ## Demos
 
 [`com.example.demo.DemoApplicationTests`](./src/test/java/com/example/demo/DemoApplicationTests.java)
 
 ![transaction.drawio.png](transaction.drawio.png)
+![transaction-error.drawio.png](transaction-error.drawio.png)
 
 ```
 org.springframework.transaction.annotation.Propagation 是 Spring Framework 中的一個枚舉（enum），用於指定事務的傳播行為。這些枚舉常用於標註在方法上，以指定事務的行為。以下是 Propagation 中的一些項目及其作用：
@@ -34,3 +36,9 @@ NESTED:
 如果當前存在事務，則在內部創建一個嵌套事務（可以有多個保存點），如果不存在，則創建一個新的事務。
 這些選項用於指定當前方法被調用時，事務管理器應該如何處理事務。不同的傳播行為適用於不同的應用場景，並允許開發人員細粒度地控制事務的行為。
 ```
+
+
+### AOP
+
+https://welson327.gitbooks.io/java-spring/content/spring_aop/aop.html
+https://openhome.cc/Gossip/Spring/Pointcut.html
