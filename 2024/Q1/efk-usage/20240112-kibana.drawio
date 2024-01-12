@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net" modified="2024-01-12T07:16:41.781Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="wEZs0hLWpcktgLJCuYVQ" version="22.1.18" type="device">
+  <diagram name="第 1 页" id="4DAZgWkxQ5z-zWdYElK5">
+    <mxGraphModel dx="821" dy="416" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uukZPYiRbafD88AXiybu-1" value="Browser" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="260" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-2" value="UI&lt;br&gt;&lt;br&gt;&lt;b&gt;Kibana&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="250" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-3" value="Oauth&lt;br&gt;Proxy" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="250" width="50" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-4" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="uukZPYiRbafD88AXiybu-1" target="uukZPYiRbafD88AXiybu-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="350" as="sourcePoint" />
+            <mxPoint x="420" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=5;" edge="1" parent="1" source="uukZPYiRbafD88AXiybu-3" target="uukZPYiRbafD88AXiybu-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="350" as="sourcePoint" />
+            <mxPoint x="420" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-6" value="Backend&lt;br&gt;&lt;br&gt;&lt;b&gt;Elasticsearch&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="250" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=5;" edge="1" parent="1" source="uukZPYiRbafD88AXiybu-2" target="uukZPYiRbafD88AXiybu-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="350" as="sourcePoint" />
+            <mxPoint x="550" y="300" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-8" value="OIDC Login Page" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-9" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="uukZPYiRbafD88AXiybu-3" target="uukZPYiRbafD88AXiybu-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="300" as="sourcePoint" />
+            <mxPoint x="380" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-10" value="No Login" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uukZPYiRbafD88AXiybu-9">
+          <mxGeometry x="0.4599" relative="1" as="geometry">
+            <mxPoint x="-8" y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-12" value="OIDC Server" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="10" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-13" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="uukZPYiRbafD88AXiybu-8" target="uukZPYiRbafD88AXiybu-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="220" as="sourcePoint" />
+            <mxPoint x="550" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-14" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="uukZPYiRbafD88AXiybu-12" target="uukZPYiRbafD88AXiybu-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="220" as="sourcePoint" />
+            <mxPoint x="550" y="170" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uukZPYiRbafD88AXiybu-15" value="Login Success&lt;br&gt;with &lt;b&gt;&lt;font color=&quot;#4a86ff&quot;&gt;OIDC token&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uukZPYiRbafD88AXiybu-14">
+          <mxGeometry x="-0.1897" y="2" relative="1" as="geometry">
+            <mxPoint x="-12" y="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
