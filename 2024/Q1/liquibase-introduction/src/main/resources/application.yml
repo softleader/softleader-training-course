@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: '@project.artifactId@'
+  profiles:
+    active: mysql
+
+logging:
+  group:
+    app: tw.com.softleader.example.demoliquibase3
+  level:
+    root: info
+    kapok: info
+    app: info
+management:
+  endpoint:
+    health:
+      group:
+        # 就 Kubernetes 的 “readiness” probe 而言, 如果偵測失敗, Kubernetes 就不會將網路流量導向該 Pod
+        # 開發人員需要謹慎選擇:
+        #   決定哪些元件應該包含在 “readiness” probe 中進行檢測, 在元件偵測失敗時停止服務
+        #   或者, 將元件排除, 在程式中自行處理例外情況
+        # 支援的元件清單可以參考: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.health.auto-configured-health-indicators
+        readiness:
+          include: db
