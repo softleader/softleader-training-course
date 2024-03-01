@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1709283077353-1
+      author: sjwu (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: student_id
+                  type: BIGINT
+            tableName: course
+        - addForeignKeyConstraint:
+            baseColumnNames: student_id
+            baseTableName: course
+            constraintName: FK_COURSE_ON_STUDENT
+            referencedColumnNames: id
+            referencedTableName: student
+
