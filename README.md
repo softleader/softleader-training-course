@@ -54,6 +54,7 @@
 - Q1 - [custom-exception](/2024/Q1/custom-exception) - 自定義Excption 啥時有用
 - Q1 - [efk-usage](/2024/Q1/efk-usage) - 靈活運用EFK平台
 - Q1 - [introduce-dockerfile](/2024/Q1/introduce-dockerfile) - 講講公司用過的那些Dcokerfile
+- Q1 - [liquibase-introduction](/2024/Q1/liquibase-introduction) - Liquibase 教育訓練
 
 #### 2023
 - Q1 - [access-control](/2023/Q1/access-control) - Kapok Security - Access Control
