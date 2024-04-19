@@ -16,14 +16,14 @@ jobs:
   generate-toc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
 
       - name: Genrate TOC
         run: ./toc/toc-linux . -t toc/templates/readme.md.tpl
 
-      - uses: actions/upload-artifact@v3.1.0
+      - uses: actions/upload-artifact@v4
         with:
           name: README.md
           path: README.md
