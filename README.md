@@ -57,6 +57,7 @@
 - Q1 - [efk-usage](/2024/Q1/efk-usage) - 靈活運用EFK平台
 - Q1 - [introduce-dockerfile](/2024/Q1/introduce-dockerfile) - 講講公司用過的那些Dcokerfile
 - Q1 - [liquibase-introduction](/2024/Q1/liquibase-introduction) - Liquibase 教育訓練
+- Q2 - [how-to-goto-xxx_cloud_softleader](/2024/Q2/how-to-goto-xxx_cloud_softleader) - 去xxx.cloud.softleader的路怎麼走
 - Q2 - [kapok-security](/2024/Q2/kapok-security) - 聊聊 Spring/Kapok Security
 
 #### 2023
