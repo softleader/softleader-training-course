@@ -1,5 +1,5 @@
 # 我在處理大量資料的服務中使用到的一些技巧
-[錄影檔](https://drive.google.com/file/d/1geKRq9tJDSl9OUwS5l6tAoVwauD7kHgO/view?usp=drive_link)
+[錄影檔](https://drive.google.com/file/d/1pmDtfW7U53GfcMlskvb46D3Z74RT0aiq/view?usp=drive_link)
 
 1. 12萬筆資料(4.4MB)的Excel匯入
 https://github.com/pjfanning/excel-streaming-reader
