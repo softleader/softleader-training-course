@@ -59,6 +59,7 @@
 - Q1 - [liquibase-introduction](/2024/Q1/liquibase-introduction) - Liquibase 教育訓練
 - Q2 - [how-to-goto-xxx_cloud_softleader](/2024/Q2/how-to-goto-xxx_cloud_softleader) - 去xxx.cloud.softleader的路怎麼走
 - Q2 - [kapok-security](/2024/Q2/kapok-security) - 聊聊 Spring/Kapok Security
+- Q3 - [effective-technique-in-project](/2024/Q3/effective-technique-in-project) - 我在處理大量資料的服務中使用到的一些技巧
 
 #### 2023
 - Q1 - [access-control](/2023/Q1/access-control) - Kapok Security - Access Control
