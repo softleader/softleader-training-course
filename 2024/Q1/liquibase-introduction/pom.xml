@@ -267,7 +267,7 @@
             </tags>
           </to>
           <container>
-            <entrypoint>sh,/tmp/entrypoint.sh</entrypoint>
+            <entrypoint>sh,/entrypoint.sh</entrypoint>
             <jvmFlags>
               <jvmFlag>-server</jvmFlag>
               <jvmFlag>-XX:+UseZGC</jvmFlag>
