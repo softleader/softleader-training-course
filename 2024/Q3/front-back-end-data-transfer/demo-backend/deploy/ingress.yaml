@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: 20240712
+  annotations:
+    ingress.softleader.com.tw/automanaged: "true"
+spec:
+  ingressClassName: istio
+  rules:
+    - host: ""
+      http:
+        paths:
+          - backend:
+              service:
+                name: 20240712
+                port:
+                  name: http
+            path: /
+            pathType: Prefix

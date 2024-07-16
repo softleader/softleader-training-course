@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 20240712
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      securityContext:
+        runAsUser: 1001
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - "20240712"
+                topologyKey: kubernetes.io/hostname
+      containers:
+        - name: 20240712
+          image: tw.com.softleader.training/20240712
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 3
+            timeoutSeconds: 5
+          resources:
+            limits:
+              cpu: 1.5
+              memory: 1.5G
+          envFrom:
+            - configMapRef:
+                name: 20240712
+          

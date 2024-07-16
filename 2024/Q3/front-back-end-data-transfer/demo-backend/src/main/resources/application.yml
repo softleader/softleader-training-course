@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: '@project.artifactId@'
+  # 啟用 Virtual Threads 可能會提高系統的 Throughput, 但在啟用後, 務必進行全面測試, 並檢查所使用的函式庫是否得到完整支援
+  # 延伸閱讀:
+  # https://spring.io/blog/2023/09/20/hello-java-21#virtual-threads-and-project-loom
+  # https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes#support-for-virtual-threads
+  threads:
+    virtual:
+      enabled: true
+
+logging:
+  group:
+    app: tw.com.softleader.training._2
+  level:
+    root: info
+    kapok: info
+    app: info

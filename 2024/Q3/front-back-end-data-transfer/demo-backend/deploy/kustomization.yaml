@@ -1,0 +1,12 @@
+commonLabels:
+  app: 20240712
+namespace: CHANGEIT
+resources:
+  - deployment.yaml
+  - configmap.yaml
+  - service.yaml
+  - ingress.yaml
+images:
+  - name: tw.com.softleader.training/20240712
+    newName: harbor.softleader.com.tw/CHANGEIT/20240712
+    newTag: 1.0.0

@@ -1,0 +1,107 @@
+# A GitHub workflow to bump Kapok to the latest version.
+# 啟用前, 請務必先詳閱 Kapok 升級指南: https://github.com/softleader/kapok/wiki/Upgrading-Kapok#workflow-kapok-version-bump
+name: Bump Kapok
+
+on:
+  # 手動觸發, 可做用於任一 branch
+  workflow_dispatch:
+  # 排程觸發, 只做用於 default branch
+#  schedule:
+#    - cron: "0 0 * * 1,3,5" # In UTC time, 格式請參考: https://crontab.guru/
+
+jobs:
+  current-version:
+    runs-on: [self-hosted, ubuntu-jammy]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: "${{ github.ref_name }}"
+          fetch-depth: 0
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - id: get-current-version
+        run: echo "version=$(make kapok-version)" >> "$GITHUB_OUTPUT"
+    outputs:
+      kapok-version: ${{ steps.get-current-version.outputs.version }}
+
+  latest-version:
+    runs-on: [self-hosted, ubuntu-jammy]
+    steps:
+      - id: get-latest-version
+        uses: shihyuho/go-spring-version@v1
+        # 請參考 https://github.com/shihyuho/go-spring-version 以獲得更詳盡的說明
+        with:
+          boot-url: "https://start-kapok.cloud.softleader.com.tw/api/boot"
+          starter-url: "https://start-kapok.cloud.softleader.com.tw/api/starter"
+          boot-version: "~3.x" # 最新版號的限制條件, 使用 semver 語法, 若留空代表不限制
+          verbose: true # 我們需要藉由 verbose 模式取得更多資訊, 故此欄位必須啟用
+    outputs:
+      kapok-version: ${{ fromJson(steps.get-latest-version.outputs.metadata)['kapok.version'] }}
+      boot-version: ${{ steps.get-latest-version.outputs.spring-boot }}
+
+  compare-version:
+    runs-on: [self-hosted, ubuntu-jammy]
+    needs: [latest-version, current-version]
+    steps:
+      - id: semver-compare
+        uses: madhead/semver-utils@latest
+        with:
+          version: ${{ needs.latest-version.outputs.kapok-version }}
+          compare-to: ${{ needs.current-version.outputs.kapok-version }}
+    outputs:
+      comparison-result: ${{ steps.semver-compare.outputs.comparison-result }}
+
+  bump-kapok:
+    runs-on: [self-hosted, ubuntu-jammy]
+    permissions:
+      contents: write
+      pull-requests: write
+    needs: [latest-version, current-version, compare-version]
+    if: "${{ needs.compare-version.outputs.comparison-result == '>' }}"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: "${{ github.ref_name }}"
+          fetch-depth: 0
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Bump version
+        run: make bump-kapok KAPOK=${{ needs.latest-version.outputs.kapok-version }} BOOT=${{ needs.latest-version.outputs.boot-version }}
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        # 請參考 https://github.com/peter-evans/create-pull-request 以獲得更詳盡的說明
+        with:
+          commit-message: "chore(kapok): bump kapok from ${{ needs.current-version.outputs.kapok-version }} to ${{ needs.latest-version.outputs.kapok-version }}"
+          title: "chore(kapok): bump Kapok from ${{ needs.current-version.outputs.kapok-version }} to ${{ needs.latest-version.outputs.kapok-version }}"
+          committer: kapokbot 👾 <kapokbot-noreply@softleader.com.tw>
+          author: kapokbot 👾 <kapokbot-noreply@softleader.com.tw>
+          body: >-
+            Bumps [softleader/kapok](https://github.com/softleader/kapok)
+            from ${{ needs.current-version.outputs.kapok-version }}
+            to [${{ needs.latest-version.outputs.kapok-version }}](https://github.com/softleader/kapok/releases/tag/${{ needs.latest-version.outputs.kapok-version }})
+
+            > _See the ["Upgrading Kapok"](https://github.com/softleader/kapok/wiki/Upgrading-Kapok) page for further details._
+          labels: "dependency-upgrade"
+          branch: "kapokbot/${{ github.ref_name }}/kapok-${{ needs.current-version.outputs.kapok-version }}-${{ needs.latest-version.outputs.kapok-version }}"
+          delete-branch: true
+      # 在啟用以下 Auto-merge 機制前, 請先閱讀過: https://github.com/softleader/kapok/wiki/Upgrading-Kapok#enable-auto-merge
+#      - name: Enable Auto-merge
+#        if: steps.cpr.outputs.pull-request-operation == 'created'
+#        run: gh pr merge --squash --auto "${{ steps.cpr.outputs.pull-request-number }}"
+#        env:
+#          GH_TOKEN: ${{ github.token }}
+
+  keepalive:
+    runs-on: [self-hosted, ubuntu-jammy]
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
+
