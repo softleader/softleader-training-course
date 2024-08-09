@@ -1,6 +1,7 @@
 # 前後端資料交換
 
-[錄影檔](https://drive.google.com/file/d/1CirhKX51Rg-4RBqkfucGUCQGPkXkGMEF/view?usp=drive_link)
+[錄影檔-1](https://drive.google.com/file/d/1CirhKX51Rg-4RBqkfucGUCQGPkXkGMEF/view?usp=drive_link)
+[錄影檔-2](https://drive.google.com/file/d/1l-H17uzhvDWE0yotz7O3cqw-V6KFFt-K/view?usp=drive_link)
 
 ## [demo-backend](demo-backend)
 - java 21

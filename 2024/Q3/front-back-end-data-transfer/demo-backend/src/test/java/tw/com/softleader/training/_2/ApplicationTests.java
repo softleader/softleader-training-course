@@ -12,9 +12,8 @@ import tw.com.softleader.kapok.test.KapokTestMethodOrder;
 @KapokTestMethodOrder
 class ApplicationTests {
 
-	@Test
-	void contextLoads() {
-		Assertions.assertThat(KapokVersion.getVersion()).isNotBlank();
-	}
-
+  @Test
+  void contextLoads() {
+    Assertions.assertThat(KapokVersion.getVersion()).isNotBlank();
+  }
 }

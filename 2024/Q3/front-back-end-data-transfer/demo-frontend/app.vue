@@ -2,35 +2,84 @@
   <div>
     Hello UI
   </div>
-  <div>
-    <button type="button" @click="callError" :disabled="loading">call error</button>
-  </div>
-  <div>
-    <button type="button" @click="callHello(eid)" :disabled="loading">call hello</button>
-    <input v-model="eid" placeholder="EID">
-  </div>
-  <div>
-    <button type="button" @click="callQuery(queryFilter)" :disabled="loading">call query</button>
-    <table>
-      <tr>
-        <th>EID</th>
-        <td><input v-model="queryFilter.eid" placeholder="EID"></td>
-      </tr>
-      <tr>
-        <th>Name</th>
-        <td><input v-model="queryFilter.name" placeholder="Name"></td>
-      </tr>
-      <tr>
-        <th>Result</th>
-        <td>{{ queryResult }}</td>
-      </tr>
-    </table>
-
-  </div>
+  <table>
+    <tr>
+      <td>
+        <div>
+          <button :disabled="loading" type="button" @click="callError">call error</button>
+        </div>
+        <div>
+          <button :disabled="loading" type="button" @click="callHello(eid)">call hello</button>
+          <input v-model="eid" placeholder="EID">
+        </div>
+        <div>
+          <button :disabled="loading" type="button" @click="callQuery(queryFilter)">call query</button>
+          <table>
+            <tr>
+              <th>EID</th>
+              <td><input v-model="queryFilter.eid" placeholder="EID"></td>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <td><input v-model="queryFilter.name" placeholder="Name"></td>
+            </tr>
+            <tr>
+              <th>Type</th>
+              <td>
+                <span><input v-model="queryFilter.types" type="checkbox" value="A">A</span>
+                <span><input v-model="queryFilter.types" type="checkbox" value="B">B</span>
+                <span><input v-model="queryFilter.types" type="checkbox" value="C">C</span>
+              </td>
+            </tr>
+            <tr>
+              <th>Result</th>
+              <td>{{ queryResult }}</td>
+            </tr>
+          </table>
+          <button :disabled="loading" type="button" @click="saveMember(queryFilter)">call save</button>
+          <button :disabled="loading" type="button" @click="addMember(queryFilter)">call add</button>
+          <table>
+            <tr>
+              <th>EID</th>
+              <th>Name</th>
+              <th>Type</th>
+            </tr>
+            <tr v-for="member in members">
+              <td>{{ member.eid }}</td>
+              <td>{{ member.name }}</td>
+              <td>{{ member.types }}</td>
+            </tr>
+          </table>
+          <button :disabled="loading" type="button" @click="saveAllMembers(members)">call save all</button>
+        </div>
+      </td>
+      <td>
+        <button :disabled="loading" type="button" @click="callQueryMembers(queryFilter)">call query</button>
+        <table>
+          <tr>
+            <th>EID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>action</th>
+          </tr>
+          <tr v-for="member in searchResult">
+            <td>{{ member.eid }}</td>
+            <td>{{ member.name }}</td>
+            <td>{{ member.types }}</td>
+            <td v-if="member.busy">忙碌中...</td>
+            <td v-else>
+              <button type="button" @click="doSomething(member)">do something</button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 </template>
 
 <script>
 import qs from "qs";
+import {setInterval} from "#app/compat/interval.js";
 
 export default {
   data() {
@@ -39,9 +88,13 @@ export default {
       eid: 0,
       queryFilter: {
         eid: null,
-        name: null
+        name: null,
+        types: []
       },
       queryResult: "",
+      members: [],
+      searchResult: [],
+      interval: null,
     }
   },
   methods: {
@@ -71,6 +124,44 @@ export default {
       });
       let response = await $axios.get(`/api/member?${queryString}`);
       this.queryResult = response.data;
+    },
+    async callQueryMembers(filter) {
+      let queryString = qs.stringify(filter, {
+        indices: false,
+        skipNulls: true,
+        arrayFormat: "repeat",
+      });
+      let response = await $axios.get(`/api/members?${queryString}`);
+      this.searchResult = response.data;
+    },
+    async saveMember(member) {
+      let response = await $axios.post(`/api/member`, member);
+      alert(`儲存成功, 目前已儲存${response.data}筆member`)
+    },
+    async addMember(member) {
+      this.members.push({...member});
+    },
+    async saveAllMembers(members) {
+      let response = await $axios.post(`/api/members`, members);
+      alert(`儲存成功, 目前已儲存${response.data}筆member`)
+    },
+    async doSomething(member) {
+      await $axios.put(`/api/do-something/${member.id}`);
+      this.callQueryMembers(this.queryFilter);
+    }
+  },
+  watch: {
+    searchResult(val) {
+      if (val.filter(m => m.busy).length === 0) {
+        clearInterval(this.interval);
+        this.interval = null;
+      } else {
+        if (this.interval == null) {
+          this.interval = setInterval(() => {
+            this.callQueryMembers(this.queryFilter);
+          }, 500)
+        }
+      }
     }
   }
 }
