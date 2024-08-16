@@ -60,21 +60,31 @@
             <th>EID</th>
             <th>Name</th>
             <th>Type</th>
+            <th>Phone</th>
             <th>action</th>
           </tr>
           <tr v-for="member in searchResult">
             <td>{{ member.eid }}</td>
             <td>{{ member.name }}</td>
             <td>{{ member.types }}</td>
+            <td>{{ member.phone }}</td>
             <td v-if="member.busy">忙碌中...</td>
             <td v-else>
               <button type="button" @click="doSomething(member)">do something</button>
             </td>
           </tr>
         </table>
+        第<input v-model="page">頁, 每頁<input v-model="size">筆
       </td>
     </tr>
   </table>
+  <form action="/api/member/phone" method="post" >
+    <label>成員ID</label>
+    <input type="text" name="memberEid"/>
+    <label>手機號碼</label>
+    <input type="text" name="phone"/>
+    <button type="submit">送出</button>
+  </form>
 </template>
 
 <script>
@@ -91,6 +101,8 @@ export default {
         name: null,
         types: []
       },
+      page: 0,
+      size: 10,
       queryResult: "",
       members: [],
       searchResult: [],
@@ -126,7 +138,11 @@ export default {
       this.queryResult = response.data;
     },
     async callQueryMembers(filter) {
-      let queryString = qs.stringify(filter, {
+      let queryString = qs.stringify({
+        ...filter,
+        page: this.page,
+        size: this.size
+      }, {
         indices: false,
         skipNulls: true,
         arrayFormat: "repeat",
