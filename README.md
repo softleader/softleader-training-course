@@ -61,6 +61,8 @@
 - Q2 - [kapok-security](/2024/Q2/kapok-security) - 聊聊 Spring/Kapok Security
 - Q3 - [effective-technique-in-project](/2024/Q3/effective-technique-in-project) - 我在處理大量資料的服務中使用到的一些技巧
 - Q3 - [front-back-end-data-transfer](/2024/Q3/front-back-end-data-transfer) - 前後端資料交換
+- Q4 - [jcconf-practice](/2024/Q4/jcconf-practice) - Java 專案起手式 (Kyle)
+- Q4 - [jcconf-preview](/2024/Q4/jcconf-preview) - 來看看JCConf到底都有啥題目
 
 #### 2023
 - Q1 - [access-control](/2023/Q1/access-control) - Kapok Security - Access Control
