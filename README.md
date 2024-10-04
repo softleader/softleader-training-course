@@ -61,6 +61,7 @@
 - Q2 - [kapok-security](/2024/Q2/kapok-security) - 聊聊 Spring/Kapok Security
 - Q3 - [effective-technique-in-project](/2024/Q3/effective-technique-in-project) - 我在處理大量資料的服務中使用到的一些技巧
 - Q3 - [front-back-end-data-transfer](/2024/Q3/front-back-end-data-transfer) - 前後端資料交換
+- Q4 - [good-sso-pattern](/2024/Q4/good-sso-pattern) - JCConf 2024 如何不要那麼狼狽的串接各種甲方的SSO
 - Q4 - [jcconf-practice](/2024/Q4/jcconf-practice) - Java 專案起手式 (Kyle)
 - Q4 - [jcconf-preview](/2024/Q4/jcconf-preview) - 來看看JCConf到底都有啥題目
 
