@@ -64,6 +64,7 @@
 - Q4 - [good-sso-pattern](/2024/Q4/good-sso-pattern) - JCConf 2024 如何不要那麼狼狽的串接各種甲方的SSO
 - Q4 - [jcconf-practice](/2024/Q4/jcconf-practice) - Java 專案起手式 (Kyle)
 - Q4 - [jcconf-preview](/2024/Q4/jcconf-preview) - 來看看JCConf到底都有啥題目
+- Q4 - [start-softleader-project](/2024/Q4/start-softleader-project) - 講講目前我們開新專案會用到的那些Dependencies們
 
 #### 2023
 - Q1 - [access-control](/2023/Q1/access-control) - Kapok Security - Access Control
