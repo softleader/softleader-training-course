@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: '@project.artifactId@'
+  # 啟用 Virtual Threads 可能會提高系統的 Throughput, 但在啟用後, 務必進行全面測試, 並檢查所使用的函式庫是否得到完整支援
+  # 延伸閱讀:
+  # https://spring.io/blog/2023/09/20/hello-java-21#virtual-threads-and-project-loom
+  # https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes#support-for-virtual-threads
+  threads:
+    virtual:
+      enabled: true
+  jpa:
+    show-sql: true
+
+logging:
+  group:
+    app: tw.com.softleader.example.training_20241129
+    kapok-data-jpa: debug
+  level:
+    root: info
+    kapok: info
+    app: info
+management:
+  endpoint:
+    health:
+      group:
+        # 就 Kubernetes 的 “readiness” probe 而言, 如果偵測失敗, Kubernetes 就不會將網路流量導向該 Pod
+        # 開發人員需要謹慎選擇:
+        #   決定哪些元件應該包含在 “readiness” probe 中進行檢測, 在元件偵測失敗時停止服務
+        #   或者, 將元件排除, 在程式中自行處理例外情況
+        # 支援的元件清單可以參考: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.health.auto-configured-health-indicators
+        readiness:
+          include: db

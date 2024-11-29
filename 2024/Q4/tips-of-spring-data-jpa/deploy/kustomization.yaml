@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+  - pairs:
+      app: training-20241129
+    includeSelectors: true
+namespace: CHANGEIT
+resources:
+  - deployment.yaml
+  - configmap.yaml
+  - service.yaml
+  - ingress.yaml
+images:
+  - name: tw.com.softleader.example/training-20241129
+    newName: harbor.softleader.com.tw/CHANGEIT/training-20241129
+    newTag: 1.0.0
