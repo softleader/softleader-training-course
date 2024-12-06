@@ -65,6 +65,7 @@
 - Q4 - [jcconf-practice](/2024/Q4/jcconf-practice) - Java 專案起手式 (Kyle)
 - Q4 - [jcconf-preview](/2024/Q4/jcconf-preview) - 來看看JCConf到底都有啥題目
 - Q4 - [kubernetes-101](/2024/Q4/kubernetes-101) - Kubernetes概覽
+- Q4 - [softleader-project-architecture](/2024/Q4/softleader-project-architecture) - 講講公司的各種專案架構
 - Q4 - [start-softleader-project](/2024/Q4/start-softleader-project) - 講講目前我們開新專案會用到的那些Dependencies們
 - Q4 - [tips-of-spring-data-jpa](/2024/Q4/tips-of-spring-data-jpa) - Spring Data JPA 各種雷
 
