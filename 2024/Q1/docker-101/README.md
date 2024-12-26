@@ -1,3 +1,7 @@
+# 幾乎從0開始的Docker實務
+
+[錄影檔](https://drive.google.com/file/d/1_cEqFSpUKSR6rCrWC-A7SJVFuDDhA6UT/view?usp=drive_link)
+
 # run docker container
 ```shell
 # run 在前景(ctrl+c可以結束)
