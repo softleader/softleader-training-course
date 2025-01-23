@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    name: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1 # 請注意版本
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    ingress.softleader.com.tw/automanaged: "true" # 標記是管理目標
+spec:
+  ingressClassName: istio
+  rules:
+    - host: "" # 此欄位 Key 不出現, 或 Value 為空或 '*', 就會被自動產生
+      http:
+        paths:
+          - backend:
+              service:
+                name: nginx
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix

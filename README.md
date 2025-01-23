@@ -52,7 +52,7 @@
 
 #### 2024
 - Q1 - [custom-exception](/2024/Q1/custom-exception) - 自定義Excption 啥時有用
-- Q1 - [docker-101](/2024/Q1/docker-101) - run docker container
+- Q1 - [docker-101](/2024/Q1/docker-101) - 幾乎從0開始的Docker實務
 - Q1 - [effective-using-data-jpa](/2024/Q1/effective-using-data-jpa) - 如何高效的使用Spring Data JPA
 - Q1 - [efk-usage](/2024/Q1/efk-usage) - 靈活運用EFK平台
 - Q1 - [introduce-dockerfile](/2024/Q1/introduce-dockerfile) - 講講公司用過的那些Dcokerfile
@@ -61,6 +61,14 @@
 - Q2 - [kapok-security](/2024/Q2/kapok-security) - 聊聊 Spring/Kapok Security
 - Q3 - [effective-technique-in-project](/2024/Q3/effective-technique-in-project) - 我在處理大量資料的服務中使用到的一些技巧
 - Q3 - [front-back-end-data-transfer](/2024/Q3/front-back-end-data-transfer) - 前後端資料交換
+- Q4 - [bts-kapok-bootstrap](/2024/Q4/bts-kapok-bootstrap) - Behind the Scenes | Kapok: Bootstrap
+- Q4 - [good-sso-pattern](/2024/Q4/good-sso-pattern) - JCConf 2024 如何不要那麼狼狽的串接各種甲方的SSO
+- Q4 - [jcconf-practice](/2024/Q4/jcconf-practice) - Java 專案起手式 (Kyle)
+- Q4 - [jcconf-preview](/2024/Q4/jcconf-preview) - 來看看JCConf到底都有啥題目
+- Q4 - [kubernetes-101](/2024/Q4/kubernetes-101) - Kubernetes概覽
+- Q4 - [softleader-project-architecture](/2024/Q4/softleader-project-architecture) - 講講公司的各種專案架構
+- Q4 - [start-softleader-project](/2024/Q4/start-softleader-project) - 講講目前我們開新專案會用到的那些Dependencies們
+- Q4 - [tips-of-spring-data-jpa](/2024/Q4/tips-of-spring-data-jpa) - Spring Data JPA 各種雷
 
 #### 2023
 - Q1 - [access-control](/2023/Q1/access-control) - Kapok Security - Access Control
