@@ -122,25 +122,15 @@
 [關鍵字](https://www.oracle.com/tw/corporate/features/understanding-java-9-modules.html)說明:
 
 - `[open] module <ModuleName>`: 宣告模組, 名稱不可重複
-
    - `open`: 允許模組內所有 package 在執行時被 reflection 存取 (不包含編譯), 無需額外宣告 `opens`
-
 - `requires <ModuleName>`: 指定相依模組, 若 A requires B 即 A 讀取 B, 或 B 被 A 讀取
-
    - `transitive` 傳遞相依性, 例如: A → B 且 B requires transitive C, 則 A → C
-
    - `static`: 只在編譯時相依
-
 - `exports <PackageName>`: 指定編譯時可存取的 package, 包含運行時 reflection 的存取
-
    - `to`: 限定允許存取的模組
-
 - `open <PackageName>`: 指定運行時 reflection 可存取的 package (不包含編譯)
-
    - `to`: 限定允許存取的模組
-
 - `uses <TypeName>`: 指定模組所使用的服務, 服務是抽象的 interface 或 abstract class, 例如: `java.sql.Driver`
-
 - `provide <TypeName> with <TypeName>`: 指定模組提供的服務實作, 例如: `oracle.jdbc.driver.OracleDriver`
 
 ## Backward Compatibility
@@ -160,7 +150,6 @@
 - Automatic Modules
    - Named by manifest entry `Automatic-Module-Name` or jar name
    - Can read all modules
-
    - Exports all packages
 
 ## Quiz
@@ -235,25 +224,15 @@ workshop
    ```
 
 1. 將 `lib` 打包成 `greeting.jar`
-
 2. 將 `app` 打包成 `app.jar`
-
 3. 執行 `app.jar`
 
 ## Takeaway
 
 - 更明確的依賴宣告:
-
    - package (image) 也可以更小化
-
 - export 更精準: 
-
    - internal package 可以不用被釋出, 以避免誤用
-
    - export to 更精準
-
 - 精確的 Load Services 
-
 - module 跟非 module 可以並行
-
-
