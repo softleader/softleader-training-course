@@ -53,6 +53,7 @@
 #### 2025
 - Q1 - [exception](/2025/Q1/exception) - 花式Exception
 - Q1 - [java-exp](/2025/Q1/java-exp) - 講講我的Java開發心得
+- Q1 - [jpms](/2025/Q1/jpms) - Java Platform Module System (JPMS)
 - Q1 - [mapstruct](/2025/Q1/mapstruct) - mapstruct 使用技巧
 - Q1 - [spring-web-101](/2025/Q1/spring-web-101) - 講講 Spring Web
 - Q1 - [stream-exp](/2025/Q1/stream-exp) - 講講我們目前怎麼用Stream
