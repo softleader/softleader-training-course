@@ -1,5 +1,8 @@
 # Java Platform Module System (JPMS)
 
+> [!TIP]
+> [錄影檔](https://drive.google.com/file/d/1ifkNqhGYJY-cOvjmJXdt6GzBboGy7qen/view?usp=sharing)
+
 - [JSR 376](https://openjdk.org/projects/jigsaw/spec/), 於 Java 9 以後可用
 
 - 在 Java 9 之前
