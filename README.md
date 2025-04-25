@@ -57,6 +57,7 @@
 - Q1 - [mapstruct](/2025/Q1/mapstruct) - mapstruct 使用技巧
 - Q1 - [spring-web-101](/2025/Q1/spring-web-101) - 講講 Spring Web
 - Q1 - [stream-exp](/2025/Q1/stream-exp) - 講講我們目前怎麼用Stream
+- Q2 - [cicd-flow](/2025/Q2/cicd-flow) - 講講我們的專案在Github按下Release後都發生了啥事
 
 #### 2024
 - Q1 - [custom-exception](/2024/Q1/custom-exception) - 自定義Excption 啥時有用
