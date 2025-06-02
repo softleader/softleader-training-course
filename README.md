@@ -58,6 +58,7 @@
 - Q1 - [spring-web-101](/2025/Q1/spring-web-101) - 講講 Spring Web
 - Q1 - [stream-exp](/2025/Q1/stream-exp) - 講講我們目前怎麼用Stream
 - Q2 - [cicd-flow](/2025/Q2/cicd-flow) - 講講我們的專案在Github按下Release後都發生了啥事
+- Q2 - [using-intellij-like-boss](/2025/Q2/using-intellij-like-boss) - 講講我如何高效運用Intellij
 
 #### 2024
 - Q1 - [custom-exception](/2024/Q1/custom-exception) - 自定義Excption 啥時有用
