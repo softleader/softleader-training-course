@@ -14,4 +14,4 @@
   - config import
 
 > [!TIP]
-> 延伸閱讀: [Externalized Configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html)
+> 延伸閱讀: [Kapok Config Order](https://kapok.cloud.softleader.com.tw/docs/modules/core/config/#config-ordering), [Externalized Configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html)
