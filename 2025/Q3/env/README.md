@@ -13,4 +13,5 @@
   - 挖洞方式
   - config import
 
-- [延伸閱讀](https://docs.spring.io/spring-boot/reference/features/external-config.html)
+> [!TIP]
+> 延伸閱讀: [Externalized Configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html)
