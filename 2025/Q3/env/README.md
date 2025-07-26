@@ -1,5 +1,7 @@
 # 變數與注入的幾種方式整理
 
+[錄影檔](https://drive.google.com/file/d/1hE2xxgRzwuvJCWv9_kqzdz0vBpYCXYXT/view?usp=drive_link)
+
 1. 抽變數的幾種方式
   - static
   - @Value
