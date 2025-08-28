@@ -1,6 +1,6 @@
 # 講講我們目前怎麼用Stream
 
-[錄影檔](https://drive.google.com/file/d/1BivoaFfzfwW70qLhuif90ZvlQa86RimG/view?usp=drive_link)
+[錄影檔](https://drive.google.com/file/d/1iP4WYI_NZ9VlAbiH4vaxFOTpQ862TNeH/view?pli=1)
 
 ## 特點
 - 處理 Collection (轉型、篩選、分組)
