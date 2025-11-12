@@ -23,7 +23,7 @@ jobs:
       - name: Genrate TOC
         run: ./toc/toc-linux . -t toc/templates/readme.md.tpl
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: README.md
           path: README.md
