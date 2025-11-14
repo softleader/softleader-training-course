@@ -46,6 +46,10 @@
              └── README.md
 ```
 
+## TL;DR
+
+[如何有序學習教育訓練內容](https://drive.google.com/drive/folders/1PeuConECFPvG38d0LssMfsEscYB5-Kw5)
+
 ## Courses
 
 {{.}}
