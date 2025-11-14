@@ -48,7 +48,7 @@
 
 ## TL;DR
 
-[如何有序學習教育訓練內容](https://drive.google.com/drive/folders/1PeuConECFPvG38d0LssMfsEscYB5-Kw5)
+[如何有序學習教育訓練內容](https://drive.google.com/file/d/1Pn5LfCCwIYd0bUr1Is1AlDO1zhsXCl4x/view?usp=sharing)
 
 ## Courses
 
